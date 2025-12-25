@@ -11,27 +11,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RoseCrystal extends AbstractProgrammableKey {
     // Constructors
     public RoseCrystal() {
-        super("Rose", ColorConstants.COLOR_ROSE);
+	super("Rose", ColorConstants.COLOR_ROSE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Rose Crystal";
+	return "Rose Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Crystals";
+	return "Rose Crystals";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Crystals will open Rose Crystal Walls.";
+	return "Rose Crystals will open Rose Crystal Walls.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

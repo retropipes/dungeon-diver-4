@@ -12,27 +12,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class CutTree extends AbstractPassThroughObject {
     // Constructors
     public CutTree() {
-        super();
-        this.setTemplateColor(ColorConstants.COLOR_GREEN);
+	super();
+	this.setTemplateColor(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CUT_TREE;
+	return ObjectImageConstants.OBJECT_IMAGE_CUT_TREE;
     }
 
     @Override
     public String getName() {
-        return "Cut Tree";
+	return "Cut Tree";
     }
 
     @Override
     public String getPluralName() {
-        return "Cut Trees";
+	return "Cut Trees";
     }
 
     @Override
     public String getDescription() {
-        return "Cut Trees are the leftover stubs of Trees that have been cut by an Axe.";
+	return "Cut Trees are the leftover stubs of Trees that have been cut by an Axe.";
     }
 }

@@ -11,11 +11,11 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class BPort extends AbstractPort {
     // Constructors
     public BPort() {
-        super(new BPlug(), 'B');
+	super(new BPlug(), 'B');
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_B_PORT;
+	return ObjectImageConstants.OBJECT_IMAGE_B_PORT;
     }
 }

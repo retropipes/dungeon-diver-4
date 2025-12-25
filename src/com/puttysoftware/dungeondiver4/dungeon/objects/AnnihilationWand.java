@@ -13,27 +13,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class AnnihilationWand extends AbstractWand {
     // Constructors
     public AnnihilationWand() {
-        super(ColorConstants.COLOR_GRAY);
+	super(ColorConstants.COLOR_GRAY);
     }
 
     @Override
     public String getName() {
-        return "Annihilation Wand";
+	return "Annihilation Wand";
     }
 
     @Override
     public String getPluralName() {
-        return "Annihilation Wands";
+	return "Annihilation Wands";
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(new Empty(), x, y, z);
-        SoundManager.playSound(SoundConstants.SOUND_DESTROY);
+	this.useAction(new Empty(), x, y, z);
+	SoundManager.playSound(SoundConstants.SOUND_DESTROY);
     }
 
     @Override
     public String getDescription() {
-        return "Annihilation Wands will destroy any object (not ground) when used, except the Void or a Sealing Wall.";
+	return "Annihilation Wands will destroy any object (not ground) when used, except the Void or a Sealing Wall.";
     }
 }

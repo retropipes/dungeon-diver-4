@@ -15,39 +15,38 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public abstract class AbstractAntiObject extends AbstractDungeonObject {
     // Constructors
     protected AbstractAntiObject() {
-        super(false, false, true, true, false, true, true, false, false);
+	super(false, false, true, true, false, true, true, false, false);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_ANTI_OBJECT);
+	this.type.set(TypeConstants.TYPE_ANTI_OBJECT);
     }
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

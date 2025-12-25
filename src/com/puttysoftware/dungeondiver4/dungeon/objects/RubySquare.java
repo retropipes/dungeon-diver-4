@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RubySquare extends AbstractMultipleKey {
     // Constructors
     public RubySquare() {
-        super(ColorConstants.COLOR_RED);
+	super(ColorConstants.COLOR_RED);
     }
 
     @Override
     public String getName() {
-        return "Ruby Square";
+	return "Ruby Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Ruby Squares";
+	return "Ruby Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Ruby Squares are the keys to Ruby Walls.";
+	return "Ruby Squares are the keys to Ruby Walls.";
     }
 }

@@ -18,48 +18,43 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
 public abstract class AbstractMovableObject extends AbstractDungeonObject {
     // Constructors
-    protected AbstractMovableObject(final boolean pushable,
-            final boolean pullable, final int attrID) {
-        super(true, pushable, false, false, pullable, false, false, true,
-                false);
-        this.setSavedObject(new Empty());
-        this.setAttributeID(attrID);
+    protected AbstractMovableObject(final boolean pushable, final boolean pullable, final int attrID) {
+	super(true, pushable, false, false, pullable, false, false, true, false);
+	this.setSavedObject(new Empty());
+	this.setAttributeID(attrID);
     }
 
     @Override
     public final int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BLOCK_BASE;
+	return ObjectImageConstants.OBJECT_IMAGE_BLOCK_BASE;
     }
 
     @Override
     public boolean canMove() {
-        return true;
+	return true;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
-    public void pushAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int pushX, final int pushY) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
-        this.setSavedObject(mo);
-        SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
+    public void pushAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x, final int y,
+	    final int pushX, final int pushY) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
+	this.setSavedObject(mo);
+	SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
     }
 
     @Override
-    public void pullAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int pullX, final int pullY) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePulledPosition(x, y, pullX, pullY, this);
-        this.setSavedObject(mo);
-        SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
+    public void pullAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x, final int y,
+	    final int pullX, final int pullY) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePulledPosition(x, y, pullX, pullY, this);
+	this.setSavedObject(mo);
+	SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
     }
 
     @Override
@@ -67,28 +62,28 @@ public abstract class AbstractMovableObject extends AbstractDungeonObject {
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_MOVABLE);
+	this.type.set(TypeConstants.TYPE_MOVABLE);
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

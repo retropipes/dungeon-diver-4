@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class IceArrow extends AbstractTransientObject {
     // Constructors
     public IceArrow() {
-        super("Ice Arrow", ColorConstants.COLOR_CYAN);
+	super("Ice Arrow", ColorConstants.COLOR_CYAN);
     }
 }

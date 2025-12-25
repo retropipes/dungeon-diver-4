@@ -7,10 +7,10 @@ package com.puttysoftware.dungeondiver4.creatures.monsters;
 
 public class MonsterFactory {
     private MonsterFactory() {
-        // Do nothing
+	// Do nothing
     }
 
     public static Monster getNewMonsterInstance() {
-        return new Monster();
+	return new Monster();
     }
 }

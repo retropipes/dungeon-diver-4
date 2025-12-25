@@ -18,54 +18,54 @@ public class Extension {
 
     // Methods
     public static String getPreferencesExtension() {
-        return Extension.PREFERENCES_EXTENSION;
+	return Extension.PREFERENCES_EXTENSION;
     }
 
     public static String getGameExtension() {
-        return Extension.GAME_EXTENSION;
+	return Extension.GAME_EXTENSION;
     }
 
     public static String getGameExtensionWithPeriod() {
-        return "." + Extension.GAME_EXTENSION;
+	return "." + Extension.GAME_EXTENSION;
     }
 
     public static String getDungeonExtension() {
-        return Extension.DUNGEON_EXTENSION;
+	return Extension.DUNGEON_EXTENSION;
     }
 
     public static String getDungeonExtensionWithPeriod() {
-        return "." + Extension.DUNGEON_EXTENSION;
+	return "." + Extension.DUNGEON_EXTENSION;
     }
 
     public static String getSavedGameExtension() {
-        return Extension.SAVED_GAME_EXTENSION;
+	return Extension.SAVED_GAME_EXTENSION;
     }
 
     public static String getSavedGameExtensionWithPeriod() {
-        return "." + Extension.SAVED_GAME_EXTENSION;
+	return "." + Extension.SAVED_GAME_EXTENSION;
     }
 
     public static String getRuleSetExtension() {
-        return Extension.RULE_SET_EXTENSION;
+	return Extension.RULE_SET_EXTENSION;
     }
 
     public static String getRuleSetExtensionWithPeriod() {
-        return "." + Extension.RULE_SET_EXTENSION;
+	return "." + Extension.RULE_SET_EXTENSION;
     }
 
     public static String getCharacterExtension() {
-        return Extension.CHARACTER_EXTENSION;
+	return Extension.CHARACTER_EXTENSION;
     }
 
     public static String getCharacterExtensionWithPeriod() {
-        return "." + Extension.CHARACTER_EXTENSION;
+	return "." + Extension.CHARACTER_EXTENSION;
     }
 
     public static String getRegistryExtensionWithPeriod() {
-        return "." + Extension.REGISTRY_EXTENSION;
+	return "." + Extension.REGISTRY_EXTENSION;
     }
 
     public static String getInternalDataExtensionWithPeriod() {
-        return "." + Extension.INTERNAL_DATA_EXTENSION;
+	return "." + Extension.INTERNAL_DATA_EXTENSION;
     }
 }

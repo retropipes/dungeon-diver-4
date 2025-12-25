@@ -11,23 +11,20 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.CounterpoisonAmulet;
 public class CounterPoisoned extends DungeonEffect {
     // Constructor
     public CounterPoisoned(final int newRounds) {
-        super("Counter-Poisoned", newRounds);
+	super("Counter-Poisoned", newRounds);
     }
 
     @Override
     public void customExtendLogic() {
-        // Apply the effect
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .doCounterpoisonAmulet();
+	// Apply the effect
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().doCounterpoisonAmulet();
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new CounterpoisonAmulet());
-        // Undo the effect
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .undoPoisonAmulets();
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new CounterpoisonAmulet());
+	// Undo the effect
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().undoPoisonAmulets();
     }
 }

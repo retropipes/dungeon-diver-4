@@ -16,45 +16,43 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class Slime extends AbstractField {
     // Constructors
     public Slime() {
-        super(new BioHazardBoots(), ColorConstants.COLOR_GREEN);
+	super(new BioHazardBoots(), ColorConstants.COLOR_GREEN);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK_SLIME);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK_SLIME);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("You'll corrode");
-        SoundManager.playSound(SoundConstants.SOUND_SLIME);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("You'll corrode");
+	SoundManager.playSound(SoundConstants.SOUND_SLIME);
     }
 
     @Override
     public String getName() {
-        return "Slime";
+	return "Slime";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Slime";
+	return "Squares of Slime";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Slime is too corrosive to walk on without Bio-Hazard Boots.";
+	return "Slime is too corrosive to walk on without Bio-Hazard Boots.";
     }
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
     }
 }

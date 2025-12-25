@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Move extends AbstractMultipleKey {
     // Constructors
     public Move() {
-        super(ColorConstants.COLOR_WHITE);
+	super(ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SMALL_MOVE;
+	return ObjectImageConstants.OBJECT_IMAGE_SMALL_MOVE;
     }
 
     @Override
     public String getName() {
-        return "Move";
+	return "Move";
     }
 
     @Override
     public String getPluralName() {
-        return "Moves";
+	return "Moves";
     }
 
     @Override
     public String getDescription() {
-        return "Moves are the keys to Move Walls.";
+	return "Moves are the keys to Move Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "White Crystal";
+	return "White Crystal";
     }
 }

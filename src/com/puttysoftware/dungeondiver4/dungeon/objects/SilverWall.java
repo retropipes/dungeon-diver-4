@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SilverWall extends AbstractMultipleLock {
     // Constructors
     public SilverWall() {
-        super(new SilverSquare(), ColorConstants.COLOR_WHITE);
+	super(new SilverSquare(), ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public String getName() {
-        return "Silver Wall";
+	return "Silver Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Silver Walls";
+	return "Silver Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Silver Walls are impassable without enough Silver Squares.";
+	return "Silver Walls are impassable without enough Silver Squares.";
     }
 }

@@ -11,20 +11,20 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public abstract class AbstractMultipleKey extends AbstractKey {
     // Constructors
     protected AbstractMultipleKey(final int tc) {
-        super(true);
-        this.setTemplateColor(tc);
+	super(true);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SQUARE;
+	return ObjectImageConstants.OBJECT_IMAGE_SQUARE;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_MULTIPLE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_MULTIPLE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

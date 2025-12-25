@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class BracerWall extends AbstractMultipleLock {
     // Constructors
     public BracerWall() {
-        super(new Bracer(), ColorConstants.COLOR_CYAN);
+	super(new Bracer(), ColorConstants.COLOR_CYAN);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BRACERS;
+	return ObjectImageConstants.OBJECT_IMAGE_BRACERS;
     }
 
     @Override
     public String getName() {
-        return "Bracer Wall";
+	return "Bracer Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Bracer Walls";
+	return "Bracer Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Bracer Walls are impassable without enough Bracers.";
+	return "Bracer Walls are impassable without enough Bracers.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Cyan Crystal Wall";
+	return "Cyan Crystal Wall";
     }
 }

@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GarnetSquare extends AbstractMultipleKey {
     // Constructors
     public GarnetSquare() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Garnet Square";
+	return "Garnet Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Garnet Squares";
+	return "Garnet Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Garnet Squares are the keys to Garnet Walls.";
+	return "Garnet Squares are the keys to Garnet Walls.";
     }
 }

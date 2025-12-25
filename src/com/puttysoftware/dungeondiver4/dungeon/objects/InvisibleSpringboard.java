@@ -16,49 +16,46 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class InvisibleSpringboard extends Springboard {
     // Constructors
     public InvisibleSpringboard() {
-        super();
-        this.setTemplateColor(ColorConstants.COLOR_WHITE);
+	super();
+	this.setTemplateColor(ColorConstants.COLOR_WHITE);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication()
-                .showMessage("Some unseen force prevents movement that way...");
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("Some unseen force prevents movement that way...");
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePositionAbsolute(this.getDestinationRow(),
-                this.getDestinationColumn(), this.getDestinationFloor());
-        SoundManager.playSound(SoundConstants.SOUND_SPRING);
-        DungeonDiver4.getApplication().showMessage("Invisible Springboard!");
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor());
+	SoundManager.playSound(SoundConstants.SOUND_SPRING);
+	DungeonDiver4.getApplication().showMessage("Invisible Springboard!");
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SPRINGBOARD;
+	return ObjectImageConstants.OBJECT_IMAGE_SPRINGBOARD;
     }
 
     @Override
     public String getName() {
-        return "Invisible Springboard";
+	return "Invisible Springboard";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invislble Springboards";
+	return "Invislble Springboards";
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
+	return "Invisible Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
     }
 }

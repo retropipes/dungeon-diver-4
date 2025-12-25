@@ -28,26 +28,26 @@ public class RegenBoots extends AbstractBoots {
 
     // Constructors
     public RegenBoots() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Regen Boots";
+	return "Regen Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Regen Boots";
+	return "Pairs of Regen Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Regen Boots restore your magic as you walk. Note that you can only wear one pair of boots at once.";
+	return "Regen Boots restore your magic as you walk. Note that you can only wear one pair of boots at once.";
     }
 
     @Override
     public void stepAction() {
-        PartyManager.getParty().getLeader().regenerate(RegenBoots.REGEN_AMOUNT);
+	PartyManager.getParty().getLeader().regenerate(RegenBoots.REGEN_AMOUNT);
     }
 }

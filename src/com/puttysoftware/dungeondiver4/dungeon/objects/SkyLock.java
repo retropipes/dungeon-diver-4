@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class SkyLock extends AbstractSingleLock {
     // Constructors
     public SkyLock() {
-        super(new SkyKey(), ColorConstants.COLOR_SKY);
+	super(new SkyKey(), ColorConstants.COLOR_SKY);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a sky key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a sky key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Sky Lock";
+	return "Sky Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Locks";
+	return "Sky Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Locks require Sky Keys to open.";
+	return "Sky Locks require Sky Keys to open.";
     }
 }

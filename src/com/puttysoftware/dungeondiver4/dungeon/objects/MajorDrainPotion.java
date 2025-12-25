@@ -29,27 +29,26 @@ public class MajorDrainPotion extends AbstractPotion {
 
     // Constructors
     public MajorDrainPotion() {
-        super(StatConstants.STAT_CURRENT_MP, true, MajorDrainPotion.MAX_DRAIN,
-                MajorDrainPotion.MIN_DRAIN);
+	super(StatConstants.STAT_CURRENT_MP, true, MajorDrainPotion.MAX_DRAIN, MajorDrainPotion.MIN_DRAIN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MAJOR_DRAIN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MAJOR_DRAIN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Major Drain Potion";
+	return "Major Drain Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Major Drain Potions";
+	return "Major Drain Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Major Drain Potions drain your magic significantly when picked up.";
+	return "Major Drain Potions drain your magic significantly when picked up.";
     }
 }

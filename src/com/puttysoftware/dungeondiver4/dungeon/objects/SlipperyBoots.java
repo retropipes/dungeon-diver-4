@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SlipperyBoots extends AbstractBoots {
     // Constructors
     public SlipperyBoots() {
-        super(ColorConstants.COLOR_BLUE);
+	super(ColorConstants.COLOR_BLUE);
     }
 
     @Override
     public String getName() {
-        return "Slippery Boots";
+	return "Slippery Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Slippery Boots";
+	return "Pairs of Slippery Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Slippery Boots make all ground frictionless as you walk. Note that you can only wear one pair of boots at once.";
+	return "Slippery Boots make all ground frictionless as you walk. Note that you can only wear one pair of boots at once.";
     }
 }

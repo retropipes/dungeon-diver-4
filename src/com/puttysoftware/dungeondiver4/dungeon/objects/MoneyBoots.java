@@ -29,28 +29,27 @@ public class MoneyBoots extends AbstractBoots {
 
     // Constructors
     public MoneyBoots() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Money Boots";
+	return "Money Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Money Boots";
+	return "Pairs of Money Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Money Boots give you money as you walk. Note that you can only wear one pair of boots at once.";
+	return "Money Boots give you money as you walk. Note that you can only wear one pair of boots at once.";
     }
 
     @Override
     public void stepAction() {
-        PartyManager.getParty().getLeader().offsetGold(MoneyBoots.GOLD_AMOUNT);
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(MoneyBoots.GOLD_AMOUNT);
+	PartyManager.getParty().getLeader().offsetGold(MoneyBoots.GOLD_AMOUNT);
+	DungeonDiver4.getApplication().getGameManager().addToScore(MoneyBoots.GOLD_AMOUNT);
     }
 }

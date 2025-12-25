@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SeaweedCarpet extends AbstractCarpet {
     // Constructors
     public SeaweedCarpet() {
-        super("Seaweed", ColorConstants.COLOR_SEAWEED);
+	super("Seaweed", ColorConstants.COLOR_SEAWEED);
     }
 }

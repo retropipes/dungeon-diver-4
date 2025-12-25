@@ -50,8 +50,7 @@ public class Application {
     private RuleSetPicker rsPicker;
     private GUIManager guiMgr;
     private final DungeonObjectList objects;
-    private Shop weapons, armor, healer, bank, regenerator, spells, items,
-            socks, enhancements, faiths;
+    private Shop weapons, armor, healer, bank, regenerator, spells, items, socks, enhancements, faiths;
     private MapBattleLogic mapBattle;
     private WindowBattleLogic windowBattle;
     private NameEditor nameEditor;
@@ -71,285 +70,268 @@ public class Application {
     public static final int STATUS_PREFS = 4;
     public static final int STATUS_NULL = 5;
     public static final int EDITOR_NAME = 0;
-    private static final ProductData pd = new ProductData(VERSION_MAJOR,
-            VERSION_MINOR, VERSION_BUGFIX, VERSION_CODE,
-            VERSION_PRERELEASE);
+    private static final ProductData pd = new ProductData(VERSION_MAJOR, VERSION_MINOR, VERSION_BUGFIX, VERSION_CODE,
+	    VERSION_PRERELEASE);
 
     // Constructors
     public Application() {
-        this.objects = new DungeonObjectList();
-        this.currentMode = Application.STATUS_NULL;
-        this.formerMode = Application.STATUS_NULL;
+	this.objects = new DungeonObjectList();
+	this.currentMode = Application.STATUS_NULL;
+	this.formerMode = Application.STATUS_NULL;
     }
 
     // Methods
     void postConstruct() {
-        // Create Edge Images and Objects
-        final AbstractDungeonObject[] groundTypes = this.objects
-                .getAllGenerationEligibleTypedObjects();
-        final String[] edgeFriendlyNameSuffixes = EdgeGenerator
-                .generateAllEdgedImageFriendlyNameSuffixes();
-        for (int x = 0; x < groundTypes.length - 1; x++) {
-            for (int y = x + 1; y < groundTypes.length; y++) {
-                if (groundTypes[x].equals(groundTypes[y])) {
-                    continue;
-                }
-                final BufferedImageIcon[] edges = EdgeGenerator
-                        .generateAllEdgedImages(
-                                ObjectImageManager.getImage(
-                                        groundTypes[x].getName(),
-                                        groundTypes[x].getBaseID(),
-                                        groundTypes[x].getTemplateColor(),
-                                        groundTypes[x].getAttributeID(),
-                                        groundTypes[x]
-                                                .getAttributeTemplateColor()),
-                                ObjectImageManager.getImage(
-                                        groundTypes[y].getName(),
-                                        groundTypes[y].getBaseID(),
-                                        groundTypes[y].getTemplateColor(),
-                                        groundTypes[y].getAttributeID(),
-                                        groundTypes[y]
-                                                .getAttributeTemplateColor()),
-                                ImageTransformer.generateEdgeColor(
-                                        groundTypes[x].getTemplateColor(),
-                                        groundTypes[y].getTemplateColor()));
-                for (int z = 0; z < edges.length; z++) {
-                    ObjectImageManager.addImageToCache(groundTypes[x].getName()
-                            + "/" + groundTypes[y].getName() + " Transition "
-                            + edgeFriendlyNameSuffixes[z], edges[z]);
-                    final GeneratedEdge ge = new GeneratedEdge(
-                            groundTypes[x].getName() + "/"
-                                    + groundTypes[y].getName() + " Transition "
-                                    + edgeFriendlyNameSuffixes[z],
-                            ObjectImageConstants.OBJECT_IMAGE_NONE,
-                            groundTypes[x].getName() + "/"
-                                    + groundTypes[y].getName() + " Transitions "
-                                    + edgeFriendlyNameSuffixes[z],
-                            groundTypes[x].getName(), groundTypes[y].getName(),
-                            edgeFriendlyNameSuffixes[z]);
-                    this.objects.addObject(ge);
-                }
-            }
-        }
-        // Create Managers
-        this.nameEditor = new NameEditor();
-        this.allEditors = new ArrayList<>();
-        this.allEditors.add(this.nameEditor);
-        this.about = new AboutDialog(Application.getVersionString());
-        this.guiMgr = new GUIManager();
-        this.menuMgr = new MenuManager();
-        this.oHelpMgr = new ObjectHelpManager();
-        this.mapBattle = new MapBattleLogic();
-        this.windowBattle = new WindowBattleLogic();
-        this.weapons = new Shop(ShopTypes.SHOP_TYPE_WEAPONS);
-        this.armor = new Shop(ShopTypes.SHOP_TYPE_ARMOR);
-        this.healer = new Shop(ShopTypes.SHOP_TYPE_HEALER);
-        this.bank = new Shop(ShopTypes.SHOP_TYPE_BANK);
-        this.regenerator = new Shop(ShopTypes.SHOP_TYPE_REGENERATOR);
-        this.spells = new Shop(ShopTypes.SHOP_TYPE_SPELLS);
-        this.items = new Shop(ShopTypes.SHOP_TYPE_ITEMS);
-        this.socks = new Shop(ShopTypes.SHOP_TYPE_SOCKS);
-        this.enhancements = new Shop(ShopTypes.SHOP_TYPE_ENHANCEMENTS);
-        this.faiths = new Shop(ShopTypes.SHOP_TYPE_FAITH_POWERS);
-        // Cache Logo
-        this.guiMgr.updateLogo();
+	// Create Edge Images and Objects
+	final AbstractDungeonObject[] groundTypes = this.objects.getAllGenerationEligibleTypedObjects();
+	final String[] edgeFriendlyNameSuffixes = EdgeGenerator.generateAllEdgedImageFriendlyNameSuffixes();
+	for (int x = 0; x < groundTypes.length - 1; x++) {
+	    for (int y = x + 1; y < groundTypes.length; y++) {
+		if (groundTypes[x].equals(groundTypes[y])) {
+		    continue;
+		}
+		final BufferedImageIcon[] edges = EdgeGenerator.generateAllEdgedImages(
+			ObjectImageManager.getImage(groundTypes[x].getName(), groundTypes[x].getBaseID(),
+				groundTypes[x].getTemplateColor(), groundTypes[x].getAttributeID(),
+				groundTypes[x].getAttributeTemplateColor()),
+			ObjectImageManager.getImage(groundTypes[y].getName(), groundTypes[y].getBaseID(),
+				groundTypes[y].getTemplateColor(), groundTypes[y].getAttributeID(),
+				groundTypes[y].getAttributeTemplateColor()),
+			ImageTransformer.generateEdgeColor(groundTypes[x].getTemplateColor(),
+				groundTypes[y].getTemplateColor()));
+		for (int z = 0; z < edges.length; z++) {
+		    ObjectImageManager.addImageToCache(groundTypes[x].getName() + "/" + groundTypes[y].getName()
+			    + " Transition " + edgeFriendlyNameSuffixes[z], edges[z]);
+		    final GeneratedEdge ge = new GeneratedEdge(
+			    groundTypes[x].getName()
+				    + "/" + groundTypes[y].getName() + " Transition " + edgeFriendlyNameSuffixes[z],
+			    ObjectImageConstants.OBJECT_IMAGE_NONE,
+			    groundTypes[x].getName() + "/" + groundTypes[y].getName() + " Transitions "
+				    + edgeFriendlyNameSuffixes[z],
+			    groundTypes[x].getName(), groundTypes[y].getName(), edgeFriendlyNameSuffixes[z]);
+		    this.objects.addObject(ge);
+		}
+	    }
+	}
+	// Create Managers
+	this.nameEditor = new NameEditor();
+	this.allEditors = new ArrayList<>();
+	this.allEditors.add(this.nameEditor);
+	this.about = new AboutDialog(Application.getVersionString());
+	this.guiMgr = new GUIManager();
+	this.menuMgr = new MenuManager();
+	this.oHelpMgr = new ObjectHelpManager();
+	this.mapBattle = new MapBattleLogic();
+	this.windowBattle = new WindowBattleLogic();
+	this.weapons = new Shop(ShopTypes.SHOP_TYPE_WEAPONS);
+	this.armor = new Shop(ShopTypes.SHOP_TYPE_ARMOR);
+	this.healer = new Shop(ShopTypes.SHOP_TYPE_HEALER);
+	this.bank = new Shop(ShopTypes.SHOP_TYPE_BANK);
+	this.regenerator = new Shop(ShopTypes.SHOP_TYPE_REGENERATOR);
+	this.spells = new Shop(ShopTypes.SHOP_TYPE_SPELLS);
+	this.items = new Shop(ShopTypes.SHOP_TYPE_ITEMS);
+	this.socks = new Shop(ShopTypes.SHOP_TYPE_SOCKS);
+	this.enhancements = new Shop(ShopTypes.SHOP_TYPE_ENHANCEMENTS);
+	this.faiths = new Shop(ShopTypes.SHOP_TYPE_FAITH_POWERS);
+	// Cache Logo
+	this.guiMgr.updateLogo();
     }
 
     void setInGUI() {
-        this.currentMode = Application.STATUS_GUI;
+	this.currentMode = Application.STATUS_GUI;
     }
 
     public void setInPrefs() {
-        this.formerMode = this.currentMode;
-        this.currentMode = Application.STATUS_PREFS;
+	this.formerMode = this.currentMode;
+	this.currentMode = Application.STATUS_PREFS;
     }
 
     public void setInGame() {
-        this.currentMode = Application.STATUS_GAME;
+	this.currentMode = Application.STATUS_GAME;
     }
 
     public void setInBattle() {
-        this.currentMode = Application.STATUS_BATTLE;
+	this.currentMode = Application.STATUS_BATTLE;
     }
 
     public void setInEditor() {
-        this.currentMode = Application.STATUS_EDITOR;
+	this.currentMode = Application.STATUS_EDITOR;
     }
 
     public int getMode() {
-        return this.currentMode;
+	return this.currentMode;
     }
 
     public int getFormerMode() {
-        return this.formerMode;
+	return this.formerMode;
     }
 
     public void showMessage(final String msg) {
-        if (this.currentMode == Application.STATUS_GAME) {
-            this.getGameManager().setStatusMessage(msg);
-        } else if (this.currentMode == Application.STATUS_BATTLE) {
-            this.getBattle().setStatusMessage(msg);
-        } else if (this.currentMode == Application.STATUS_EDITOR) {
-            this.getEditor().setStatusMessage(msg);
-        } else {
-            CommonDialogs.showDialog(msg);
-        }
+	if (this.currentMode == Application.STATUS_GAME) {
+	    this.getGameManager().setStatusMessage(msg);
+	} else if (this.currentMode == Application.STATUS_BATTLE) {
+	    this.getBattle().setStatusMessage(msg);
+	} else if (this.currentMode == Application.STATUS_EDITOR) {
+	    this.getEditor().setStatusMessage(msg);
+	} else {
+	    CommonDialogs.showDialog(msg);
+	}
     }
 
     public MenuManager getMenuManager() {
-        return this.menuMgr;
+	return this.menuMgr;
     }
 
     public GUIManager getGUIManager() {
-        return this.guiMgr;
+	return this.guiMgr;
     }
 
     public GameLogicManager getGameManager() {
-        if (this.gameMgr == null) {
-            this.gameMgr = new GameLogicManager();
-        }
-        return this.gameMgr;
+	if (this.gameMgr == null) {
+	    this.gameMgr = new GameLogicManager();
+	}
+	return this.gameMgr;
     }
 
     public ScenarioManager getScenarioManager() {
-        if (this.scenarioMgr == null) {
-            this.scenarioMgr = new ScenarioManager();
-        }
-        return this.scenarioMgr;
+	if (this.scenarioMgr == null) {
+	    this.scenarioMgr = new ScenarioManager();
+	}
+	return this.scenarioMgr;
     }
 
     public DungeonManager getDungeonManager() {
-        if (this.dungeonMgr == null) {
-            this.dungeonMgr = new DungeonManager();
-        }
-        return this.dungeonMgr;
+	if (this.dungeonMgr == null) {
+	    this.dungeonMgr = new DungeonManager();
+	}
+	return this.dungeonMgr;
     }
 
     public ObjectHelpManager getObjectHelpManager() {
-        return this.oHelpMgr;
+	return this.oHelpMgr;
     }
 
     public DungeonEditorLogic getEditor() {
-        if (this.editor == null) {
-            this.editor = new DungeonEditorLogic();
-        }
-        return this.editor;
+	if (this.editor == null) {
+	    this.editor = new DungeonEditorLogic();
+	}
+	return this.editor;
     }
 
     public RuleSetPicker getRuleSetPicker() {
-        if (this.rsPicker == null) {
-            this.rsPicker = new RuleSetPicker();
-        }
-        return this.rsPicker;
+	if (this.rsPicker == null) {
+	    this.rsPicker = new RuleSetPicker();
+	}
+	return this.rsPicker;
     }
 
     public AboutDialog getAboutDialog() {
-        return this.about;
+	return this.about;
     }
 
     public void notifyAllNonCurrentEditorsDisableCommands() {
-        for (int x = 0; x < this.allEditors.size(); x++) {
-            if (x != this.currentEditor) {
-                final AbstractEditor ge = this.allEditors.get(x);
-                ge.disableEditorCommands();
-            }
-        }
+	for (int x = 0; x < this.allEditors.size(); x++) {
+	    if (x != this.currentEditor) {
+		final AbstractEditor ge = this.allEditors.get(x);
+		ge.disableEditorCommands();
+	    }
+	}
     }
 
     public void notifyAllNonCurrentEditorsEnableCommands() {
-        for (int x = 0; x < this.allEditors.size(); x++) {
-            if (x != this.currentEditor) {
-                final AbstractEditor ge = this.allEditors.get(x);
-                ge.enableEditorCommands();
-            }
-        }
+	for (int x = 0; x < this.allEditors.size(); x++) {
+	    if (x != this.currentEditor) {
+		final AbstractEditor ge = this.allEditors.get(x);
+		ge.enableEditorCommands();
+	    }
+	}
     }
 
     public void setCurrentEditor(final int ce) {
-        this.currentEditor = ce;
+	this.currentEditor = ce;
     }
 
     public NameEditor getNamesEditor() {
-        return this.nameEditor;
+	return this.nameEditor;
     }
 
     public ArrayList<AbstractEditor> getAllEditors() {
-        return this.allEditors;
+	return this.allEditors;
     }
 
     public BufferedImageIcon getMicroLogo() {
-        return LogoManager.getMicroLogo();
+	return LogoManager.getMicroLogo();
     }
 
     public Image getIconLogo() {
-        return LogoManager.getIconLogo();
+	return LogoManager.getIconLogo();
     }
 
     public void playLogoSound() {
-        SoundManager.playSound(SoundConstants.SOUND_LOGO);
+	SoundManager.playSound(SoundConstants.SOUND_LOGO);
     }
 
     private static String getVersionString() {
-        return pd.getVersionString();
+	return pd.getVersionString();
     }
 
     public JFrame getOutputFrame() {
-        try {
-            if (this.getMode() == Application.STATUS_PREFS) {
-                return PreferencesManager.getPrefFrame();
-            } else if (this.getMode() == Application.STATUS_GUI) {
-                return this.getGUIManager().getGUIFrame();
-            } else if (this.getMode() == Application.STATUS_GAME) {
-                return this.getGameManager().getOutputFrame();
-            } else if (this.getMode() == Application.STATUS_BATTLE) {
-                return this.getBattle().getOutputFrame();
-            } else if (this.getMode() == Application.STATUS_EDITOR) {
-                return this.getEditor().getOutputFrame();
-            } else {
-                return null;
-            }
-        } catch (final NullPointerException npe) {
-            return null;
-        }
+	try {
+	    if (this.getMode() == Application.STATUS_PREFS) {
+		return PreferencesManager.getPrefFrame();
+	    } else if (this.getMode() == Application.STATUS_GUI) {
+		return this.getGUIManager().getGUIFrame();
+	    } else if (this.getMode() == Application.STATUS_GAME) {
+		return this.getGameManager().getOutputFrame();
+	    } else if (this.getMode() == Application.STATUS_BATTLE) {
+		return this.getBattle().getOutputFrame();
+	    } else if (this.getMode() == Application.STATUS_EDITOR) {
+		return this.getEditor().getOutputFrame();
+	    } else {
+		return null;
+	    }
+	} catch (final NullPointerException npe) {
+	    return null;
+	}
     }
 
     public DungeonObjectList getObjects() {
-        return this.objects;
+	return this.objects;
     }
 
     public Shop getGenericShop(final int shopType) {
-        switch (shopType) {
-            case ShopTypes.SHOP_TYPE_ARMOR:
-                return this.armor;
-            case ShopTypes.SHOP_TYPE_BANK:
-                return this.bank;
-            case ShopTypes.SHOP_TYPE_ENHANCEMENTS:
-                return this.enhancements;
-            case ShopTypes.SHOP_TYPE_FAITH_POWERS:
-                return this.faiths;
-            case ShopTypes.SHOP_TYPE_HEALER:
-                return this.healer;
-            case ShopTypes.SHOP_TYPE_ITEMS:
-                return this.items;
-            case ShopTypes.SHOP_TYPE_REGENERATOR:
-                return this.regenerator;
-            case ShopTypes.SHOP_TYPE_SOCKS:
-                return this.socks;
-            case ShopTypes.SHOP_TYPE_SPELLS:
-                return this.spells;
-            case ShopTypes.SHOP_TYPE_WEAPONS:
-                return this.weapons;
-            default:
-                // Invalid shop type
-                return null;
-        }
+	switch (shopType) {
+	case ShopTypes.SHOP_TYPE_ARMOR:
+	    return this.armor;
+	case ShopTypes.SHOP_TYPE_BANK:
+	    return this.bank;
+	case ShopTypes.SHOP_TYPE_ENHANCEMENTS:
+	    return this.enhancements;
+	case ShopTypes.SHOP_TYPE_FAITH_POWERS:
+	    return this.faiths;
+	case ShopTypes.SHOP_TYPE_HEALER:
+	    return this.healer;
+	case ShopTypes.SHOP_TYPE_ITEMS:
+	    return this.items;
+	case ShopTypes.SHOP_TYPE_REGENERATOR:
+	    return this.regenerator;
+	case ShopTypes.SHOP_TYPE_SOCKS:
+	    return this.socks;
+	case ShopTypes.SHOP_TYPE_SPELLS:
+	    return this.spells;
+	case ShopTypes.SHOP_TYPE_WEAPONS:
+	    return this.weapons;
+	default:
+	    // Invalid shop type
+	    return null;
+	}
     }
 
     public AbstractBattle getBattle() {
-        if (PreferencesManager.getBattleStyle()) {
-            return this.mapBattle;
-        } else {
-            return this.windowBattle;
-        }
+	if (PreferencesManager.getBattleStyle()) {
+	    return this.mapBattle;
+	} else {
+	    return this.windowBattle;
+	}
     }
 }

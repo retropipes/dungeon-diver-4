@@ -16,35 +16,33 @@ public abstract class AbstractPort extends AbstractInfiniteLock {
     private char letter;
 
     protected AbstractPort(final AbstractPlug mgk, final char newLetter) {
-        super(mgk);
-        this.letter = Character.toUpperCase(newLetter);
+	super(mgk);
+	this.letter = Character.toUpperCase(newLetter);
     }
 
     @Override
     public AbstractPort clone() {
-        final AbstractPort copy = (AbstractPort) super.clone();
-        copy.letter = this.letter;
-        return copy;
+	final AbstractPort copy = (AbstractPort) super.clone();
+	copy.letter = this.letter;
+	return copy;
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        String fill = "";
-        if (this.isLetterVowel()) {
-            fill = "an";
-        } else {
-            fill = "a";
-        }
-        DungeonDiver4.getApplication()
-                .showMessage("You need " + fill + " " + this.letter + " plug");
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	String fill = "";
+	if (this.isLetterVowel()) {
+	    fill = "an";
+	} else {
+	    fill = "a";
+	}
+	DungeonDiver4.getApplication().showMessage("You need " + fill + " " + this.letter + " plug");
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return this.letter + " Port";
+	return this.letter + " Port";
     }
 
     @Override
@@ -52,34 +50,33 @@ public abstract class AbstractPort extends AbstractInfiniteLock {
 
     @Override
     public String getPluralName() {
-        return this.letter + " Ports";
+	return this.letter + " Ports";
     }
 
     private boolean isLetterVowel() {
-        if (this.letter == 'A' || this.letter == 'E' || this.letter == 'I'
-                || this.letter == 'O' || this.letter == 'U') {
-            return true;
-        } else {
-            return false;
-        }
+	if (this.letter == 'A' || this.letter == 'E' || this.letter == 'I' || this.letter == 'O'
+		|| this.letter == 'U') {
+	    return true;
+	} else {
+	    return false;
+	}
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_LETTER_LOCK);
-        this.type.set(TypeConstants.TYPE_INFINITE_LOCK);
-        this.type.set(TypeConstants.TYPE_LOCK);
+	this.type.set(TypeConstants.TYPE_LETTER_LOCK);
+	this.type.set(TypeConstants.TYPE_INFINITE_LOCK);
+	this.type.set(TypeConstants.TYPE_LOCK);
     }
 
     @Override
     public String getDescription() {
-        String fill;
-        if (this.isLetterVowel()) {
-            fill = "an";
-        } else {
-            fill = "a";
-        }
-        return this.letter + " Ports require " + fill + " " + this.letter
-                + " Plug to open.";
+	String fill;
+	if (this.isLetterVowel()) {
+	    fill = "an";
+	} else {
+	    fill = "a";
+	}
+	return this.letter + " Ports require " + fill + " " + this.letter + " Plug to open.";
     }
 }

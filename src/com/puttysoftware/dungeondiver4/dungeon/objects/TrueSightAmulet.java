@@ -16,28 +16,27 @@ public class TrueSightAmulet extends AbstractAmulet {
 
     // Constructors
     public TrueSightAmulet() {
-        super(ColorConstants.COLOR_BLUE);
+	super(ColorConstants.COLOR_BLUE);
     }
 
     @Override
     public String getName() {
-        return "True Sight Amulet";
+	return "True Sight Amulet";
     }
 
     @Override
     public String getPluralName() {
-        return "True Sight Amulets";
+	return "True Sight Amulets";
     }
 
     @Override
     public String getDescription() {
-        return "True Sight Amulets grant the power to see what things really are for 30 steps. Note that you can only wear one amulet at once.";
+	return "True Sight Amulets grant the power to see what things really are for 30 steps. Note that you can only wear one amulet at once.";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_TRUE_SIGHT,
-                TrueSightAmulet.EFFECT_DURATION);
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_TRUE_SIGHT,
+		TrueSightAmulet.EFFECT_DURATION);
     }
 }

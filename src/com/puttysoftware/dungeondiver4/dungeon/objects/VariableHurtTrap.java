@@ -23,39 +23,34 @@ public class VariableHurtTrap extends AbstractTrap {
 
     // Constructors
     public VariableHurtTrap() {
-        super(ColorConstants.COLOR_SKY,
-                ObjectImageConstants.OBJECT_IMAGE_VARIABLE_HEALTH,
-                ColorConstants.COLOR_DARK_SKY);
+	super(ColorConstants.COLOR_SKY, ObjectImageConstants.OBJECT_IMAGE_VARIABLE_HEALTH,
+		ColorConstants.COLOR_DARK_SKY);
     }
 
     @Override
     public String getName() {
-        return "Variable Hurt Trap";
+	return "Variable Hurt Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Variable Hurt Traps";
+	return "Variable Hurt Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        this.maxDamage = PartyManager.getParty().getLeader().getMaximumHP()
-                / 10;
-        if (this.maxDamage < VariableHurtTrap.MIN_DAMAGE) {
-            this.maxDamage = VariableHurtTrap.MIN_DAMAGE;
-        }
-        this.damageDealt = new RandomRange(VariableHurtTrap.MIN_DAMAGE,
-                this.maxDamage);
-        PartyManager.getParty().getLeader()
-                .doDamage(this.damageDealt.generate());
-        SoundManager.playSound(SoundConstants.SOUND_BARRIER);
-        DungeonDiver4.getApplication().getGameManager().decay();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	this.maxDamage = PartyManager.getParty().getLeader().getMaximumHP() / 10;
+	if (this.maxDamage < VariableHurtTrap.MIN_DAMAGE) {
+	    this.maxDamage = VariableHurtTrap.MIN_DAMAGE;
+	}
+	this.damageDealt = new RandomRange(VariableHurtTrap.MIN_DAMAGE, this.maxDamage);
+	PartyManager.getParty().getLeader().doDamage(this.damageDealt.generate());
+	SoundManager.playSound(SoundConstants.SOUND_BARRIER);
+	DungeonDiver4.getApplication().getGameManager().decay();
     }
 
     @Override
     public String getDescription() {
-        return "Variable Hurt Traps hurt you when stepped on, then disappear.";
+	return "Variable Hurt Traps hurt you when stepped on, then disappear.";
     }
 }

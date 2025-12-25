@@ -15,27 +15,26 @@ public class Amethyst extends AbstractScoreIncreaser {
 
     // Constructors
     public Amethyst() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Amethyst";
+	return "Amethyst";
     }
 
     @Override
     public String getPluralName() {
-        return "Amethysts";
+	return "Amethysts";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(Amethyst.SCORE_INCREASE);
+	DungeonDiver4.getApplication().getGameManager().addToScore(Amethyst.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Amethysts increase your score when picked up.";
+	return "Amethysts increase your score when picked up.";
     }
 }

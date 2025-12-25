@@ -10,21 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class CyanButton extends AbstractButton {
     public CyanButton() {
-        super(new CyanWallOff(), new CyanWallOn(), ColorConstants.COLOR_CYAN);
+	super(new CyanWallOff(), new CyanWallOn(), ColorConstants.COLOR_CYAN);
     }
 
     @Override
     public String getName() {
-        return "Cyan Button";
+	return "Cyan Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Buttons";
+	return "Cyan Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Buttons will cause all Cyan Walls Off to become On, and all Cyan Walls On to become Off.";
+	return "Cyan Buttons will cause all Cyan Walls Off to become On, and all Cyan Walls On to become Off.";
     }
 }

@@ -12,22 +12,22 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class PullableBlock extends AbstractMovableObject {
     // Constructors
     public PullableBlock() {
-        super(false, true, ObjectImageConstants.OBJECT_IMAGE_PULLABLE);
-        this.setTemplateColor(ColorConstants.COLOR_GRAY);
+	super(false, true, ObjectImageConstants.OBJECT_IMAGE_PULLABLE);
+	this.setTemplateColor(ColorConstants.COLOR_GRAY);
     }
 
     @Override
     public String getName() {
-        return "Pullable Block";
+	return "Pullable Block";
     }
 
     @Override
     public String getPluralName() {
-        return "Pullable Blocks";
+	return "Pullable Blocks";
     }
 
     @Override
     public String getDescription() {
-        return "Pullable Blocks can only be pulled, not pushed.";
+	return "Pullable Blocks can only be pulled, not pushed.";
     }
 }

@@ -16,35 +16,34 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class BrickWall extends AbstractSingleLock {
     // Constructors
     public BrickWall() {
-        super(new Hammer(), ColorConstants.COLOR_NONE);
+	super(new Hammer(), ColorConstants.COLOR_NONE);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a hammer");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a hammer");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BRICK_WALL;
+	return ObjectImageConstants.OBJECT_IMAGE_BRICK_WALL;
     }
 
     @Override
     public String getName() {
-        return "Brick Wall";
+	return "Brick Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Brick Walls";
+	return "Brick Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Brick Walls require Hammers to destroy.";
+	return "Brick Walls require Hammers to destroy.";
     }
 }

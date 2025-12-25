@@ -29,27 +29,26 @@ public class MajorRegenPotion extends AbstractPotion {
 
     // Constructors
     public MajorRegenPotion() {
-        super(StatConstants.STAT_CURRENT_MP, true, MajorRegenPotion.MIN_REGEN,
-                MajorRegenPotion.MAX_REGEN);
+	super(StatConstants.STAT_CURRENT_MP, true, MajorRegenPotion.MIN_REGEN, MajorRegenPotion.MAX_REGEN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MAJOR_REGEN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MAJOR_REGEN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Major Regen Potion";
+	return "Major Regen Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Major Regen Potions";
+	return "Major Regen Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Major Regen Potions regenerate your magic significantly when picked up.";
+	return "Major Regen Potions regenerate your magic significantly when picked up.";
     }
 }

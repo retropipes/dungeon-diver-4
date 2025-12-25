@@ -16,34 +16,33 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class ForceField extends AbstractField {
     // Constructors
     public ForceField() {
-        super(new EnergySphere(), false, ColorConstants.COLOR_NONE);
+	super(new EnergySphere(), false, ColorConstants.COLOR_NONE);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("You'll get zapped");
-        SoundManager.playSound(SoundConstants.SOUND_FORCE_FIELD);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("You'll get zapped");
+	SoundManager.playSound(SoundConstants.SOUND_FORCE_FIELD);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_FORCE_FIELD;
+	return ObjectImageConstants.OBJECT_IMAGE_FORCE_FIELD;
     }
 
     @Override
     public String getName() {
-        return "Force Field";
+	return "Force Field";
     }
 
     @Override
     public String getPluralName() {
-        return "Force Fields";
+	return "Force Fields";
     }
 
     @Override
     public String getDescription() {
-        return "Force Fields block movement without an Energy Sphere.";
+	return "Force Fields block movement without an Energy Sphere.";
     }
 }

@@ -18,38 +18,36 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class DamageableWall extends AbstractWall {
     // Constructors
     public DamageableWall() {
-        super(ColorConstants.COLOR_BROWN);
-        this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_DAMAGEABLE);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
+	super(ColorConstants.COLOR_BROWN);
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_DAMAGEABLE);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
     }
 
     @Override
     public String getName() {
-        return "Damageable Wall";
+	return "Damageable Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Damageable Walls";
+	return "Damageable Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Damageable Walls break up into Cracked Walls if walked into.";
+	return "Damageable Walls break up into Cracked Walls if walked into.";
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        final int z = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationZ();
-        DungeonDiver4.getApplication().getGameManager().morph(new CrackedWall(),
-                dirX, dirY, z, DungeonConstants.LAYER_OBJECT);
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final int z = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationZ();
+	DungeonDiver4.getApplication().getGameManager().morph(new CrackedWall(), dirX, dirY, z,
+		DungeonConstants.LAYER_OBJECT);
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 }

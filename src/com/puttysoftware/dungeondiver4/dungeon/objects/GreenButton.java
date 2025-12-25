@@ -10,22 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class GreenButton extends AbstractButton {
     public GreenButton() {
-        super(new GreenWallOff(), new GreenWallOn(),
-                ColorConstants.COLOR_GREEN);
+	super(new GreenWallOff(), new GreenWallOn(), ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Green Button";
+	return "Green Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Buttons";
+	return "Green Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Green Buttons will cause all Green Walls Off to become On, and all Green Walls On to become Off.";
+	return "Green Buttons will cause all Green Walls Off to become On, and all Green Walls On to become Off.";
     }
 }

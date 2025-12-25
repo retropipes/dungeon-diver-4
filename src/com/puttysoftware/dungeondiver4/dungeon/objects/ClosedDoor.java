@@ -12,33 +12,33 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class ClosedDoor extends AbstractPassThroughObject {
     // Constructors
     public ClosedDoor() {
-        super();
-        this.setTemplateColor(ColorConstants.COLOR_DOOR);
+	super();
+	this.setTemplateColor(ColorConstants.COLOR_DOOR);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CLOSED_DOOR;
+	return ObjectImageConstants.OBJECT_IMAGE_CLOSED_DOOR;
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Closed Door";
+	return "Closed Door";
     }
 
     @Override
     public String getPluralName() {
-        return "Closed Doors";
+	return "Closed Doors";
     }
 
     @Override
     public String getDescription() {
-        return "Closed Doors are purely decorative.";
+	return "Closed Doors are purely decorative.";
     }
 
     @Override
     public boolean enabledInBattle() {
-        return false;
+	return false;
     }
 }

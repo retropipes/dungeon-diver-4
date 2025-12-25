@@ -31,46 +31,41 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class OneShotTeleport extends AbstractTeleport {
     // Constructors
     public OneShotTeleport() {
-        super(0, 0, 0, true, ObjectImageConstants.OBJECT_IMAGE_ONE_SHOT);
+	super(0, 0, 0, true, ObjectImageConstants.OBJECT_IMAGE_ONE_SHOT);
     }
 
-    public OneShotTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor, true,
-                ObjectImageConstants.OBJECT_IMAGE_ONE_SHOT);
+    public OneShotTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor, true, ObjectImageConstants.OBJECT_IMAGE_ONE_SHOT);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().decay();
-        app.getGameManager().updatePositionAbsolute(this.getDestinationRow(),
-                this.getDestinationColumn(), this.getDestinationFloor());
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().decay();
+	app.getGameManager().updatePositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor());
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "One-Shot Teleport";
+	return "One-Shot Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "One-Shot Teleports";
+	return "One-Shot Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_ONESHOT);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_ONESHOT);
     }
 
     @Override
     public String getDescription() {
-        return "One-Shot Teleports behave like regular Teleports, except they only work once.";
+	return "One-Shot Teleports behave like regular Teleports, except they only work once.";
     }
 }

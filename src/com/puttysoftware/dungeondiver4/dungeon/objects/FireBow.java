@@ -15,22 +15,21 @@ public class FireBow extends AbstractBow {
 
     // Constructors
     public FireBow() {
-        super(FireBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_FIRE,
-                ColorConstants.COLOR_LIGHT_RED);
+	super(FireBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_FIRE, ColorConstants.COLOR_LIGHT_RED);
     }
 
     @Override
     public String getName() {
-        return "Fire Bow";
+	return "Fire Bow";
     }
 
     @Override
     public String getPluralName() {
-        return "Fire Bows";
+	return "Fire Bows";
     }
 
     @Override
     public String getDescription() {
-        return "Fire Bows allow shooting of Fire Arrows, which burn Barrier Generators upon contact, and do everything normal arrows do.";
+	return "Fire Bows allow shooting of Fire Arrows, which burn Barrier Generators upon contact, and do everything normal arrows do.";
     }
 }

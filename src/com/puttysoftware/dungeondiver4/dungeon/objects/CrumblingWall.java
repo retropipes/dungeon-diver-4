@@ -18,38 +18,36 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class CrumblingWall extends AbstractWall {
     // Constructors
     public CrumblingWall() {
-        super(ColorConstants.COLOR_BROWN);
-        this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_CRUMBLING);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
+	super(ColorConstants.COLOR_BROWN);
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_CRUMBLING);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
     }
 
     @Override
     public String getName() {
-        return "Crumbling Wall";
+	return "Crumbling Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Crumbling Walls";
+	return "Crumbling Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Crumbling Walls break up into nothing if walked into.";
+	return "Crumbling Walls break up into nothing if walked into.";
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        final int z = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationZ();
-        DungeonDiver4.getApplication().getGameManager().morph(new Empty(), dirX,
-                dirY, z, DungeonConstants.LAYER_OBJECT);
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final int z = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationZ();
+	DungeonDiver4.getApplication().getGameManager().morph(new Empty(), dirX, dirY, z,
+		DungeonConstants.LAYER_OBJECT);
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 }

@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class BlueLock extends AbstractSingleLock {
     // Constructors
     public BlueLock() {
-        super(new BlueKey(), ColorConstants.COLOR_BLUE);
+	super(new BlueKey(), ColorConstants.COLOR_BLUE);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a blue key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a blue key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Blue Lock";
+	return "Blue Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Locks";
+	return "Blue Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Locks require Blue Keys to open.";
+	return "Blue Locks require Blue Keys to open.";
     }
 }

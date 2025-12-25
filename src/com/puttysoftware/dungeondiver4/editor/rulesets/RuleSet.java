@@ -20,123 +20,117 @@ public final class RuleSet implements Cloneable, RandomGenerationRule {
 
     // Constructor
     public RuleSet() {
-        this.maxQuantity = 0;
-        this.minQuantity = 0;
-        this.percentageFlag = false;
-        this.required = true;
-        this.generateQuantity = 100;
-        this.rng = new RandomRange(1, 100);
+	this.maxQuantity = 0;
+	this.minQuantity = 0;
+	this.percentageFlag = false;
+	this.required = true;
+	this.generateQuantity = 100;
+	this.rng = new RandomRange(1, 100);
     }
 
     // Methods
     @Override
     public RuleSet clone() {
-        final RuleSet copy = new RuleSet();
-        copy.maxQuantity = this.maxQuantity;
-        copy.minQuantity = this.minQuantity;
-        copy.percentageFlag = this.percentageFlag;
-        copy.required = this.required;
-        copy.generateQuantity = this.generateQuantity;
-        return copy;
+	final RuleSet copy = new RuleSet();
+	copy.maxQuantity = this.maxQuantity;
+	copy.minQuantity = this.minQuantity;
+	copy.percentageFlag = this.percentageFlag;
+	copy.required = this.required;
+	copy.generateQuantity = this.generateQuantity;
+	return copy;
     }
 
     public void setQuantityAbsolute(final int min, final int max) {
-        // Check for valid arguments
-        if (min < 0) {
-            throw new IllegalArgumentException("Minimum must be at least zero");
-        }
-        if (max < 0) {
-            throw new IllegalArgumentException("Maximum must be at least zero");
-        }
-        if (max < min) {
-            throw new IllegalArgumentException(
-                    "Minimum must be less than Maximum");
-        }
-        this.minQuantity = min;
-        this.maxQuantity = max;
-        this.percentageFlag = false;
+	// Check for valid arguments
+	if (min < 0) {
+	    throw new IllegalArgumentException("Minimum must be at least zero");
+	}
+	if (max < 0) {
+	    throw new IllegalArgumentException("Maximum must be at least zero");
+	}
+	if (max < min) {
+	    throw new IllegalArgumentException("Minimum must be less than Maximum");
+	}
+	this.minQuantity = min;
+	this.maxQuantity = max;
+	this.percentageFlag = false;
     }
 
     public void setQuantityRelative(final int min, final int max) {
-        // Check for valid arguments
-        if (min < 0) {
-            throw new IllegalArgumentException("Minimum must be at least zero");
-        }
-        if (max < 0) {
-            throw new IllegalArgumentException("Maximum must be at least zero");
-        }
-        if (max < min) {
-            throw new IllegalArgumentException(
-                    "Minimum must be less than Maximum");
-        }
-        if (min > 100) {
-            throw new IllegalArgumentException(
-                    "Minimum must not be more than 100%");
-        }
-        if (max > 100) {
-            throw new IllegalArgumentException(
-                    "Maximum must not be more than 100%");
-        }
-        if (max - min > 100) {
-            throw new IllegalArgumentException(
-                    "Difference between Maximum and Minimum must not be more than 100%");
-        }
-        this.minQuantity = min;
-        this.maxQuantity = max;
-        this.percentageFlag = true;
+	// Check for valid arguments
+	if (min < 0) {
+	    throw new IllegalArgumentException("Minimum must be at least zero");
+	}
+	if (max < 0) {
+	    throw new IllegalArgumentException("Maximum must be at least zero");
+	}
+	if (max < min) {
+	    throw new IllegalArgumentException("Minimum must be less than Maximum");
+	}
+	if (min > 100) {
+	    throw new IllegalArgumentException("Minimum must not be more than 100%");
+	}
+	if (max > 100) {
+	    throw new IllegalArgumentException("Maximum must not be more than 100%");
+	}
+	if (max - min > 100) {
+	    throw new IllegalArgumentException("Difference between Maximum and Minimum must not be more than 100%");
+	}
+	this.minQuantity = min;
+	this.maxQuantity = max;
+	this.percentageFlag = true;
     }
 
     public void setGenerateQuantity(final int value) {
-        // Check for valid arguments
-        if (value < 0) {
-            throw new IllegalArgumentException("Value must be at least zero");
-        }
-        if (value > 100) {
-            throw new IllegalArgumentException("Value must be less than 100");
-        }
-        this.generateQuantity = value;
+	// Check for valid arguments
+	if (value < 0) {
+	    throw new IllegalArgumentException("Value must be at least zero");
+	}
+	if (value > 100) {
+	    throw new IllegalArgumentException("Value must be less than 100");
+	}
+	this.generateQuantity = value;
     }
 
     public void setRequired(final boolean newReq) {
-        this.required = newReq;
+	this.required = newReq;
     }
 
     public boolean getPercentageFlag() {
-        return this.percentageFlag;
+	return this.percentageFlag;
     }
 
     public int getGenerateQuantity() {
-        return this.generateQuantity;
+	return this.generateQuantity;
     }
 
-    public void readRuleSet(final XDataReader reader, final int rsFormat)
-            throws IOException {
-        this.maxQuantity = reader.readInt();
-        this.minQuantity = reader.readInt();
-        this.percentageFlag = reader.readBoolean();
-        if (rsFormat == RuleSetConstants.FORMAT_2) {
-            this.required = reader.readBoolean();
-            this.generateQuantity = reader.readInt();
-        } else {
-            this.required = true;
-            this.generateQuantity = 100;
-        }
+    public void readRuleSet(final XDataReader reader, final int rsFormat) throws IOException {
+	this.maxQuantity = reader.readInt();
+	this.minQuantity = reader.readInt();
+	this.percentageFlag = reader.readBoolean();
+	if (rsFormat == RuleSetConstants.FORMAT_2) {
+	    this.required = reader.readBoolean();
+	    this.generateQuantity = reader.readInt();
+	} else {
+	    this.required = true;
+	    this.generateQuantity = 100;
+	}
     }
 
     public void writeRuleSet(final XDataWriter writer) throws IOException {
-        writer.writeInt(this.maxQuantity);
-        writer.writeInt(this.minQuantity);
-        writer.writeBoolean(this.percentageFlag);
-        writer.writeBoolean(this.required);
-        writer.writeInt(this.generateQuantity);
+	writer.writeInt(this.maxQuantity);
+	writer.writeInt(this.minQuantity);
+	writer.writeBoolean(this.percentageFlag);
+	writer.writeBoolean(this.required);
+	writer.writeInt(this.generateQuantity);
     }
 
     public int getMaximumRequiredQuantity() {
-        return this.maxQuantity;
+	return this.maxQuantity;
     }
 
     public int getMinimumRequiredQuantity() {
-        return this.minQuantity;
+	return this.minQuantity;
     }
 
     /**
@@ -144,58 +138,57 @@ public final class RuleSet implements Cloneable, RandomGenerationRule {
      */
     @Override
     public int getMaximumRequiredQuantity(final Dungeon dungeon) {
-        if (this.percentageFlag) {
-            final int base = dungeon.getRows() * dungeon.getColumns();
-            final double factor = this.maxQuantity / 100.0;
-            return (int) (base * factor);
-        } else {
-            return this.maxQuantity;
-        }
+	if (this.percentageFlag) {
+	    final int base = dungeon.getRows() * dungeon.getColumns();
+	    final double factor = this.maxQuantity / 100.0;
+	    return (int) (base * factor);
+	} else {
+	    return this.maxQuantity;
+	}
     }
 
     @Override
     public int getMinimumRequiredQuantity(final Dungeon dungeon) {
-        if (this.percentageFlag) {
-            final int base = dungeon.getRows() * dungeon.getColumns();
-            final double factor = this.minQuantity / 100.0;
-            return (int) (base * factor);
-        } else {
-            return this.minQuantity;
-        }
+	if (this.percentageFlag) {
+	    final int base = dungeon.getRows() * dungeon.getColumns();
+	    final double factor = this.minQuantity / 100.0;
+	    return (int) (base * factor);
+	} else {
+	    return this.minQuantity;
+	}
     }
 
     @Override
     public boolean isRequired() {
-        return this.required;
+	return this.required;
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        final int genval = this.rng.generate();
-        return genval <= this.generateQuantity;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	final int genval = this.rng.generate();
+	return genval <= this.generateQuantity;
     }
 
     @Override
-    public boolean shouldGenerateObjectInBattle(final Dungeon dungeon,
-            final int row, final int col, final int floor, final int level,
-            final int layer) {
-        // Generate objects at 100%
-        return true;
+    public boolean shouldGenerateObjectInBattle(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Generate objects at 100%
+	return true;
     }
 
     @Override
     public int getMinimumRequiredQuantityInBattle(final Dungeon dungeon) {
-        return RandomGenerationRule.NO_LIMIT;
+	return RandomGenerationRule.NO_LIMIT;
     }
 
     @Override
     public int getMaximumRequiredQuantityInBattle(final Dungeon dungeon) {
-        return RandomGenerationRule.NO_LIMIT;
+	return RandomGenerationRule.NO_LIMIT;
     }
 
     @Override
     public boolean isRequiredInBattle() {
-        return false;
+	return false;
     }
 }

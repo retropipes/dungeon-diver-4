@@ -51,8 +51,7 @@ public interface ColorConstants {
     int COLOR_INVISIBLE_TELEPORT_ATTRIBUTE = new Color(127, 127, 0).getRGB();
     int COLOR_BLOCK = new Color(191, 0, 0).getRGB();
     int COLOR_SUNKEN_BLOCK = new Color(95, 0, 0).getRGB();
-    int COLOR_INVISIBLE_BLOCK_TELEPORT_ATTRIBUTE = new Color(63, 0, 127)
-            .getRGB();
+    int COLOR_INVISIBLE_BLOCK_TELEPORT_ATTRIBUTE = new Color(63, 0, 127).getRGB();
     int COLOR_FAKE = new Color(159, 79, 49).getRGB();
     int COLOR_DOOR = new Color(191, 95, 47).getRGB();
     int COLOR_SUN_DOOR = new Color(255, 255, 127).getRGB();

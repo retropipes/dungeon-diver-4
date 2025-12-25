@@ -14,35 +14,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class BlockTeleport extends AbstractBlockTeleport {
     // Constructors
     public BlockTeleport() {
-        super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+	super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
-    public BlockTeleport(final int destinationRow, final int destinationColumn,
-            final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor,
-                ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+    public BlockTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Block Teleport";
+	return "Block Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Block Teleports";
+	return "Block Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_BLOCK);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_BLOCK);
     }
 
     @Override
     public String getDescription() {
-        return "Block Teleports send blocks to a predetermined destination when blocks are moved into them.";
+	return "Block Teleports send blocks to a predetermined destination when blocks are moved into them.";
     }
 }

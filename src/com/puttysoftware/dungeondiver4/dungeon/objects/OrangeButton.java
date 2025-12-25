@@ -10,22 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class OrangeButton extends AbstractButton {
     public OrangeButton() {
-        super(new OrangeWallOff(), new OrangeWallOn(),
-                ColorConstants.COLOR_ORANGE);
+	super(new OrangeWallOff(), new OrangeWallOn(), ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public String getName() {
-        return "Orange Button";
+	return "Orange Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Orange Buttons";
+	return "Orange Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Orange Buttons will cause all Orange Walls Off to become On, and all Orange Walls On to become Off.";
+	return "Orange Buttons will cause all Orange Walls Off to become On, and all Orange Walls On to become Off.";
     }
 }

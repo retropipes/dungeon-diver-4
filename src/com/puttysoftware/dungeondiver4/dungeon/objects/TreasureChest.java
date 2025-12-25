@@ -17,48 +17,45 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class TreasureChest extends AbstractContainer {
     // Constructors
     public TreasureChest() {
-        super(new TreasureKey());
-        this.setTemplateColor(ColorConstants.COLOR_BRIDGE);
+	super(new TreasureKey());
+	this.setTemplateColor(ColorConstants.COLOR_BRIDGE);
     }
 
     public TreasureChest(final AbstractDungeonObject inside) {
-        super(new TreasureKey(), inside);
+	super(new TreasureKey(), inside);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_TREASURE_CHEST;
+	return ObjectImageConstants.OBJECT_IMAGE_TREASURE_CHEST;
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            DungeonDiver4.getApplication()
-                    .showMessage("You need a treasure key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a treasure key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Treasure Chest";
+	return "Treasure Chest";
     }
 
     @Override
     public String getPluralName() {
-        return "Treasure Chests";
+	return "Treasure Chests";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        return DungeonDiver4.getApplication().getEditor()
-                .editTreasureChestContents();
+	return DungeonDiver4.getApplication().getEditor().editTreasureChestContents();
     }
 
     @Override
     public String getDescription() {
-        return "Treasure Chests require Treasure Keys to open, and contain 1 other item.";
+	return "Treasure Chests require Treasure Keys to open, and contain 1 other item.";
     }
 }

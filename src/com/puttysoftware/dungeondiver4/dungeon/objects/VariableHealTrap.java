@@ -23,38 +23,34 @@ public class VariableHealTrap extends AbstractTrap {
 
     // Constructors
     public VariableHealTrap() {
-        super(ColorConstants.COLOR_MAGENTA,
-                ObjectImageConstants.OBJECT_IMAGE_VARIABLE_HEALTH,
-                ColorConstants.COLOR_DARK_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA, ObjectImageConstants.OBJECT_IMAGE_VARIABLE_HEALTH,
+		ColorConstants.COLOR_DARK_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Variable Heal Trap";
+	return "Variable Heal Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Variable Heal Traps";
+	return "Variable Heal Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        this.maxHealing = PartyManager.getParty().getLeader().getMaximumHP()
-                / 10;
-        if (this.maxHealing < VariableHealTrap.MIN_HEALING) {
-            this.maxHealing = VariableHealTrap.MIN_HEALING;
-        }
-        this.healingGiven = new RandomRange(VariableHealTrap.MIN_HEALING,
-                this.maxHealing);
-        PartyManager.getParty().getLeader().heal(this.healingGiven.generate());
-        SoundManager.playSound(SoundConstants.SOUND_BARRIER);
-        DungeonDiver4.getApplication().getGameManager().decay();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	this.maxHealing = PartyManager.getParty().getLeader().getMaximumHP() / 10;
+	if (this.maxHealing < VariableHealTrap.MIN_HEALING) {
+	    this.maxHealing = VariableHealTrap.MIN_HEALING;
+	}
+	this.healingGiven = new RandomRange(VariableHealTrap.MIN_HEALING, this.maxHealing);
+	PartyManager.getParty().getLeader().heal(this.healingGiven.generate());
+	SoundManager.playSound(SoundConstants.SOUND_BARRIER);
+	DungeonDiver4.getApplication().getGameManager().decay();
     }
 
     @Override
     public String getDescription() {
-        return "Variable Heal Traps heal you when stepped on, then disappear.";
+	return "Variable Heal Traps heal you when stepped on, then disappear.";
     }
 }

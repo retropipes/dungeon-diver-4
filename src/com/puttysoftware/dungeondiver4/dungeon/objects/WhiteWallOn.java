@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class WhiteWallOn extends AbstractToggleWall {
     // Constructors
     public WhiteWallOn() {
-        super(true, ColorConstants.COLOR_WHITE);
+	super(true, ColorConstants.COLOR_WHITE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "White Wall On";
+	return "White Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "White Walls On";
+	return "White Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "White Walls On can NOT be walked through, and will change to White Walls Off when a White Button is pressed.";
+	return "White Walls On can NOT be walked through, and will change to White Walls Off when a White Button is pressed.";
     }
 }

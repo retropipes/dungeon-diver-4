@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class OrangeWallOff extends AbstractToggleWall {
     // Constructors
     public OrangeWallOff() {
-        super(false, ColorConstants.COLOR_ORANGE);
+	super(false, ColorConstants.COLOR_ORANGE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Orange Wall Off";
+	return "Orange Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Orange Walls Off";
+	return "Orange Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Orange Walls Off can be walked through, and will change to Orange Walls On when a Orange Button is pressed.";
+	return "Orange Walls Off can be walked through, and will change to Orange Walls On when a Orange Button is pressed.";
     }
 }

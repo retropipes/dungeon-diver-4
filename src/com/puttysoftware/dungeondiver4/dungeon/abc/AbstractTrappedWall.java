@@ -17,15 +17,15 @@ public abstract class AbstractTrappedWall extends AbstractWall {
 
     // Constructors
     protected AbstractTrappedWall(final int newNumber) {
-        super(ColorConstants.COLOR_BROWN);
-        this.number = newNumber;
+	super(ColorConstants.COLOR_BROWN);
+	this.number = newNumber;
     }
 
     @Override
     public AbstractTrappedWall clone() {
-        final AbstractTrappedWall copy = (AbstractTrappedWall) super.clone();
-        copy.number = this.number;
-        return copy;
+	final AbstractTrappedWall copy = (AbstractTrappedWall) super.clone();
+	copy.number = this.number;
+	return copy;
     }
 
     @Override
@@ -33,42 +33,42 @@ public abstract class AbstractTrappedWall extends AbstractWall {
 
     @Override
     public int getGameAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_NONE;
+	return ObjectImageConstants.OBJECT_IMAGE_NONE;
     }
 
     @Override
     public String getName() {
-        if (this.number == AbstractTrappedWall.NUMBER_MASTER) {
-            return "Master Trapped Wall";
-        } else {
-            return "Trapped Wall " + this.number;
-        }
+	if (this.number == AbstractTrappedWall.NUMBER_MASTER) {
+	    return "Master Trapped Wall";
+	} else {
+	    return "Trapped Wall " + this.number;
+	}
     }
 
     @Override
     public String getGameName() {
-        return "Wall";
+	return "Wall";
     }
 
     @Override
     public String getPluralName() {
-        if (this.number == AbstractTrappedWall.NUMBER_MASTER) {
-            return "Master Trapped Walls";
-        } else {
-            return "Trapped Walls " + this.number;
-        }
+	if (this.number == AbstractTrappedWall.NUMBER_MASTER) {
+	    return "Master Trapped Walls";
+	} else {
+	    return "Trapped Walls " + this.number;
+	}
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_TRAPPED_WALL);
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_TRAPPED_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 }

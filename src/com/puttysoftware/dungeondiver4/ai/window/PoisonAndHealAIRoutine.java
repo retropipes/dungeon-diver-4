@@ -13,62 +13,60 @@ public class PoisonAndHealAIRoutine extends AbstractWindowAIRoutine {
 
     // Constructors
     public PoisonAndHealAIRoutine() {
-        this.poisonRounds = 0;
+	this.poisonRounds = 0;
     }
 
     @Override
     public int getNextAction(final AbstractCreature c) {
-        if (this.poisonRounds > 0) {
-            this.poisonRounds--;
-        }
-        final RandomRange whichAction = new RandomRange(1, 2);
-        final int action = whichAction.generate();
-        Spell which = null;
-        if (action == 1) {
-            which = c.getSpellBook().getSpellByID(0);
-        } else {
-            which = c.getSpellBook().getSpellByID(1);
-        }
-        final int cost = which.getCost();
-        final int currMP = c.getCurrentMP();
-        if (action == 1) {
-            if (cost <= currMP && this.poisonRounds == 0) {
-                final RandomRange chance = new RandomRange(1, 100);
-                if (chance.generate() <= PoisonAndHealAIRoutine.POISON_CHANCE) {
-                    this.poisonRounds = which.getEffect().getInitialRounds();
-                    this.spell = which;
-                    return AbstractWindowAIRoutine.ACTION_CAST_SPELL;
-                } else {
-                    this.spell = null;
-                    return AbstractWindowAIRoutine.ACTION_ATTACK;
-                }
-            } else {
-                this.spell = null;
-                return AbstractWindowAIRoutine.ACTION_ATTACK;
-            }
-        } else {
-            if (cost <= currMP) {
-                final int currHP = c.getCurrentHP();
-                final int targetHP = (int) (currHP
-                        * PoisonAndHealAIRoutine.HEAL_PERCENT);
-                if (currHP <= targetHP) {
-                    final RandomRange chance = new RandomRange(1, 100);
-                    if (chance
-                            .generate() <= PoisonAndHealAIRoutine.HEAL_CHANCE) {
-                        this.spell = which;
-                        return AbstractWindowAIRoutine.ACTION_CAST_SPELL;
-                    } else {
-                        this.spell = null;
-                        return AbstractWindowAIRoutine.ACTION_ATTACK;
-                    }
-                } else {
-                    this.spell = null;
-                    return AbstractWindowAIRoutine.ACTION_ATTACK;
-                }
-            } else {
-                this.spell = null;
-                return AbstractWindowAIRoutine.ACTION_ATTACK;
-            }
-        }
+	if (this.poisonRounds > 0) {
+	    this.poisonRounds--;
+	}
+	final RandomRange whichAction = new RandomRange(1, 2);
+	final int action = whichAction.generate();
+	Spell which = null;
+	if (action == 1) {
+	    which = c.getSpellBook().getSpellByID(0);
+	} else {
+	    which = c.getSpellBook().getSpellByID(1);
+	}
+	final int cost = which.getCost();
+	final int currMP = c.getCurrentMP();
+	if (action == 1) {
+	    if (cost <= currMP && this.poisonRounds == 0) {
+		final RandomRange chance = new RandomRange(1, 100);
+		if (chance.generate() <= PoisonAndHealAIRoutine.POISON_CHANCE) {
+		    this.poisonRounds = which.getEffect().getInitialRounds();
+		    this.spell = which;
+		    return AbstractWindowAIRoutine.ACTION_CAST_SPELL;
+		} else {
+		    this.spell = null;
+		    return AbstractWindowAIRoutine.ACTION_ATTACK;
+		}
+	    } else {
+		this.spell = null;
+		return AbstractWindowAIRoutine.ACTION_ATTACK;
+	    }
+	} else {
+	    if (cost <= currMP) {
+		final int currHP = c.getCurrentHP();
+		final int targetHP = (int) (currHP * PoisonAndHealAIRoutine.HEAL_PERCENT);
+		if (currHP <= targetHP) {
+		    final RandomRange chance = new RandomRange(1, 100);
+		    if (chance.generate() <= PoisonAndHealAIRoutine.HEAL_CHANCE) {
+			this.spell = which;
+			return AbstractWindowAIRoutine.ACTION_CAST_SPELL;
+		    } else {
+			this.spell = null;
+			return AbstractWindowAIRoutine.ACTION_ATTACK;
+		    }
+		} else {
+		    this.spell = null;
+		    return AbstractWindowAIRoutine.ACTION_ATTACK;
+		}
+	    } else {
+		this.spell = null;
+		return AbstractWindowAIRoutine.ACTION_ATTACK;
+	    }
+	}
     }
 }

@@ -12,27 +12,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 public class Tundra extends AbstractGround {
     // Constructors
     public Tundra() {
-        super(ColorConstants.COLOR_TUNDRA);
+	super(ColorConstants.COLOR_TUNDRA);
     }
 
     @Override
     public String getName() {
-        return "Tundra";
+	return "Tundra";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Tundra";
+	return "Squares of Tundra";
     }
 
     @Override
     public String getDescription() {
-        return "Tundra is one of the many types of ground.";
+	return "Tundra is one of the many types of ground.";
     }
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
     }
 }

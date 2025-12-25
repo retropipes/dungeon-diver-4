@@ -12,28 +12,28 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class ShuffleBomb extends AbstractBomb {
     // Constructors
     public ShuffleBomb() {
-        super(ColorConstants.COLOR_ORANGE);
+	super(ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public String getName() {
-        return "Shuffle Bomb";
+	return "Shuffle Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Shuffle Bombs";
+	return "Shuffle Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Shuffle Bombs randomly rearrange anything in an area of radius 3 centered on the target point.";
+	return "Shuffle Bombs randomly rearrange anything in an area of radius 3 centered on the target point.";
     }
 
     @Override
     public void useActionHook(final int x, final int y, final int z) {
-        // Shuffle objects
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .radialScanShuffleObjects(x, y, z, AbstractBomb.EFFECT_RADIUS);
+	// Shuffle objects
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().radialScanShuffleObjects(x, y, z,
+		AbstractBomb.EFFECT_RADIUS);
     }
 }

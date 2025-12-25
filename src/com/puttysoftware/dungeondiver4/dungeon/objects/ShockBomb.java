@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class ShockBomb extends AbstractBomb {
     // Constructors
     public ShockBomb() {
-        super(ColorConstants.COLOR_LIGHT_YELLOW);
+	super(ColorConstants.COLOR_LIGHT_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Shock Bomb";
+	return "Shock Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Shock Bombs";
+	return "Shock Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Shock Bombs shock anything in an area of radius 2 centered on the target point.";
+	return "Shock Bombs shock anything in an area of radius 2 centered on the target point.";
     }
 
     @Override
     public void useActionHook(final int x, final int y, final int z) {
-        // Shock objects that react to shock
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .radialScanShockObjects(x, y, z, AbstractBomb.EFFECT_RADIUS);
-        // Shock the ground, too
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .radialScanShockGround(x, y, z, AbstractBomb.EFFECT_RADIUS);
+	// Shock objects that react to shock
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().radialScanShockObjects(x, y, z,
+		AbstractBomb.EFFECT_RADIUS);
+	// Shock the ground, too
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().radialScanShockGround(x, y, z,
+		AbstractBomb.EFFECT_RADIUS);
     }
 }

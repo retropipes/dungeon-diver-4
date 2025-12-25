@@ -14,28 +14,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class LightnessGem extends AbstractGem {
     // Constructors
     public LightnessGem() {
-        super(ColorConstants.COLOR_LIGHT_YELLOW);
+	super(ColorConstants.COLOR_LIGHT_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Lightness Gem";
+	return "Lightness Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Lightness Gems";
+	return "Lightness Gems";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .incrementVisionRadius();
-        SoundManager.playSound(SoundConstants.SOUND_LIGHT);
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().incrementVisionRadius();
+	SoundManager.playSound(SoundConstants.SOUND_LIGHT);
     }
 
     @Override
     public String getDescription() {
-        return "Lightness Gems increase the visible area by 1.";
+	return "Lightness Gems increase the visible area by 1.";
     }
 }

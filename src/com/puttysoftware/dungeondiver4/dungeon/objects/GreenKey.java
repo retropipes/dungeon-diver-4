@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GreenKey extends AbstractSingleKey {
     // Constructors
     public GreenKey() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Green Key";
+	return "Green Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Keys";
+	return "Green Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Green Keys will unlock Green Locks, and can only be used once.";
+	return "Green Keys will unlock Green Locks, and can only be used once.";
     }
 }

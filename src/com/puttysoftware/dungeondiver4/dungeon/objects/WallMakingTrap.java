@@ -15,31 +15,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
 public class WallMakingTrap extends AbstractTrap {
     public WallMakingTrap() {
-        super(ColorConstants.COLOR_BRIDGE,
-                ObjectImageConstants.OBJECT_IMAGE_WALL_MAKING,
-                ColorConstants.COLOR_BROWN);
+	super(ColorConstants.COLOR_BRIDGE, ObjectImageConstants.OBJECT_IMAGE_WALL_MAKING, ColorConstants.COLOR_BROWN);
     }
 
     @Override
     public String getName() {
-        return "Wall-Making Trap";
+	return "Wall-Making Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Wall-Making Traps";
+	return "Wall-Making Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
-        DungeonDiver4.getApplication().getGameManager()
-                .delayedDecayTo(new Wall());
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
+	DungeonDiver4.getApplication().getGameManager().delayedDecayTo(new Wall());
     }
 
     @Override
     public String getDescription() {
-        return "Wall-Making Traps create a Wall when you step OFF them.";
+	return "Wall-Making Traps create a Wall when you step OFF them.";
     }
 }

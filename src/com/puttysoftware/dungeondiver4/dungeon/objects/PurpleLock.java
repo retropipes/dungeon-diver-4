@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class PurpleLock extends AbstractSingleLock {
     // Constructors
     public PurpleLock() {
-        super(new PurpleKey(), ColorConstants.COLOR_PURPLE);
+	super(new PurpleKey(), ColorConstants.COLOR_PURPLE);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a purple key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a purple key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Purple Lock";
+	return "Purple Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Purple Locks";
+	return "Purple Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Purple Locks require Purple Keys to open.";
+	return "Purple Locks require Purple Keys to open.";
     }
 }

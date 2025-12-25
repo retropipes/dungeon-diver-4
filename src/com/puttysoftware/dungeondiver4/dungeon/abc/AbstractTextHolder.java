@@ -22,20 +22,18 @@ public abstract class AbstractTextHolder extends AbstractDungeonObject {
 
     // Constructors
     protected AbstractTextHolder() {
-        super(true, false);
-        this.text = "Empty";
+	super(true, false);
+	this.text = "Empty";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        CommonDialogs.showDialog(this.text);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	CommonDialogs.showDialog(this.text);
     }
 
     @Override
@@ -43,54 +41,51 @@ public abstract class AbstractTextHolder extends AbstractDungeonObject {
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_TEXT_HOLDER);
+	this.type.set(TypeConstants.TYPE_TEXT_HOLDER);
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        this.text = CommonDialogs.showTextInputDialogWithDefault(
-                "Set Text for " + this.getName(), "Editor", this.text);
-        return this;
+	this.text = CommonDialogs.showTextInputDialogWithDefault("Set Text for " + this.getName(), "Editor", this.text);
+	return this;
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 
     @Override
-    protected AbstractDungeonObject readDungeonObjectHook(
-            final XDataReader reader, final int formatVersion)
-            throws IOException {
-        this.text = reader.readString();
-        return this;
+    protected AbstractDungeonObject readDungeonObjectHook(final XDataReader reader, final int formatVersion)
+	    throws IOException {
+	this.text = reader.readString();
+	return this;
     }
 
     @Override
-    protected void writeDungeonObjectHook(final XDataWriter writer)
-            throws IOException {
-        writer.writeString(this.text);
+    protected void writeDungeonObjectHook(final XDataWriter writer) throws IOException {
+	writer.writeString(this.text);
     }
 
     @Override
     public int getCustomFormat() {
-        return AbstractDungeonObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
+	return AbstractDungeonObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
     }
 }

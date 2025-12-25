@@ -19,13 +19,13 @@ public abstract class AbstractAmulet extends AbstractInventoryableObject {
 
     // Constructors
     protected AbstractAmulet(final int tc) {
-        super(false, 0);
-        this.setTemplateColor(tc);
+	super(false, 0);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_AMULET;
+	return ObjectImageConstants.OBJECT_IMAGE_AMULET;
     }
 
     @Override
@@ -33,21 +33,19 @@ public abstract class AbstractAmulet extends AbstractInventoryableObject {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_AMULET);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_AMULET);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_GRAB);
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(AbstractAmulet.SCORE_INCREASE);
-        this.postMoveActionHook();
-        inv.addItem(this);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_GRAB);
+	DungeonDiver4.getApplication().getGameManager().addToScore(AbstractAmulet.SCORE_INCREASE);
+	this.postMoveActionHook();
+	inv.addItem(this);
     }
 
     public abstract void postMoveActionHook();

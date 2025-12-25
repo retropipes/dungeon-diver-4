@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class PasswallBoots extends AbstractBoots {
     // Constructors
     public PasswallBoots() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Passwall Boots";
+	return "Passwall Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Passwall Boots";
+	return "Pairs of Passwall Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Passwall Boots allow you to pass through most walls as you walk. Note that you can only wear one pair of boots at once.";
+	return "Passwall Boots allow you to pass through most walls as you walk. Note that you can only wear one pair of boots at once.";
     }
 }

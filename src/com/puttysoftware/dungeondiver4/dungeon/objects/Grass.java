@@ -12,27 +12,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 public class Grass extends AbstractGround {
     // Constructors
     public Grass() {
-        super(ColorConstants.COLOR_GRASS);
+	super(ColorConstants.COLOR_GRASS);
     }
 
     @Override
     public String getName() {
-        return "Grass";
+	return "Grass";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Grass";
+	return "Squares of Grass";
     }
 
     @Override
     public String getDescription() {
-        return "Grass is one of the many types of ground.";
+	return "Grass is one of the many types of ground.";
     }
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
     }
 }

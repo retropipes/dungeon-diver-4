@@ -15,32 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class SeaweedLock extends AbstractSingleLock {
     // Constructors
     public SeaweedLock() {
-        super(new SeaweedKey(), ColorConstants.COLOR_SEAWEED);
+	super(new SeaweedKey(), ColorConstants.COLOR_SEAWEED);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication()
-                    .showMessage("You need a seaweed key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a seaweed key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Seaweed Lock";
+	return "Seaweed Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Locks";
+	return "Seaweed Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Locks require Seaweed Keys to open.";
+	return "Seaweed Locks require Seaweed Keys to open.";
     }
 }

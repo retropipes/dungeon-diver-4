@@ -14,28 +14,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class DimnessGem extends AbstractGem {
     // Constructors
     public DimnessGem() {
-        super(ColorConstants.COLOR_LIGHT_PURPLE);
+	super(ColorConstants.COLOR_LIGHT_PURPLE);
     }
 
     @Override
     public String getName() {
-        return "Dimness Gem";
+	return "Dimness Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Dimness Gems";
+	return "Dimness Gems";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .decrementVisionRadius();
-        SoundManager.playSound(SoundConstants.SOUND_DARKNESS);
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().decrementVisionRadius();
+	SoundManager.playSound(SoundConstants.SOUND_DARKNESS);
     }
 
     @Override
     public String getDescription() {
-        return "Dimness Gems decrease the visible area by 1.";
+	return "Dimness Gems decrease the visible area by 1.";
     }
 }

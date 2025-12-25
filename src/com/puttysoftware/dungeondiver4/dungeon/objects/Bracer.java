@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Bracer extends AbstractMultipleKey {
     // Constructors
     public Bracer() {
-        super(ColorConstants.COLOR_CYAN);
+	super(ColorConstants.COLOR_CYAN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BRACERS;
+	return ObjectImageConstants.OBJECT_IMAGE_BRACERS;
     }
 
     @Override
     public String getName() {
-        return "Bracer";
+	return "Bracer";
     }
 
     @Override
     public String getPluralName() {
-        return "Bracers";
+	return "Bracers";
     }
 
     @Override
     public String getDescription() {
-        return "Bracers are the keys to Bracer Walls.";
+	return "Bracers are the keys to Bracer Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Cyan Crystal";
+	return "Cyan Crystal";
     }
 }

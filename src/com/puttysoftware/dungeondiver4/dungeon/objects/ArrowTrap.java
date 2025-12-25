@@ -16,37 +16,33 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class ArrowTrap extends AbstractTrap {
     // Constructors
     public ArrowTrap() {
-        super(ColorConstants.COLOR_ORANGE,
-                ObjectImageConstants.OBJECT_IMAGE_ARROW,
-                ColorConstants.COLOR_BROWN);
+	super(ColorConstants.COLOR_ORANGE, ObjectImageConstants.OBJECT_IMAGE_ARROW, ColorConstants.COLOR_BROWN);
     }
 
     @Override
     public String getName() {
-        return "Arrow Trap";
+	return "Arrow Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Arrow Traps";
+	return "Arrow Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("The arrow is stopped!");
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("The arrow is stopped!");
+	return false;
     }
 
     @Override
     public String getDescription() {
-        return "Arrow Traps stop arrows.";
+	return "Arrow Traps stop arrows.";
     }
 }

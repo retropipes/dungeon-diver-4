@@ -16,6 +16,6 @@ public interface ShopTypes {
     int SHOP_TYPE_SOCKS = 8;
     int SHOP_TYPE_ENHANCEMENTS = 9;
     int SHOP_TYPE_FAITH_POWERS = 10;
-    String[] SHOP_NAMES = { "Weapons", "Armor", "Healer", "Bank", "Regenerator",
-            "Spells", "Items", "Socks", "Enhancements", "Faith Powers" };
+    String[] SHOP_NAMES = { "Weapons", "Armor", "Healer", "Bank", "Regenerator", "Spells", "Items", "Socks",
+	    "Enhancements", "Faith Powers" };
 }

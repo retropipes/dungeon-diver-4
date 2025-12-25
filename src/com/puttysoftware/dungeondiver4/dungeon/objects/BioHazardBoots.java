@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class BioHazardBoots extends AbstractBoots {
     // Constructors
     public BioHazardBoots() {
-        super(ColorConstants.COLOR_YELLOW);
+	super(ColorConstants.COLOR_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Bio-Hazard Boots";
+	return "Bio-Hazard Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Bio-Hazard Boots";
+	return "Pairs of Bio-Hazard Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Bio-Hazard Boots allow walking on slime. Note that you can only wear one pair of boots at once.";
+	return "Bio-Hazard Boots allow walking on slime. Note that you can only wear one pair of boots at once.";
     }
 }

@@ -12,26 +12,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SealedFinish extends AbstractWall {
     // Constructors
     public SealedFinish() {
-        super(ColorConstants.COLOR_WHITE);
+	super(ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SEALED_FINISH;
+	return ObjectImageConstants.OBJECT_IMAGE_SEALED_FINISH;
     }
 
     @Override
     public String getName() {
-        return "Sealed Finish";
+	return "Sealed Finish";
     }
 
     @Override
     public String getPluralName() {
-        return "Sealed Finishes";
+	return "Sealed Finishes";
     }
 
     @Override
     public String getDescription() {
-        return "Sealed Finishes are Finishes that are currently closed.";
+	return "Sealed Finishes are Finishes that are currently closed.";
     }
 }

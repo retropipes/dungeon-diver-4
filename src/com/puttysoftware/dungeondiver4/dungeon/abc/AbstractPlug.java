@@ -12,20 +12,20 @@ public abstract class AbstractPlug extends AbstractInfiniteKey {
     private char letter;
 
     protected AbstractPlug(final char newLetter) {
-        super();
-        this.letter = Character.toUpperCase(newLetter);
+	super();
+	this.letter = Character.toUpperCase(newLetter);
     }
 
     @Override
     public AbstractPlug clone() {
-        final AbstractPlug copy = (AbstractPlug) super.clone();
-        copy.letter = this.letter;
-        return copy;
+	final AbstractPlug copy = (AbstractPlug) super.clone();
+	copy.letter = this.letter;
+	return copy;
     }
 
     @Override
     public String getName() {
-        return this.letter + " Plug";
+	return this.letter + " Plug";
     }
 
     @Override
@@ -33,21 +33,20 @@ public abstract class AbstractPlug extends AbstractInfiniteKey {
 
     @Override
     public String getPluralName() {
-        return this.letter + " Plugs";
+	return this.letter + " Plugs";
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_LETTER_KEY);
-        this.type.set(TypeConstants.TYPE_INFINITE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_LETTER_KEY);
+	this.type.set(TypeConstants.TYPE_INFINITE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
     public String getDescription() {
-        return this.letter + " Plugs open " + this.letter
-                + " Ports, and can be used infinitely many times.";
+	return this.letter + " Plugs open " + this.letter + " Ports, and can be used infinitely many times.";
     }
 }

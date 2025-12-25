@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GoldenWall extends AbstractMultipleLock {
     // Constructors
     public GoldenWall() {
-        super(new GoldenSquare(), ColorConstants.COLOR_SUN_DOOR);
+	super(new GoldenSquare(), ColorConstants.COLOR_SUN_DOOR);
     }
 
     @Override
     public String getName() {
-        return "Golden Wall";
+	return "Golden Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Golden Walls";
+	return "Golden Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Golden Walls are impassable without enough Golden Squares.";
+	return "Golden Walls are impassable without enough Golden Squares.";
     }
 }

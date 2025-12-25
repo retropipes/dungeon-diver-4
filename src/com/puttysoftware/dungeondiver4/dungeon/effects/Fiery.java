@@ -11,13 +11,12 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.FireAmulet;
 public class Fiery extends DungeonEffect {
     // Constructor
     public Fiery(final int newRounds) {
-        super("Fiery", newRounds);
+	super("Fiery", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new FireAmulet());
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new FireAmulet());
     }
 }

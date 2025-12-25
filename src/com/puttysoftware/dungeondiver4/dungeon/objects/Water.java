@@ -19,60 +19,55 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class Water extends AbstractField {
     // Constructors
     public Water() {
-        super(new AquaBoots(), true, ColorConstants.COLOR_WATER);
+	super(new AquaBoots(), true, ColorConstants.COLOR_WATER);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK_WATER);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK_WATER);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("You'll drown");
-        SoundManager.playSound(SoundConstants.SOUND_WATER);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("You'll drown");
+	SoundManager.playSound(SoundConstants.SOUND_WATER);
     }
 
     @Override
-    public void pushIntoAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject pushed, final int x, final int y,
-            final int z) {
-        final Application app = DungeonDiver4.getApplication();
-        if (pushed.isPushable()) {
-            app.getGameManager().morph(new SunkenBlock(), x, y, z,
-                    DungeonConstants.LAYER_GROUND);
-            app.getGameManager().morph(new Empty(), x, y, z,
-                    DungeonConstants.LAYER_OBJECT);
-            SoundManager.playSound(SoundConstants.SOUND_SINK_BLOCK);
-        }
+    public void pushIntoAction(final DungeonObjectInventory inv, final AbstractDungeonObject pushed, final int x,
+	    final int y, final int z) {
+	final Application app = DungeonDiver4.getApplication();
+	if (pushed.isPushable()) {
+	    app.getGameManager().morph(new SunkenBlock(), x, y, z, DungeonConstants.LAYER_GROUND);
+	    app.getGameManager().morph(new Empty(), x, y, z, DungeonConstants.LAYER_OBJECT);
+	    SoundManager.playSound(SoundConstants.SOUND_SINK_BLOCK);
+	}
     }
 
     @Override
     public String getName() {
-        return "Water";
+	return "Water";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Water";
+	return "Squares of Water";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Water is too unstable to walk on without Aqua Boots.";
+	return "Water is too unstable to walk on without Aqua Boots.";
     }
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_GENERATION_ELIGIBLE);
     }
 }

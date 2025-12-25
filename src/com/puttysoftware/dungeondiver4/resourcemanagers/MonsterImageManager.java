@@ -20,26 +20,24 @@ public class MonsterImageManager {
     private static String LOAD_PATH = MonsterImageManager.DEFAULT_LOAD_PATH;
     private static Class<?> LOAD_CLASS = MonsterImageManager.class;
 
-    public static BufferedImageIcon getImage(final String name,
-            final Element e) {
-        // Get it from the cache
-        return MonsterImageCache.getCachedImage(name,
-                e.getFaith().getColor().getRGB());
+    public static BufferedImageIcon getImage(final String name, final Element e) {
+	// Get it from the cache
+	return MonsterImageCache.getCachedImage(name, e.getFaith().getColor().getRGB());
     }
 
     static BufferedImageIcon getUncachedImage(final String name) {
-        try {
-            final String normalName = ImageTransformer.normalizeName(name);
-            final URL url = MonsterImageManager.LOAD_CLASS.getResource(
-                    MonsterImageManager.LOAD_PATH + normalName + ".png");
-            final BufferedImage image = ImageIO.read(url);
-            return new BufferedImageIcon(image);
-        } catch (final IOException ie) {
-            return null;
-        } catch (final NullPointerException np) {
-            return null;
-        } catch (final IllegalArgumentException ia) {
-            return null;
-        }
+	try {
+	    final String normalName = ImageTransformer.normalizeName(name);
+	    final URL url = MonsterImageManager.LOAD_CLASS
+		    .getResource(MonsterImageManager.LOAD_PATH + normalName + ".png");
+	    final BufferedImage image = ImageIO.read(url);
+	    return new BufferedImageIcon(image);
+	} catch (final IOException ie) {
+	    return null;
+	} catch (final NullPointerException np) {
+	    return null;
+	} catch (final IllegalArgumentException ia) {
+	    return null;
+	}
     }
 }

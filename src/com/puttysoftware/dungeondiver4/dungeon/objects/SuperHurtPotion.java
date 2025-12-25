@@ -13,31 +13,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SuperHurtPotion extends AbstractPotion {
     // Constructors
     public SuperHurtPotion() {
-        super(StatConstants.STAT_CURRENT_HP, false);
+	super(StatConstants.STAT_CURRENT_HP, false);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUPER_HURT_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_SUPER_HURT_POTION;
     }
 
     @Override
     public String getName() {
-        return "Super Hurt Potion";
+	return "Super Hurt Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Hurt Potions";
+	return "Super Hurt Potions";
     }
 
     @Override
     public int getEffectValue() {
-        return -(PartyManager.getParty().getLeader().getCurrentHP() - 1);
+	return -(PartyManager.getParty().getLeader().getCurrentHP() - 1);
     }
 
     @Override
     public String getDescription() {
-        return "Super Hurt Potions bring you to the brink of death when picked up.";
+	return "Super Hurt Potions bring you to the brink of death when picked up.";
     }
 }

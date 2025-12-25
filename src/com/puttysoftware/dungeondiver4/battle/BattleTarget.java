@@ -6,5 +6,9 @@ Any questions should be directed to the author via email at: products@puttysoftw
 package com.puttysoftware.dungeondiver4.battle;
 
 public enum BattleTarget {
-    SELF, ONE_ALLY, ONE_ENEMY, ALL_ALLIES, ALL_ENEMIES;
+    SELF,
+    ONE_ALLY,
+    ONE_ENEMY,
+    ALL_ALLIES,
+    ALL_ENEMIES;
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class YellowWallOn extends AbstractToggleWall {
     // Constructors
     public YellowWallOn() {
-        super(true, ColorConstants.COLOR_YELLOW);
+	super(true, ColorConstants.COLOR_YELLOW);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Yellow Wall On";
+	return "Yellow Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Yellow Walls On";
+	return "Yellow Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Yellow Walls On can NOT be walked through, and will change to Yellow Walls Off when a Yellow Button is pressed.";
+	return "Yellow Walls On can NOT be walked through, and will change to Yellow Walls Off when a Yellow Button is pressed.";
     }
 }

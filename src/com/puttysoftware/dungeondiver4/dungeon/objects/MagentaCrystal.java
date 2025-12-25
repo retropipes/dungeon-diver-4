@@ -11,27 +11,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class MagentaCrystal extends AbstractProgrammableKey {
     // Constructors
     public MagentaCrystal() {
-        super("Magenta", ColorConstants.COLOR_MAGENTA);
+	super("Magenta", ColorConstants.COLOR_MAGENTA);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Magenta Crystal";
+	return "Magenta Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return "Magenta Crystals";
+	return "Magenta Crystals";
     }
 
     @Override
     public String getDescription() {
-        return "Magenta Crystals will open Magenta Crystal Walls.";
+	return "Magenta Crystals will open Magenta Crystal Walls.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

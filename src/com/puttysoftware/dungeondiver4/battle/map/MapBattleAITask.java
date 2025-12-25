@@ -15,33 +15,32 @@ class MapBattleAITask extends Thread {
 
     // Constructors
     MapBattleAITask(final MapBattleLogic battle) {
-        this.setName("AI Runner");
-        this.b = battle;
-        this.done = false;
+	this.setName("AI Runner");
+	this.b = battle;
+	this.done = false;
     }
 
     @Override
     public void run() {
-        try {
-            while (!this.done && this.b.isWaitingForAI()) {
-                this.b.executeNextAIAction();
-                if (this.b.getLastAIActionResult()) {
-                    // Delay, for animation purposes
-                    try {
-                        final int battleSpeed = PreferencesManager
-                                .getBattleSpeed();
-                        Thread.sleep(battleSpeed);
-                    } catch (final InterruptedException i) {
-                        // Ignore
-                    }
-                }
-            }
-        } catch (final Throwable t) {
-            DungeonDiver4.logError(t);
-        }
+	try {
+	    while (!this.done && this.b.isWaitingForAI()) {
+		this.b.executeNextAIAction();
+		if (this.b.getLastAIActionResult()) {
+		    // Delay, for animation purposes
+		    try {
+			final int battleSpeed = PreferencesManager.getBattleSpeed();
+			Thread.sleep(battleSpeed);
+		    } catch (final InterruptedException i) {
+			// Ignore
+		    }
+		}
+	    }
+	} catch (final Throwable t) {
+	    DungeonDiver4.logError(t);
+	}
     }
 
     void turnOver() {
-        this.done = true;
+	this.done = true;
     }
 }

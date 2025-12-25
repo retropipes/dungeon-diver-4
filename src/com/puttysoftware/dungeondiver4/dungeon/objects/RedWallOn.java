@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RedWallOn extends AbstractToggleWall {
     // Constructors
     public RedWallOn() {
-        super(true, ColorConstants.COLOR_RED);
+	super(true, ColorConstants.COLOR_RED);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Red Wall On";
+	return "Red Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Red Walls On";
+	return "Red Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Red Walls On can NOT be walked through, and will change to Red Walls Off when a Red Button is pressed.";
+	return "Red Walls On can NOT be walked through, and will change to Red Walls Off when a Red Button is pressed.";
     }
 }

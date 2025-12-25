@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class StaffWall extends AbstractMultipleLock {
     // Constructors
     public StaffWall() {
-        super(new Staff(), ColorConstants.COLOR_PURPLE);
+	super(new Staff(), ColorConstants.COLOR_PURPLE);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_STAFF;
+	return ObjectImageConstants.OBJECT_IMAGE_STAFF;
     }
 
     @Override
     public String getName() {
-        return "Staff Wall";
+	return "Staff Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Staff Walls";
+	return "Staff Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Staff Walls are impassable without enough Staves.";
+	return "Staff Walls are impassable without enough Staves.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Purple Crystal Wall";
+	return "Purple Crystal Wall";
     }
 }

@@ -30,36 +30,34 @@ public class ExperienceBoots extends AbstractBoots {
 
     // Constructors
     public ExperienceBoots() {
-        super(ColorConstants.COLOR_ORANGE);
+	super(ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public String getName() {
-        return "Experience Boots";
+	return "Experience Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Experience Boots";
+	return "Pairs of Experience Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Experience Boots give you experience as you walk. Note that you can only wear one pair of boots at once.";
+	return "Experience Boots give you experience as you walk. Note that you can only wear one pair of boots at once.";
     }
 
     @Override
     public void stepAction() {
-        final PartyMember playerCharacter = PartyManager.getParty().getLeader();
-        playerCharacter.offsetExperience(ExperienceBoots.EXP_AMOUNT);
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(ExperienceBoots.EXP_AMOUNT);
-        // Level Up Check
-        if (playerCharacter.checkLevelUp()) {
-            playerCharacter.levelUp();
-            DungeonDiver4.getApplication().getGameManager().keepNextMessage();
-            DungeonDiver4.getApplication().showMessage(
-                    "You reached level " + playerCharacter.getLevel() + ".");
-        }
+	final PartyMember playerCharacter = PartyManager.getParty().getLeader();
+	playerCharacter.offsetExperience(ExperienceBoots.EXP_AMOUNT);
+	DungeonDiver4.getApplication().getGameManager().addToScore(ExperienceBoots.EXP_AMOUNT);
+	// Level Up Check
+	if (playerCharacter.checkLevelUp()) {
+	    playerCharacter.levelUp();
+	    DungeonDiver4.getApplication().getGameManager().keepNextMessage();
+	    DungeonDiver4.getApplication().showMessage("You reached level " + playerCharacter.getLevel() + ".");
+	}
     }
 }

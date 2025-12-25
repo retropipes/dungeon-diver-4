@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class RedLock extends AbstractSingleLock {
     // Constructors
     public RedLock() {
-        super(new RedKey(), ColorConstants.COLOR_RED);
+	super(new RedKey(), ColorConstants.COLOR_RED);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a red key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a red key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Red Lock";
+	return "Red Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Red Locks";
+	return "Red Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Red Locks require Red Keys to open.";
+	return "Red Locks require Red Keys to open.";
     }
 }

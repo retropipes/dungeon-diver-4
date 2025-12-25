@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class ConditionalTeleport extends AbstractConditionalTeleport {
     // Constructors
     public ConditionalTeleport() {
-        super(ObjectImageConstants.OBJECT_IMAGE_CONDITIONAL);
+	super(ObjectImageConstants.OBJECT_IMAGE_CONDITIONAL);
     }
 
     @Override
     public String getName() {
-        return "Conditional Teleport";
+	return "Conditional Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Conditional Teleports";
+	return "Conditional Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory.";
+	return "Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory.";
     }
 }

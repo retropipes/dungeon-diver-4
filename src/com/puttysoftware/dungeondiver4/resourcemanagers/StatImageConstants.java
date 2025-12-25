@@ -13,7 +13,6 @@ public class StatImageConstants {
     public static final int STAT_IMAGE_SPELLS = 12;
     public static final int STAT_IMAGE_TEAM = 14;
     public static final int STAT_IMAGE_XP = 15;
-    static final String[] STAT_IMAGE_NAMES = { "actions", "attack", "attacks",
-            "defense", "gold", "health", "items", "magic", "magic_defense",
-            "magic_power", "name", "poison", "spells", "steals", "team", "xp" };
+    static final String[] STAT_IMAGE_NAMES = { "actions", "attack", "attacks", "defense", "gold", "health", "items",
+	    "magic", "magic_defense", "magic_power", "name", "poison", "spells", "steals", "team", "xp" };
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GreenWallOff extends AbstractToggleWall {
     // Constructors
     public GreenWallOff() {
-        super(false, ColorConstants.COLOR_GREEN);
+	super(false, ColorConstants.COLOR_GREEN);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Green Wall Off";
+	return "Green Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Walls Off";
+	return "Green Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Green Walls Off can be walked through, and will change to Green Walls On when a Green Button is pressed.";
+	return "Green Walls Off can be walked through, and will change to Green Walls On when a Green Button is pressed.";
     }
 }

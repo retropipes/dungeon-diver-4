@@ -10,21 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class RedButton extends AbstractButton {
     public RedButton() {
-        super(new RedWallOff(), new RedWallOn(), ColorConstants.COLOR_RED);
+	super(new RedWallOff(), new RedWallOn(), ColorConstants.COLOR_RED);
     }
 
     @Override
     public String getName() {
-        return "Red Button";
+	return "Red Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Red Buttons";
+	return "Red Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Red Buttons will cause all Red Walls Off to become On, and all Red Walls On to become Off.";
+	return "Red Buttons will cause all Red Walls Off to become On, and all Red Walls On to become Off.";
     }
 }

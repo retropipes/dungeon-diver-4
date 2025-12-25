@@ -15,46 +15,43 @@ import com.puttysoftware.dungeondiver4.game.GameLogicManager;
 public class BarrierGenerator extends AbstractGenerator {
     // Constructors
     public BarrierGenerator() {
-        super(ColorConstants.COLOR_YELLOW);
+	super(ColorConstants.COLOR_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Barrier Generator";
+	return "Barrier Generator";
     }
 
     @Override
     public String getPluralName() {
-        return "Barrier Generators";
+	return "Barrier Generators";
     }
 
     @Override
     public String getDescription() {
-        return "Barrier Generators create Barriers. When hit or shot, they stop generating for a while, then resume generating.";
+	return "Barrier Generators create Barriers. When hit or shot, they stop generating for a while, then resume generating.";
     }
 
     @Override
-    protected boolean preMoveActionHook(final int dirX, final int dirY,
-            final int dirZ, final int dirW) {
-        return true;
+    protected boolean preMoveActionHook(final int dirX, final int dirY, final int dirZ, final int dirW) {
+	return true;
     }
 
     @Override
-    protected void arrowHitActionHook(final int locX, final int locY,
-            final int locZ, final int arrowType,
-            final DungeonObjectInventory inv) {
-        final GameLogicManager gm = DungeonDiver4.getApplication()
-                .getGameManager();
-        if (arrowType == ArrowTypeConstants.ARROW_TYPE_ICE) {
-            gm.morph(new IcedBarrierGenerator(), locX, locY, locZ);
-        } else if (arrowType == ArrowTypeConstants.ARROW_TYPE_FIRE) {
-            gm.morph(new EnragedBarrierGenerator(), locX, locY, locZ);
-        } else if (arrowType == ArrowTypeConstants.ARROW_TYPE_POISON) {
-            gm.morph(new PoisonedBarrierGenerator(), locX, locY, locZ);
-        } else if (arrowType == ArrowTypeConstants.ARROW_TYPE_SHOCK) {
-            gm.morph(new ShockedBarrierGenerator(), locX, locY, locZ);
-        } else {
-            this.preMoveAction(false, locX, locY, inv);
-        }
+    protected void arrowHitActionHook(final int locX, final int locY, final int locZ, final int arrowType,
+	    final DungeonObjectInventory inv) {
+	final GameLogicManager gm = DungeonDiver4.getApplication().getGameManager();
+	if (arrowType == ArrowTypeConstants.ARROW_TYPE_ICE) {
+	    gm.morph(new IcedBarrierGenerator(), locX, locY, locZ);
+	} else if (arrowType == ArrowTypeConstants.ARROW_TYPE_FIRE) {
+	    gm.morph(new EnragedBarrierGenerator(), locX, locY, locZ);
+	} else if (arrowType == ArrowTypeConstants.ARROW_TYPE_POISON) {
+	    gm.morph(new PoisonedBarrierGenerator(), locX, locY, locZ);
+	} else if (arrowType == ArrowTypeConstants.ARROW_TYPE_SHOCK) {
+	    gm.morph(new ShockedBarrierGenerator(), locX, locY, locZ);
+	} else {
+	    this.preMoveAction(false, locX, locY, inv);
+	}
     }
 }

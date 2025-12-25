@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Bolt extends AbstractMultipleKey {
     // Constructors
     public Bolt() {
-        super(ColorConstants.COLOR_YELLOW);
+	super(ColorConstants.COLOR_YELLOW);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BOLT;
+	return ObjectImageConstants.OBJECT_IMAGE_BOLT;
     }
 
     @Override
     public String getName() {
-        return "Bolt";
+	return "Bolt";
     }
 
     @Override
     public String getPluralName() {
-        return "Bolts";
+	return "Bolts";
     }
 
     @Override
     public String getDescription() {
-        return "Bolts are the keys to Bolt Walls.";
+	return "Bolts are the keys to Bolt Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Yellow Crystal";
+	return "Yellow Crystal";
     }
 }

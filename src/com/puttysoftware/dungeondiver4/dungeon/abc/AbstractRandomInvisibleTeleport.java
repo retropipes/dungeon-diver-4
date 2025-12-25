@@ -14,15 +14,12 @@ import com.puttysoftware.dungeondiver4.editor.DungeonEditorLogic;
 import com.puttysoftware.dungeondiver4.resourcemanagers.SoundConstants;
 import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
-public abstract class AbstractRandomInvisibleTeleport
-        extends AbstractRandomTeleport {
+public abstract class AbstractRandomInvisibleTeleport extends AbstractRandomTeleport {
     // Constructors
-    public AbstractRandomInvisibleTeleport(final int newRandomRangeY,
-            final int newRandomRangeX, final int attrName) {
-        super(newRandomRangeY, newRandomRangeX, attrName);
-        this.setTemplateColor(ColorConstants.COLOR_CYAN);
-        this.setAttributeTemplateColor(
-                ColorConstants.COLOR_INVISIBLE_TELEPORT_ATTRIBUTE);
+    public AbstractRandomInvisibleTeleport(final int newRandomRangeY, final int newRandomRangeX, final int attrName) {
+	super(newRandomRangeY, newRandomRangeX, attrName);
+	this.setTemplateColor(ColorConstants.COLOR_CYAN);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_INVISIBLE_TELEPORT_ATTRIBUTE);
     }
 
     // Scriptability
@@ -30,30 +27,27 @@ public abstract class AbstractRandomInvisibleTeleport
     abstract public String getName();
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        int dr, dc;
-        do {
-            dr = this.getDestinationRow();
-            dc = this.getDestinationColumn();
-        } while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
-        app.getGameManager().updatePositionRelative(dr, dc, 0);
-        DungeonDiver4.getApplication().showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	int dr, dc;
+	do {
+	    dr = this.getDestinationRow();
+	    dc = this.getDestinationColumn();
+	} while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
+	app.getGameManager().updatePositionRelative(dr, dc, 0);
+	DungeonDiver4.getApplication().showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_RANDOM_INVISIBLE);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_RANDOM_INVISIBLE);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_RANDOM_INVISIBLE_TELEPORT);
-        this.type.set(TypeConstants.TYPE_RANDOM_TELEPORT);
+	this.type.set(TypeConstants.TYPE_RANDOM_INVISIBLE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_RANDOM_TELEPORT);
     }
 }

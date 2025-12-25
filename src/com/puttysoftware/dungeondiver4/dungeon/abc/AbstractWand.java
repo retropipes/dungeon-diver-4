@@ -16,25 +16,23 @@ public abstract class AbstractWand extends AbstractUsableObject {
 
     // Constructors
     protected AbstractWand(final int tc) {
-        super(1);
-        this.setTemplateColor(tc);
+	super(1);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_WAND;
+	return ObjectImageConstants.OBJECT_IMAGE_WAND;
     }
 
     @Override
     public abstract String getName();
 
     @Override
-    public void useAction(final AbstractDungeonObject mo, final int x,
-            final int y, final int z) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().morph(mo, x, y, z);
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(AbstractWand.SCORE_USE);
+    public void useAction(final AbstractDungeonObject mo, final int x, final int y, final int z) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().morph(mo, x, y, z);
+	DungeonDiver4.getApplication().getGameManager().addToScore(AbstractWand.SCORE_USE);
     }
 
     @Override
@@ -42,9 +40,9 @@ public abstract class AbstractWand extends AbstractUsableObject {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_WAND);
-        this.type.set(TypeConstants.TYPE_USABLE);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_WAND);
+	this.type.set(TypeConstants.TYPE_USABLE);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

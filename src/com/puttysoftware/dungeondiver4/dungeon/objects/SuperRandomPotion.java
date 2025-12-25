@@ -29,27 +29,26 @@ public class SuperRandomPotion extends AbstractPotion {
 
     // Constructors
     public SuperRandomPotion() {
-        super(StatConstants.STAT_CURRENT_MP, true, SuperRandomPotion.MIN_EFFECT,
-                SuperRandomPotion.MAX_EFFECT);
+	super(StatConstants.STAT_CURRENT_MP, true, SuperRandomPotion.MIN_EFFECT, SuperRandomPotion.MAX_EFFECT);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUPER_RANDOM_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_SUPER_RANDOM_POTION;
     }
 
     @Override
     public String getName() {
-        return "Super Random Potion";
+	return "Super Random Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Random Potions";
+	return "Super Random Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Super Random Potions might regenerate your magic almost fully or drain your magic almost fully when picked up.";
+	return "Super Random Potions might regenerate your magic almost fully or drain your magic almost fully when picked up.";
     }
 }

@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Glove extends AbstractMultipleKey {
     // Constructors
     public Glove() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_GLOVES;
+	return ObjectImageConstants.OBJECT_IMAGE_GLOVES;
     }
 
     @Override
     public String getName() {
-        return "Glove";
+	return "Glove";
     }
 
     @Override
     public String getPluralName() {
-        return "Gloves";
+	return "Gloves";
     }
 
     @Override
     public String getDescription() {
-        return "Gloves are the keys to Glove Walls.";
+	return "Gloves are the keys to Glove Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Green Crystal";
+	return "Green Crystal";
     }
 }

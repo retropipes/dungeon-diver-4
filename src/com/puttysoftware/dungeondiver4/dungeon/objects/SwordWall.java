@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SwordWall extends AbstractMultipleLock {
     // Constructors
     public SwordWall() {
-        super(new Sword(), ColorConstants.COLOR_SKY);
+	super(new Sword(), ColorConstants.COLOR_SKY);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUIT;
+	return ObjectImageConstants.OBJECT_IMAGE_SUIT;
     }
 
     @Override
     public String getName() {
-        return "Sword Wall";
+	return "Sword Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Sword Walls";
+	return "Sword Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Sword Walls are impassable without enough Swords.";
+	return "Sword Walls are impassable without enough Swords.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Sky Crystal Wall";
+	return "Sky Crystal Wall";
     }
 }

@@ -16,27 +16,26 @@ public class MinorUnknownPotion extends AbstractPotion {
 
     // Constructors
     public MinorUnknownPotion() {
-        super(StatConstants.STAT_CURRENT_HP, true,
-                MinorUnknownPotion.MIN_EFFECT, MinorUnknownPotion.MAX_EFFECT);
+	super(StatConstants.STAT_CURRENT_HP, true, MinorUnknownPotion.MIN_EFFECT, MinorUnknownPotion.MAX_EFFECT);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MINOR_UNKNOWN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MINOR_UNKNOWN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Minor Unknown Potion";
+	return "Minor Unknown Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Minor Unknown Potions";
+	return "Minor Unknown Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Minor Unknown Potions might heal you or hurt you slightly when picked up.";
+	return "Minor Unknown Potions might heal you or hurt you slightly when picked up.";
     }
 }

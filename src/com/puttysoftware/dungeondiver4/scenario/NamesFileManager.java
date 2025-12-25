@@ -21,60 +21,57 @@ public class NamesFileManager {
 
     // Constructors
     public NamesFileManager() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     public String[][] getNames() {
-        return this.gameNames;
+	return this.gameNames;
     }
 
     public void setNames(final String[][] newNames) {
-        this.gameNames = newNames;
+	this.gameNames = newNames;
     }
 
     public void loadNames() {
-        NamesFileManager.loadFile();
+	NamesFileManager.loadFile();
     }
 
     private static void loadFile() {
-        try {
-            final Application app = DungeonDiver4.getApplication();
-            app.getScenarioManager().getNamesFileManager()
-                    .setNames(NamesManager.getNamesCache());
-            // Final cleanup
-            app.getNamesEditor().objectChanged();
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        }
+	try {
+	    final Application app = DungeonDiver4.getApplication();
+	    app.getScenarioManager().getNamesFileManager().setNames(NamesManager.getNamesCache());
+	    // Final cleanup
+	    app.getNamesEditor().objectChanged();
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	}
     }
 
     public void saveNames() {
-        String lastUsedNamesFile = "";
-        if (this.gameNames != null) {
-            lastUsedNamesFile = NamesDataManager.getNamesOverrideFile()
-                    .toString();
-        } else {
-            lastUsedNamesFile = null;
-        }
-        if (lastUsedNamesFile != null) {
-            final File parent = new File(lastUsedNamesFile).getParentFile();
-            if (!parent.exists()) {
-                final boolean success = parent.mkdirs();
-                if (!success) {
-                    DungeonDiver4.logError(
-                            new IOException("Creating names folder failed!"));
-                }
-            }
-            final String[] data = NamesManager.convertCacheToArray();
-            NamesFileManager.saveFile(lastUsedNamesFile, data);
-        } else {
-            CommonDialogs.showErrorDialog("No Names Opened!", "Names Editor");
-        }
+	String lastUsedNamesFile = "";
+	if (this.gameNames != null) {
+	    lastUsedNamesFile = NamesDataManager.getNamesOverrideFile().toString();
+	} else {
+	    lastUsedNamesFile = null;
+	}
+	if (lastUsedNamesFile != null) {
+	    final File parent = new File(lastUsedNamesFile).getParentFile();
+	    if (!parent.exists()) {
+		final boolean success = parent.mkdirs();
+		if (!success) {
+		    DungeonDiver4.logError(new IOException("Creating names folder failed!"));
+		}
+	    }
+	    final String[] data = NamesManager.convertCacheToArray();
+	    NamesFileManager.saveFile(lastUsedNamesFile, data);
+	} else {
+	    CommonDialogs.showErrorDialog("No Names Opened!", "Names Editor");
+	}
     }
 
     private static void saveFile(final String filename, final String[] data) {
-        final NamesSaveTask xst = new NamesSaveTask(filename, data);
-        xst.start();
+	final NamesSaveTask xst = new NamesSaveTask(filename, data);
+	xst.start();
     }
 }

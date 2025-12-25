@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RoseKey extends AbstractSingleKey {
     // Constructors
     public RoseKey() {
-        super(ColorConstants.COLOR_ROSE);
+	super(ColorConstants.COLOR_ROSE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Rose Key";
+	return "Rose Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Keys";
+	return "Rose Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Keys will unlock Rose Locks, and can only be used once.";
+	return "Rose Keys will unlock Rose Locks, and can only be used once.";
     }
 }

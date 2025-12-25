@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class ShockArrow extends AbstractTransientObject {
     // Constructors
     public ShockArrow() {
-        super("Shock Arrow", ColorConstants.COLOR_LIGHT_YELLOW);
+	super("Shock Arrow", ColorConstants.COLOR_LIGHT_YELLOW);
     }
 }

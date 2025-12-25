@@ -11,11 +11,11 @@ public class ScenarioManager {
 
     // Constructors
     public ScenarioManager() {
-        this.nfMgr = new NamesFileManager();
+	this.nfMgr = new NamesFileManager();
     }
 
     // Methods
     public final NamesFileManager getNamesFileManager() {
-        return this.nfMgr;
+	return this.nfMgr;
     }
 }

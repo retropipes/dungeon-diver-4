@@ -15,27 +15,26 @@ public class Diamond extends AbstractScoreIncreaser {
 
     // Constructors
     public Diamond() {
-        super(ColorConstants.COLOR_CYAN);
+	super(ColorConstants.COLOR_CYAN);
     }
 
     @Override
     public String getName() {
-        return "Diamond";
+	return "Diamond";
     }
 
     @Override
     public String getPluralName() {
-        return "Diamonds";
+	return "Diamonds";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(Diamond.SCORE_INCREASE);
+	DungeonDiver4.getApplication().getGameManager().addToScore(Diamond.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Diamonds increase your score when picked up.";
+	return "Diamonds increase your score when picked up.";
     }
 }

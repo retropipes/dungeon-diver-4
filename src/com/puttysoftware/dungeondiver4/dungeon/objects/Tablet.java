@@ -11,26 +11,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Tablet extends AbstractInfiniteKey {
     // Constructors
     public Tablet() {
-        super();
+	super();
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_TABLET;
+	return ObjectImageConstants.OBJECT_IMAGE_TABLET;
     }
 
     @Override
     public String getName() {
-        return "Tablet";
+	return "Tablet";
     }
 
     @Override
     public String getPluralName() {
-        return "Tablets";
+	return "Tablets";
     }
 
     @Override
     public String getDescription() {
-        return "Tablets are used to fill Tablet Slots, and make them disappear. Tablets can be used infinitely many times.";
+	return "Tablets are used to fill Tablet Slots, and make them disappear. Tablets can be used infinitely many times.";
     }
 }

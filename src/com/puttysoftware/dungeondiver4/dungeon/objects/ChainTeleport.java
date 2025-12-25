@@ -18,45 +18,39 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class ChainTeleport extends AbstractTeleport {
     // Constructors
     public ChainTeleport() {
-        super(0, 0, 0, true, ObjectImageConstants.OBJECT_IMAGE_CHAIN);
+	super(0, 0, 0, true, ObjectImageConstants.OBJECT_IMAGE_CHAIN);
     }
 
-    public ChainTeleport(final int destinationRow, final int destinationColumn,
-            final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor, true,
-                ObjectImageConstants.OBJECT_IMAGE_CHAIN);
+    public ChainTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor, true, ObjectImageConstants.OBJECT_IMAGE_CHAIN);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePositionAbsoluteNoEvents(
-                this.getDestinationRow(), this.getDestinationColumn(),
-                this.getDestinationFloor(), this.getDestinationLevel());
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor(), this.getDestinationLevel());
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Chain Teleport";
+	return "Chain Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Chain Teleports";
+	return "Chain Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_CHAIN);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_CHAIN);
     }
 
     @Override
     public String getDescription() {
-        return "Chain Teleports send you to a predetermined destination when stepped on.";
+	return "Chain Teleports send you to a predetermined destination when stepped on.";
     }
 }

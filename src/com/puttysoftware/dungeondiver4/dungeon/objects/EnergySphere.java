@@ -11,26 +11,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class EnergySphere extends AbstractPass {
     // Constructors
     public EnergySphere() {
-        super();
+	super();
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_ENERGY_SPHERE;
+	return ObjectImageConstants.OBJECT_IMAGE_ENERGY_SPHERE;
     }
 
     @Override
     public String getName() {
-        return "Energy Sphere";
+	return "Energy Sphere";
     }
 
     @Override
     public String getPluralName() {
-        return "Energy Spheres";
+	return "Energy Spheres";
     }
 
     @Override
     public String getDescription() {
-        return "Energy Spheres permit walking on Force Fields.";
+	return "Energy Spheres permit walking on Force Fields.";
     }
 }

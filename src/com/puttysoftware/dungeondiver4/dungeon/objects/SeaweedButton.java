@@ -10,22 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class SeaweedButton extends AbstractButton {
     public SeaweedButton() {
-        super(new SeaweedWallOff(), new SeaweedWallOn(),
-                ColorConstants.COLOR_SEAWEED);
+	super(new SeaweedWallOff(), new SeaweedWallOn(), ColorConstants.COLOR_SEAWEED);
     }
 
     @Override
     public String getName() {
-        return "Seaweed Button";
+	return "Seaweed Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Buttons";
+	return "Seaweed Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Buttons will cause all Seaweed Walls Off to become On, and all Seaweed Walls On to become Off.";
+	return "Seaweed Buttons will cause all Seaweed Walls Off to become On, and all Seaweed Walls On to become Off.";
     }
 }

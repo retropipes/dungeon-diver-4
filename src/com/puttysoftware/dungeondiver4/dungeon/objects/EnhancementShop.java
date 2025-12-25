@@ -13,26 +13,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class EnhancementShop extends AbstractShop {
     // Constructors
     public EnhancementShop() {
-        super(ShopTypes.SHOP_TYPE_ENHANCEMENTS);
+	super(ShopTypes.SHOP_TYPE_ENHANCEMENTS);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_ENHANCEMENT_SHOP;
+	return ObjectImageConstants.OBJECT_IMAGE_ENHANCEMENT_SHOP;
     }
 
     @Override
     public String getName() {
-        return "Enhancement Shop";
+	return "Enhancement Shop";
     }
 
     @Override
     public String getPluralName() {
-        return "Enhancement Shops";
+	return "Enhancement Shops";
     }
 
     @Override
     public String getDescription() {
-        return "Enhancement Shops sell improvements to weapons and armor.";
+	return "Enhancement Shops sell improvements to weapons and armor.";
     }
 }

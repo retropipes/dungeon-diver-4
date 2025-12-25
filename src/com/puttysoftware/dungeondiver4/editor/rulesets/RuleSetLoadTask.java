@@ -21,34 +21,31 @@ public class RuleSetLoadTask extends Thread {
 
     // Constructors
     public RuleSetLoadTask(final String file) {
-        this.filename = file;
-        this.setName("Rule Set File Reader");
+	this.filename = file;
+	this.setName("Rule Set File Reader");
     }
 
     // Methods
     @Override
     public void run() {
-        final Application app = DungeonDiver4.getApplication();
-        final String sg = "Rule Set";
-        try (XDataReader ruleSetFile = DataIOFactory.createTagReader(this.filename,
-                "ruleset")) {
-            final int magic = ruleSetFile.readInt();
-            if (magic == RuleSetConstants.MAGIC_NUMBER_2) {
-                // Format 2 file
-                app.getObjects().readRuleSet(ruleSetFile,
-                        RuleSetConstants.FORMAT_2);
-            }
-            CommonDialogs.showTitledDialog(sg + " file loaded.",
-                    "Rule Set Picker");
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-            app.getDungeonManager().handleDeferredSuccess(false);
-        } catch (final IOException ie) {
-            CommonDialogs.showDialog(ie.getMessage());
-            app.getDungeonManager().handleDeferredSuccess(false);
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        }
+	final Application app = DungeonDiver4.getApplication();
+	final String sg = "Rule Set";
+	try (XDataReader ruleSetFile = DataIOFactory.createTagReader(this.filename, "ruleset")) {
+	    final int magic = ruleSetFile.readInt();
+	    if (magic == RuleSetConstants.MAGIC_NUMBER_2) {
+		// Format 2 file
+		app.getObjects().readRuleSet(ruleSetFile, RuleSetConstants.FORMAT_2);
+	    }
+	    CommonDialogs.showTitledDialog(sg + " file loaded.", "Rule Set Picker");
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	    app.getDungeonManager().handleDeferredSuccess(false);
+	} catch (final IOException ie) {
+	    CommonDialogs.showDialog(ie.getMessage());
+	    app.getDungeonManager().handleDeferredSuccess(false);
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	}
     }
 }

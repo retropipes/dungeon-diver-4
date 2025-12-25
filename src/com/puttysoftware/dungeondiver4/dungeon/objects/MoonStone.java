@@ -16,31 +16,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class MoonStone extends AbstractCheckKey {
     // Constructors
     public MoonStone() {
-        super();
-        this.setTemplateColor(ColorConstants.COLOR_MOON_DOOR);
+	super();
+	this.setTemplateColor(ColorConstants.COLOR_MOON_DOOR);
     }
 
     @Override
     public String getName() {
-        return "Moon Stone";
+	return "Moon Stone";
     }
 
     @Override
     public String getPluralName() {
-        return "Moon Stones";
+	return "Moon Stones";
     }
 
     @Override
     public String getDescription() {
-        return "Moon Stones act as a trigger for other actions when collected.";
+	return "Moon Stones act as a trigger for other actions when collected.";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        inv.addItem(this);
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_SUN_STONE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	inv.addItem(this);
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_SUN_STONE);
     }
 }

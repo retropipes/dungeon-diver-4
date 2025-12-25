@@ -16,28 +16,27 @@ public class PoisonousAmulet extends AbstractAmulet {
 
     // Constructors
     public PoisonousAmulet() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Poisonous Amulet";
+	return "Poisonous Amulet";
     }
 
     @Override
     public String getPluralName() {
-        return "Poisonous Amulets";
+	return "Poisonous Amulets";
     }
 
     @Override
     public String getDescription() {
-        return "Poisonous Amulets grant the power to make the air more poisonous for 30 steps. Note that you can only wear one amulet at once.";
+	return "Poisonous Amulets grant the power to make the air more poisonous for 30 steps. Note that you can only wear one amulet at once.";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_POISONOUS,
-                PoisonousAmulet.EFFECT_DURATION);
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_POISONOUS,
+		PoisonousAmulet.EFFECT_DURATION);
     }
 }

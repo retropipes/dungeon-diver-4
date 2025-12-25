@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class BlueWallOff extends AbstractToggleWall {
     // Constructors
     public BlueWallOff() {
-        super(false, ColorConstants.COLOR_BLUE);
+	super(false, ColorConstants.COLOR_BLUE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Blue Wall Off";
+	return "Blue Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Walls Off";
+	return "Blue Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Walls Off can be walked through, and will change to Blue Walls On when a Blue Button is pressed.";
+	return "Blue Walls Off can be walked through, and will change to Blue Walls On when a Blue Button is pressed.";
     }
 }

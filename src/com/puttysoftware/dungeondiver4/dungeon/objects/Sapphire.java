@@ -15,27 +15,26 @@ public class Sapphire extends AbstractScoreIncreaser {
 
     // Constructors
     public Sapphire() {
-        super(ColorConstants.COLOR_LIGHT_GREEN);
+	super(ColorConstants.COLOR_LIGHT_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Sapphire";
+	return "Sapphire";
     }
 
     @Override
     public String getPluralName() {
-        return "Sapphires";
+	return "Sapphires";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(Sapphire.SCORE_INCREASE);
+	DungeonDiver4.getApplication().getGameManager().addToScore(Sapphire.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Sapphires increase your score when picked up.";
+	return "Sapphires increase your score when picked up.";
     }
 }

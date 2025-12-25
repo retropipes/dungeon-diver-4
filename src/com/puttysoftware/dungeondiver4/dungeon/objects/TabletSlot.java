@@ -15,36 +15,35 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class TabletSlot extends AbstractInfiniteLock {
     // Constructors
     public TabletSlot() {
-        super(new Tablet());
+	super(new Tablet());
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_TABLET_SLOT;
+	return ObjectImageConstants.OBJECT_IMAGE_TABLET_SLOT;
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a tablet");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a tablet");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Tablet Slot";
+	return "Tablet Slot";
     }
 
     @Override
     public String getPluralName() {
-        return "Tablet Slots";
+	return "Tablet Slots";
     }
 
     @Override
     public String getDescription() {
-        return "Tablet Slots disappear when filled with a Tablet.";
+	return "Tablet Slots disappear when filled with a Tablet.";
     }
 }

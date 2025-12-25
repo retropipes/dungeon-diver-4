@@ -10,22 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class PurpleButton extends AbstractButton {
     public PurpleButton() {
-        super(new PurpleWallOff(), new PurpleWallOn(),
-                ColorConstants.COLOR_PURPLE);
+	super(new PurpleWallOff(), new PurpleWallOn(), ColorConstants.COLOR_PURPLE);
     }
 
     @Override
     public String getName() {
-        return "Purple Button";
+	return "Purple Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Purple Buttons";
+	return "Purple Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Purple Buttons will cause all Purple Walls Off to become On, and all Purple Walls On to become Off.";
+	return "Purple Buttons will cause all Purple Walls Off to become On, and all Purple Walls On to become Off.";
     }
 }

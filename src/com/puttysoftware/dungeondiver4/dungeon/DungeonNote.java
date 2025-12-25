@@ -18,32 +18,32 @@ public class DungeonNote extends CloneableObject {
 
     // Constructor
     public DungeonNote() {
-        this.contents = "Empty Note";
+	this.contents = "Empty Note";
     }
 
     // Methods
     public String getContents() {
-        return this.contents;
+	return this.contents;
     }
 
     public void setContents(final String newContents) {
-        this.contents = newContents;
+	this.contents = newContents;
     }
 
     @Override
     public Object clone() {
-        final DungeonNote copy = new DungeonNote();
-        copy.contents = this.contents;
-        return copy;
+	final DungeonNote copy = new DungeonNote();
+	copy.contents = this.contents;
+	return copy;
     }
 
     static DungeonNote readNote(final XDataReader reader) throws IOException {
-        final DungeonNote mn = new DungeonNote();
-        mn.contents = reader.readString();
-        return mn;
+	final DungeonNote mn = new DungeonNote();
+	mn.contents = reader.readString();
+	return mn;
     }
 
     void writeNote(final XDataWriter writer) throws IOException {
-        writer.writeString(this.contents);
+	writer.writeString(this.contents);
     }
 }

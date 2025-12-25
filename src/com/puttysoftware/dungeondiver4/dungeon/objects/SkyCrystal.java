@@ -11,27 +11,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SkyCrystal extends AbstractProgrammableKey {
     // Constructors
     public SkyCrystal() {
-        super("Sky", ColorConstants.COLOR_SKY);
+	super("Sky", ColorConstants.COLOR_SKY);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Sky Crystal";
+	return "Sky Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Crystals";
+	return "Sky Crystals";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Crystals will open Sky Crystal Walls.";
+	return "Sky Crystals will open Sky Crystal Walls.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

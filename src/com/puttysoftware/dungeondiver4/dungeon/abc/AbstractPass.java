@@ -10,7 +10,7 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 public abstract class AbstractPass extends AbstractInfiniteKey {
     // Constructors
     protected AbstractPass() {
-        super();
+	super();
     }
 
     @Override
@@ -18,9 +18,9 @@ public abstract class AbstractPass extends AbstractInfiniteKey {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_PASS);
-        this.type.set(TypeConstants.TYPE_INFINITE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_PASS);
+	this.type.set(TypeConstants.TYPE_INFINITE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
     }
 }

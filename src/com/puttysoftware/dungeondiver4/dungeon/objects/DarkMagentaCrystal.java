@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class DarkMagentaCrystal extends AbstractProgrammableKey {
     // Constructors
     public DarkMagentaCrystal() {
-        super("Dark Magenta", ColorConstants.COLOR_DARK_MAGENTA);
+	super("Dark Magenta", ColorConstants.COLOR_DARK_MAGENTA);
     }
 }

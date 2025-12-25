@@ -12,37 +12,37 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class FakeWall extends AbstractPassThroughObject {
     // Constructors
     public FakeWall() {
-        super(true);
-        this.setTemplateColor(ColorConstants.COLOR_GRAY);
+	super(true);
+	this.setTemplateColor(ColorConstants.COLOR_GRAY);
     }
 
     @Override
     public int getGameTemplateColor() {
-        return ColorConstants.COLOR_FAKE;
+	return ColorConstants.COLOR_FAKE;
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
+	return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
     }
 
     @Override
     public String getName() {
-        return "Fake Wall";
+	return "Fake Wall";
     }
 
     @Override
     public String getGameName() {
-        return "Wall";
+	return "Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Fake Walls";
+	return "Fake Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Fake Walls look like walls, but can be walked through.";
+	return "Fake Walls look like walls, but can be walked through.";
     }
 }

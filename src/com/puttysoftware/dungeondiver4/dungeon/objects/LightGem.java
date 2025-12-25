@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class LightGem extends AbstractLightModifier {
     // Constructors
     public LightGem() {
-        super(ColorConstants.COLOR_WHITE);
+	super(ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public String getName() {
-        return "Light Gem";
+	return "Light Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Light Gems";
+	return "Light Gems";
     }
 
     @Override
     public String getDescription() {
-        return "Light Gems bathe the immediately adjacent area in permanent light.";
+	return "Light Gems bathe the immediately adjacent area in permanent light.";
     }
 }

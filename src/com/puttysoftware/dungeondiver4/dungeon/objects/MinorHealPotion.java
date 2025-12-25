@@ -16,27 +16,26 @@ public class MinorHealPotion extends AbstractPotion {
 
     // Constructors
     public MinorHealPotion() {
-        super(StatConstants.STAT_CURRENT_HP, true, MinorHealPotion.MIN_HEAL,
-                MinorHealPotion.MAX_HEAL);
+	super(StatConstants.STAT_CURRENT_HP, true, MinorHealPotion.MIN_HEAL, MinorHealPotion.MAX_HEAL);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MINOR_HEAL_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MINOR_HEAL_POTION;
     }
 
     @Override
     public String getName() {
-        return "Minor Heal Potion";
+	return "Minor Heal Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Minor Heal Potions";
+	return "Minor Heal Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Minor Heal Potions heal you slightly when picked up.";
+	return "Minor Heal Potions heal you slightly when picked up.";
     }
 }

@@ -11,13 +11,12 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.IceAmulet;
 public class Icy extends DungeonEffect {
     // Constructor
     public Icy(final int newRounds) {
-        super("Icy", newRounds);
+	super("Icy", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new IceAmulet());
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new IceAmulet());
     }
 }

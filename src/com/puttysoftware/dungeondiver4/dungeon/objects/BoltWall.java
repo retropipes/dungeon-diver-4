@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class BoltWall extends AbstractMultipleLock {
     // Constructors
     public BoltWall() {
-        super(new Bolt(), ColorConstants.COLOR_YELLOW);
+	super(new Bolt(), ColorConstants.COLOR_YELLOW);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BOLT;
+	return ObjectImageConstants.OBJECT_IMAGE_BOLT;
     }
 
     @Override
     public String getName() {
-        return "Bolt Wall";
+	return "Bolt Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Bolt Walls";
+	return "Bolt Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Bolt Walls are impassable without enough Bolts.";
+	return "Bolt Walls are impassable without enough Bolts.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Yellow Crystal Wall";
+	return "Yellow Crystal Wall";
     }
 }

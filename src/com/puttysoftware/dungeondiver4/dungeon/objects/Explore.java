@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Explore extends AbstractMultipleKey {
     // Constructors
     public Explore() {
-        super(ColorConstants.COLOR_SEAWEED);
+	super(ColorConstants.COLOR_SEAWEED);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_EXPLORE;
+	return ObjectImageConstants.OBJECT_IMAGE_EXPLORE;
     }
 
     @Override
     public String getName() {
-        return "Explore";
+	return "Explore";
     }
 
     @Override
     public String getPluralName() {
-        return "Explores";
+	return "Explores";
     }
 
     @Override
     public String getDescription() {
-        return "Explores are the keys to Explore Walls.";
+	return "Explores are the keys to Explore Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Seaweed Crystal";
+	return "Seaweed Crystal";
     }
 }

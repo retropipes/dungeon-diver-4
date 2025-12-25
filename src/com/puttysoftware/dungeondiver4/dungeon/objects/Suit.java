@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Suit extends AbstractMultipleKey {
     // Constructors
     public Suit() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUIT;
+	return ObjectImageConstants.OBJECT_IMAGE_SUIT;
     }
 
     @Override
     public String getName() {
-        return "Suit";
+	return "Suit";
     }
 
     @Override
     public String getPluralName() {
-        return "Suits";
+	return "Suits";
     }
 
     @Override
     public String getDescription() {
-        return "Suits are the keys to Suit Walls.";
+	return "Suits are the keys to Suit Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Magenta Crystal";
+	return "Magenta Crystal";
     }
 }

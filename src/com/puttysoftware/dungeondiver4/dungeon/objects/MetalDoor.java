@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class MetalDoor extends AbstractSingleLock {
     // Constructors
     public MetalDoor() {
-        super(new MetalKey(), ColorConstants.COLOR_GRAY);
+	super(new MetalKey(), ColorConstants.COLOR_GRAY);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a metal key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a metal key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Metal Door";
+	return "Metal Door";
     }
 
     @Override
     public String getPluralName() {
-        return "Metal Doors";
+	return "Metal Doors";
     }
 
     @Override
     public String getDescription() {
-        return "Metal Doors require Metal Keys to open, or Metal Boots and a Metal Button.";
+	return "Metal Doors require Metal Keys to open, or Metal Boots and a Metal Button.";
     }
 }

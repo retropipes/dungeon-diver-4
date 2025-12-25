@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SapphireWall extends AbstractMultipleLock {
     // Constructors
     public SapphireWall() {
-        super(new SapphireSquare(), ColorConstants.COLOR_GREEN);
+	super(new SapphireSquare(), ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Sapphire Wall";
+	return "Sapphire Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Sapphire Walls";
+	return "Sapphire Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Sapphire Walls are impassable without enough Sapphire Squares.";
+	return "Sapphire Walls are impassable without enough Sapphire Squares.";
     }
 }

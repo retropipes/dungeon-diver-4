@@ -16,40 +16,35 @@ public class FireAmulet extends AbstractAmulet {
 
     // Constructors
     public FireAmulet() {
-        super(ColorConstants.COLOR_RED);
+	super(ColorConstants.COLOR_RED);
     }
 
     @Override
     public String getName() {
-        return "Fire Amulet";
+	return "Fire Amulet";
     }
 
     @Override
     public String getPluralName() {
-        return "Fire Amulets";
+	return "Fire Amulets";
     }
 
     @Override
     public String getDescription() {
-        return "Fire Amulets grant the power to transform ground into Hot Rock for 30 steps. Note that you can only wear one amulet at once.";
+	return "Fire Amulets grant the power to transform ground into Hot Rock for 30 steps. Note that you can only wear one amulet at once.";
     }
 
     @Override
     public void stepAction() {
-        final int x = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationX();
-        final int y = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationY();
-        final int z = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationZ();
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .hotGround(x, y, z);
+	final int x = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationX();
+	final int y = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationY();
+	final int z = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationZ();
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().hotGround(x, y, z);
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_FIERY,
-                FireAmulet.EFFECT_DURATION);
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_FIERY,
+		FireAmulet.EFFECT_DURATION);
     }
 }

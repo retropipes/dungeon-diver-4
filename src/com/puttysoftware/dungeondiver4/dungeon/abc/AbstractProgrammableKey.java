@@ -14,44 +14,43 @@ public abstract class AbstractProgrammableKey extends AbstractSingleKey {
 
     // Constructors
     protected AbstractProgrammableKey(final String newColor, final int tc) {
-        super(tc);
-        this.color = newColor;
+	super(tc);
+	this.color = newColor;
     }
 
     @Override
     public AbstractProgrammableKey clone() {
-        final AbstractProgrammableKey copy = (AbstractProgrammableKey) super.clone();
-        copy.color = this.color;
-        return copy;
+	final AbstractProgrammableKey copy = (AbstractProgrammableKey) super.clone();
+	copy.color = this.color;
+	return copy;
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CRYSTAL;
+	return ObjectImageConstants.OBJECT_IMAGE_CRYSTAL;
     }
 
     @Override
     public String getName() {
-        return this.color + " Crystal";
+	return this.color + " Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return this.color + " Crystals";
+	return this.color + " Crystals";
     }
 
     @Override
     public String getDescription() {
-        return this.color
-                + " Crystals may open Crystal Walls, and can be used only once.";
+	return this.color + " Crystals may open Crystal Walls, and can be used only once.";
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_PROGRAMMABLE_KEY);
-        this.type.set(TypeConstants.TYPE_SINGLE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_PROGRAMMABLE_KEY);
+	this.type.set(TypeConstants.TYPE_SINGLE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

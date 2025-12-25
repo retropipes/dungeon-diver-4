@@ -19,33 +19,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class PushableBlockTwice extends AbstractMovableObject {
     // Constructors
     public PushableBlockTwice() {
-        super(true, false, ObjectImageConstants.OBJECT_IMAGE_TWICE);
-        this.setTemplateColor(ColorConstants.COLOR_BLOCK);
+	super(true, false, ObjectImageConstants.OBJECT_IMAGE_TWICE);
+	this.setTemplateColor(ColorConstants.COLOR_BLOCK);
     }
 
     @Override
     public String getName() {
-        return "Pushable Block Twice";
+	return "Pushable Block Twice";
     }
 
     @Override
     public String getPluralName() {
-        return "Pushable Blocks Twice";
+	return "Pushable Blocks Twice";
     }
 
     @Override
-    public void pushAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int pushX, final int pushY) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
-        SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
-        app.getGameManager().morphOther(new PushableBlockOnce(), pushX, pushY,
-                DungeonConstants.LAYER_OBJECT);
+    public void pushAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x, final int y,
+	    final int pushX, final int pushY) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
+	SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
+	app.getGameManager().morphOther(new PushableBlockOnce(), pushX, pushY, DungeonConstants.LAYER_OBJECT);
     }
 
     @Override
     public String getDescription() {
-        return "Pushable Blocks Twice can only be pushed twice, before turning into a wall.";
+	return "Pushable Blocks Twice can only be pushed twice, before turning into a wall.";
     }
 }

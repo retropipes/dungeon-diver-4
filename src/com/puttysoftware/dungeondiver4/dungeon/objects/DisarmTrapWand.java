@@ -13,27 +13,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class DisarmTrapWand extends AbstractWand {
     // Constructors
     public DisarmTrapWand() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Disarm Trap Wand";
+	return "Disarm Trap Wand";
     }
 
     @Override
     public String getPluralName() {
-        return "Disarm Trap Wands";
+	return "Disarm Trap Wands";
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(new Empty(), x, y, z);
-        SoundManager.playSound(SoundConstants.SOUND_DESTROY);
+	this.useAction(new Empty(), x, y, z);
+	SoundManager.playSound(SoundConstants.SOUND_DESTROY);
     }
 
     @Override
     public String getDescription() {
-        return "Disarm Trap Wands will make one trap disappear when used, if aimed at a trap.";
+	return "Disarm Trap Wands will make one trap disappear when used, if aimed at a trap.";
     }
 }

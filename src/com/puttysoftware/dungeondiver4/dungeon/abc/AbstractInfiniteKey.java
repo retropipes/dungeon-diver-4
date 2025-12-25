@@ -10,7 +10,7 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 public abstract class AbstractInfiniteKey extends AbstractKey {
     // Constructors
     protected AbstractInfiniteKey() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
@@ -19,8 +19,8 @@ public abstract class AbstractInfiniteKey extends AbstractKey {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INFINITE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_INFINITE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
     }
 }

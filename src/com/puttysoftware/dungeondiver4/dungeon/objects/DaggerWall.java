@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class DaggerWall extends AbstractMultipleLock {
     // Constructors
     public DaggerWall() {
-        super(new Dagger(), ColorConstants.COLOR_BLUE);
+	super(new Dagger(), ColorConstants.COLOR_BLUE);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_DAGGER;
+	return ObjectImageConstants.OBJECT_IMAGE_DAGGER;
     }
 
     @Override
     public String getName() {
-        return "Dagger Wall";
+	return "Dagger Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Dagger Walls";
+	return "Dagger Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Dagger Walls are impassable without enough Daggers.";
+	return "Dagger Walls are impassable without enough Daggers.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Blue Crystal Wall";
+	return "Blue Crystal Wall";
     }
 }

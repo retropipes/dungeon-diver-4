@@ -11,27 +11,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SeaweedCrystal extends AbstractProgrammableKey {
     // Constructors
     public SeaweedCrystal() {
-        super("Seaweed", ColorConstants.COLOR_SEAWEED);
+	super("Seaweed", ColorConstants.COLOR_SEAWEED);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Seaweed Crystal";
+	return "Seaweed Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Crystals";
+	return "Seaweed Crystals";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Crystals will open Seaweed Crystal Walls.";
+	return "Seaweed Crystals will open Seaweed Crystal Walls.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

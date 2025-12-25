@@ -15,53 +15,50 @@ public class IcedMonster extends AbstractMovingObject {
 
     // Constructors
     public IcedMonster(final AbstractDungeonObject saved) {
-        super(true);
-        this.setTemplateColor(ColorConstants.COLOR_CYAN);
-        this.setSavedObject(saved);
-        this.activateTimer(IcedMonster.ICE_LENGTH);
+	super(true);
+	this.setTemplateColor(ColorConstants.COLOR_CYAN);
+	this.setSavedObject(saved);
+	this.activateTimer(IcedMonster.ICE_LENGTH);
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        // Extend iced effect, if hit by an ice arrow
-        if (arrowType == ArrowTypeConstants.ARROW_TYPE_ICE) {
-            this.extendTimer(IcedMonster.ICE_LENGTH);
-            return false;
-        } else {
-            return true;
-        }
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	// Extend iced effect, if hit by an ice arrow
+	if (arrowType == ArrowTypeConstants.ARROW_TYPE_ICE) {
+	    this.extendTimer(IcedMonster.ICE_LENGTH);
+	    return false;
+	} else {
+	    return true;
+	}
     }
 
     @Override
     public void timerExpiredAction(final int dirX, final int dirY) {
-        // Transform into a normal monster
-        final int pz = DungeonDiver4.getApplication().getDungeonManager()
-                .getDungeon().getPlayerLocationZ();
-        DungeonDiver4.getApplication().getGameManager().morph(
-                new MonsterObject(this.getSavedObject()), dirX, dirY, pz,
-                DungeonConstants.LAYER_OBJECT);
+	// Transform into a normal monster
+	final int pz = DungeonDiver4.getApplication().getDungeonManager().getDungeon().getPlayerLocationZ();
+	DungeonDiver4.getApplication().getGameManager().morph(new MonsterObject(this.getSavedObject()), dirX, dirY, pz,
+		DungeonConstants.LAYER_OBJECT);
     }
 
     @Override
     public String getName() {
-        return "Iced Monster";
+	return "Iced Monster";
     }
 
     @Override
     public String getPluralName() {
-        return "Iced Monsters";
+	return "Iced Monsters";
     }
 
     @Override
     public String getDescription() {
-        return "Iced Monsters cannot move or fight, but the ice coating will eventually wear off.";
+	return "Iced Monsters cannot move or fight, but the ice coating will eventually wear off.";
     }
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_REACTS_TO_ICE);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_REACTS_TO_ICE);
     }
 }

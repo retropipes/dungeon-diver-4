@@ -20,34 +20,30 @@ public class UTurnTrap extends AbstractTrap {
 
     // Constructors
     public UTurnTrap() {
-        super(ColorConstants.COLOR_LIGHT_MAGENTA,
-                ObjectImageConstants.OBJECT_IMAGE_U_TURN,
-                ColorConstants.COLOR_DARK_MAGENTA);
+	super(ColorConstants.COLOR_LIGHT_MAGENTA, ObjectImageConstants.OBJECT_IMAGE_U_TURN,
+		ColorConstants.COLOR_DARK_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "U Turn Trap";
+	return "U Turn Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "U Turn Traps";
+	return "U Turn Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication()
-                .showMessage("Your controls are turned around!");
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_U_TURNED,
-                UTurnTrap.EFFECT_DURATION);
-        SoundManager.playSound(SoundConstants.SOUND_CHANGE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("Your controls are turned around!");
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_U_TURNED,
+		UTurnTrap.EFFECT_DURATION);
+	SoundManager.playSound(SoundConstants.SOUND_CHANGE);
     }
 
     @Override
     public String getDescription() {
-        return "U Turn Traps invert your controls for 10 steps when stepped on.";
+	return "U Turn Traps invert your controls for 10 steps when stepped on.";
     }
 }

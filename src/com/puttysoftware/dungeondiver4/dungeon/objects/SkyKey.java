@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SkyKey extends AbstractSingleKey {
     // Constructors
     public SkyKey() {
-        super(ColorConstants.COLOR_SKY);
+	super(ColorConstants.COLOR_SKY);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Sky Key";
+	return "Sky Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Keys";
+	return "Sky Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Keys will unlock Sky Locks, and can only be used once.";
+	return "Sky Keys will unlock Sky Locks, and can only be used once.";
     }
 }

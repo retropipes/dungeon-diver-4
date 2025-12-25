@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SuitWall extends AbstractMultipleLock {
     // Constructors
     public SuitWall() {
-        super(new Suit(), ColorConstants.COLOR_MAGENTA);
+	super(new Suit(), ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUIT;
+	return ObjectImageConstants.OBJECT_IMAGE_SUIT;
     }
 
     @Override
     public String getName() {
-        return "Suit Wall";
+	return "Suit Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Suit Walls";
+	return "Suit Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Suit Walls are impassable without enough Suits.";
+	return "Suit Walls are impassable without enough Suits.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Magenta Crystal Wall";
+	return "Magenta Crystal Wall";
     }
 }

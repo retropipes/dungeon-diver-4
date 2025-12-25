@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class CyanWallOff extends AbstractToggleWall {
     // Constructors
     public CyanWallOff() {
-        super(false, ColorConstants.COLOR_CYAN);
+	super(false, ColorConstants.COLOR_CYAN);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Cyan Wall Off";
+	return "Cyan Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Walls Off";
+	return "Cyan Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Walls Off can be walked through, and will change to Cyan Walls On when a Cyan Button is pressed.";
+	return "Cyan Walls Off can be walked through, and will change to Cyan Walls On when a Cyan Button is pressed.";
     }
 }

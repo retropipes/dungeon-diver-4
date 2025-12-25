@@ -20,33 +20,29 @@ public class DrunkTrap extends AbstractTrap {
 
     // Constructors
     public DrunkTrap() {
-        super(ColorConstants.COLOR_LIGHT_PURPLE,
-                ObjectImageConstants.OBJECT_IMAGE_DRUNK,
-                ColorConstants.COLOR_PURPLE);
+	super(ColorConstants.COLOR_LIGHT_PURPLE, ObjectImageConstants.OBJECT_IMAGE_DRUNK, ColorConstants.COLOR_PURPLE);
     }
 
     @Override
     public String getName() {
-        return "Drunk Trap";
+	return "Drunk Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Drunk Traps";
+	return "Drunk Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication()
-                .showMessage("You stumble around drunkenly!");
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_DRUNK, DrunkTrap.EFFECT_DURATION);
-        SoundManager.playSound(SoundConstants.SOUND_DRUNK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("You stumble around drunkenly!");
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_DRUNK,
+		DrunkTrap.EFFECT_DURATION);
+	SoundManager.playSound(SoundConstants.SOUND_DRUNK);
     }
 
     @Override
     public String getDescription() {
-        return "Drunk Traps alter your movement in a way that resembles being intoxicated for 10 steps when stepped on.";
+	return "Drunk Traps alter your movement in a way that resembles being intoxicated for 10 steps when stepped on.";
     }
 }

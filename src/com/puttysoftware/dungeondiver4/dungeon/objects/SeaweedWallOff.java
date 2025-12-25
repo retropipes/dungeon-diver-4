@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SeaweedWallOff extends AbstractToggleWall {
     // Constructors
     public SeaweedWallOff() {
-        super(false, ColorConstants.COLOR_SEAWEED);
+	super(false, ColorConstants.COLOR_SEAWEED);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Seaweed Wall Off";
+	return "Seaweed Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Walls Off";
+	return "Seaweed Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Walls Off can be walked through, and will change to Seaweed Walls On when a Seaweed Button is pressed.";
+	return "Seaweed Walls Off can be walked through, and will change to Seaweed Walls On when a Seaweed Button is pressed.";
     }
 }

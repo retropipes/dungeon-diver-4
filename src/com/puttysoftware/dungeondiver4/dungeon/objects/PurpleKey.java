@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class PurpleKey extends AbstractSingleKey {
     // Constructors
     public PurpleKey() {
-        super(ColorConstants.COLOR_PURPLE);
+	super(ColorConstants.COLOR_PURPLE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Purple Key";
+	return "Purple Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Purple Keys";
+	return "Purple Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Purple Keys will unlock Purple Locks, and can only be used once.";
+	return "Purple Keys will unlock Purple Locks, and can only be used once.";
     }
 }

@@ -12,26 +12,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Destination extends AbstractTeleport {
     // Constructors
     public Destination() {
-        super(0, 0, 0, false, ObjectImageConstants.OBJECT_IMAGE_DESTINATION);
+	super(0, 0, 0, false, ObjectImageConstants.OBJECT_IMAGE_DESTINATION);
     }
 
     @Override
     public String getName() {
-        return "Destination";
+	return "Destination";
     }
 
     @Override
     public String getPluralName() {
-        return "Destinations";
+	return "Destinations";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        return this;
+	return this;
     }
 
     @Override
     public String getDescription() {
-        return "";
+	return "";
     }
 }

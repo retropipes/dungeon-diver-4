@@ -16,27 +16,26 @@ public class SuperUnknownPotion extends AbstractPotion {
 
     // Constructors
     public SuperUnknownPotion() {
-        super(StatConstants.STAT_CURRENT_HP, true,
-                SuperUnknownPotion.MIN_EFFECT, SuperUnknownPotion.MAX_EFFECT);
+	super(StatConstants.STAT_CURRENT_HP, true, SuperUnknownPotion.MIN_EFFECT, SuperUnknownPotion.MAX_EFFECT);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUPER_UNKNOWN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_SUPER_UNKNOWN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Super Unknown Potion";
+	return "Super Unknown Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Unknown Potions";
+	return "Super Unknown Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Super Unknown Potions might heal you almost fully or hurt you to the brink of death when picked up.";
+	return "Super Unknown Potions might heal you almost fully or hurt you to the brink of death when picked up.";
     }
 }

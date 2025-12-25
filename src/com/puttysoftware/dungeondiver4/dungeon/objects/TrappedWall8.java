@@ -10,16 +10,16 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 
 public class TrappedWall8 extends AbstractTrappedWall {
     public TrappedWall8() {
-        super(8);
+	super(8);
     }
 
     @Override
     public String getDescription() {
-        return "Trapped Walls 8 disappear when any Wall Trap 8 is triggered.";
+	return "Trapped Walls 8 disappear when any Wall Trap 8 is triggered.";
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_LARGE_8;
+	return ObjectImageConstants.OBJECT_IMAGE_LARGE_8;
     }
 }

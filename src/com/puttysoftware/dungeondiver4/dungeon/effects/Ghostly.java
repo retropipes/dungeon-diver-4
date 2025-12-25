@@ -11,13 +11,12 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.GhostAmulet;
 public class Ghostly extends DungeonEffect {
     // Constructor
     public Ghostly(final int newRounds) {
-        super("Ghostly", newRounds);
+	super("Ghostly", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new GhostAmulet());
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new GhostAmulet());
     }
 }

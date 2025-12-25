@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class GloveWall extends AbstractMultipleLock {
     // Constructors
     public GloveWall() {
-        super(new Glove(), ColorConstants.COLOR_GREEN);
+	super(new Glove(), ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_GLOVES;
+	return ObjectImageConstants.OBJECT_IMAGE_GLOVES;
     }
 
     @Override
     public String getName() {
-        return "Glove Wall";
+	return "Glove Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Glove Walls";
+	return "Glove Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Glove Walls are impassable without enough Gloves.";
+	return "Glove Walls are impassable without enough Gloves.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Green Crystal Wall";
+	return "Green Crystal Wall";
     }
 }

@@ -11,21 +11,20 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.TrueSightAmulet;
 public class TrueSight extends DungeonEffect {
     // Constructor
     public TrueSight(final int newRounds) {
-        super("True Sight", newRounds);
+	super("True Sight", newRounds);
     }
 
     @Override
     public void customExtendLogic() {
-        // Apply the effect
-        DungeonDiver4.getApplication().getGameManager().enableTrueSight();
+	// Apply the effect
+	DungeonDiver4.getApplication().getGameManager().enableTrueSight();
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new TrueSightAmulet());
-        // Undo the effect
-        DungeonDiver4.getApplication().getGameManager().disableTrueSight();
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new TrueSightAmulet());
+	// Undo the effect
+	DungeonDiver4.getApplication().getGameManager().disableTrueSight();
     }
 }

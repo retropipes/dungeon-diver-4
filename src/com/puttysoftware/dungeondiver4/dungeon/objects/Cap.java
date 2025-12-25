@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Cap extends AbstractMultipleKey {
     // Constructors
     public Cap() {
-        super(ColorConstants.COLOR_RED);
+	super(ColorConstants.COLOR_RED);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CAP;
+	return ObjectImageConstants.OBJECT_IMAGE_CAP;
     }
 
     @Override
     public String getName() {
-        return "Cap";
+	return "Cap";
     }
 
     @Override
     public String getPluralName() {
-        return "Caps";
+	return "Caps";
     }
 
     @Override
     public String getDescription() {
-        return "Caps are the keys to Cap Walls.";
+	return "Caps are the keys to Cap Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Red Crystal";
+	return "Red Crystal";
     }
 }

@@ -13,33 +13,32 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Stump extends AbstractWall {
     // Constructors
     public Stump() {
-        super(ColorConstants.COLOR_BROWN);
+	super(ColorConstants.COLOR_BROWN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_STUMP;
+	return ObjectImageConstants.OBJECT_IMAGE_STUMP;
     }
 
     @Override
     public String getName() {
-        return "Stump";
+	return "Stump";
     }
 
     @Override
     public String getPluralName() {
-        return "Stumps";
+	return "Stumps";
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        return true;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Stumps stop movement, but not arrows, which pass over them unimpeded.";
+	return "Stumps stop movement, but not arrows, which pass over them unimpeded.";
     }
 }

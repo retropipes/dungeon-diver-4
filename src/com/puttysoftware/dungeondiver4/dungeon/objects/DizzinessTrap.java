@@ -20,33 +20,30 @@ public class DizzinessTrap extends AbstractTrap {
 
     // Constructors
     public DizzinessTrap() {
-        super(ColorConstants.COLOR_LIGHT_GREEN,
-                ObjectImageConstants.OBJECT_IMAGE_DIZZINESS,
-                ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_LIGHT_GREEN, ObjectImageConstants.OBJECT_IMAGE_DIZZINESS,
+		ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Dizziness Trap";
+	return "Dizziness Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Dizziness Traps";
+	return "Dizziness Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("You feel dizzy!");
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_DIZZY,
-                DizzinessTrap.EFFECT_DURATION);
-        SoundManager.playSound(SoundConstants.SOUND_DIZZY);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("You feel dizzy!");
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_DIZZY,
+		DizzinessTrap.EFFECT_DURATION);
+	SoundManager.playSound(SoundConstants.SOUND_DIZZY);
     }
 
     @Override
     public String getDescription() {
-        return "Dizziness Traps randomly alter your controls each step for 10 steps when stepped on.";
+	return "Dizziness Traps randomly alter your controls each step for 10 steps when stepped on.";
     }
 }

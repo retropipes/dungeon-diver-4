@@ -11,23 +11,20 @@ import com.puttysoftware.dungeondiver4.dungeon.objects.PoisonousAmulet;
 public class Poisonous extends DungeonEffect {
     // Constructor
     public Poisonous(final int newRounds) {
-        super("Poisonous", newRounds);
+	super("Poisonous", newRounds);
     }
 
     @Override
     public void customExtendLogic() {
-        // Apply the effect
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .doPoisonousAmulet();
+	// Apply the effect
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().doPoisonousAmulet();
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        DungeonDiver4.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new PoisonousAmulet());
-        // Undo the effect
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .undoPoisonAmulets();
+	// Remove item that granted effect from inventory
+	DungeonDiver4.getApplication().getGameManager().getObjectInventory().removeItem(new PoisonousAmulet());
+	// Undo the effect
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().undoPoisonAmulets();
     }
 }

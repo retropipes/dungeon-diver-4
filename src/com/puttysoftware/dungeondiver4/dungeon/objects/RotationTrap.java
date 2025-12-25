@@ -27,119 +27,111 @@ public class RotationTrap extends AbstractTrap {
     private static final boolean CLOCKWISE = true;
     private static final boolean COUNTERCLOCKWISE = false;
     private static final String[] rChoices = new String[] { "1", "2", "3" };
-    private static final String[] dChoices = new String[] { "Clockwise",
-            "Counterclockwise" };
+    private static final String[] dChoices = new String[] { "Clockwise", "Counterclockwise" };
 
     // Constructors
     public RotationTrap() {
-        super(ColorConstants.COLOR_LIGHT_PURPLE,
-                ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
-                ColorConstants.COLOR_PURPLE);
-        this.radius = 1;
-        this.direction = RotationTrap.CLOCKWISE;
+	super(ColorConstants.COLOR_LIGHT_PURPLE, ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
+		ColorConstants.COLOR_PURPLE);
+	this.radius = 1;
+	this.direction = RotationTrap.CLOCKWISE;
     }
 
     public RotationTrap(final int newRadius, final boolean newDirection) {
-        super(ColorConstants.COLOR_LIGHT_PURPLE,
-                ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
-                ColorConstants.COLOR_PURPLE);
-        this.radius = newRadius;
-        this.direction = newDirection;
+	super(ColorConstants.COLOR_LIGHT_PURPLE, ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
+		ColorConstants.COLOR_PURPLE);
+	this.radius = newRadius;
+	this.direction = newDirection;
     }
 
     @Override
     public RotationTrap clone() {
-        final RotationTrap copy = (RotationTrap) super.clone();
-        copy.radius = this.radius;
-        copy.direction = this.direction;
-        return copy;
+	final RotationTrap copy = (RotationTrap) super.clone();
+	copy.radius = this.radius;
+	copy.direction = this.direction;
+	return copy;
     }
 
     @Override
     public void editorProbeHook() {
-        String dir;
-        if (this.direction == RotationTrap.CLOCKWISE) {
-            dir = "Clockwise";
-        } else {
-            dir = "Counterclockwise";
-        }
-        DungeonDiver4.getApplication().showMessage(this.getName() + " (Radius "
-                + this.radius + ", Direction " + dir + ")");
+	String dir;
+	if (this.direction == RotationTrap.CLOCKWISE) {
+	    dir = "Clockwise";
+	} else {
+	    dir = "Counterclockwise";
+	}
+	DungeonDiver4.getApplication()
+		.showMessage(this.getName() + " (Radius " + this.radius + ", Direction " + dir + ")");
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        int r = this.radius;
-        final String rres = CommonDialogs.showInputDialog("Rotation Radius:",
-                "Editor", RotationTrap.rChoices, RotationTrap.rChoices[r - 1]);
-        try {
-            r = Integer.parseInt(rres);
-        } catch (final NumberFormatException nf) {
-            // Ignore
-        }
-        boolean d = this.direction;
-        int di;
-        if (d) {
-            di = 0;
-        } else {
-            di = 1;
-        }
-        final String dres = CommonDialogs.showInputDialog("Rotation Direction:",
-                "Editor", RotationTrap.dChoices, RotationTrap.dChoices[di]);
-        if (dres.equals(RotationTrap.dChoices[0])) {
-            d = RotationTrap.CLOCKWISE;
-        } else {
-            d = RotationTrap.COUNTERCLOCKWISE;
-        }
-        return new RotationTrap(r, d);
+	int r = this.radius;
+	final String rres = CommonDialogs.showInputDialog("Rotation Radius:", "Editor", RotationTrap.rChoices,
+		RotationTrap.rChoices[r - 1]);
+	try {
+	    r = Integer.parseInt(rres);
+	} catch (final NumberFormatException nf) {
+	    // Ignore
+	}
+	boolean d = this.direction;
+	int di;
+	if (d) {
+	    di = 0;
+	} else {
+	    di = 1;
+	}
+	final String dres = CommonDialogs.showInputDialog("Rotation Direction:", "Editor", RotationTrap.dChoices,
+		RotationTrap.dChoices[di]);
+	if (dres.equals(RotationTrap.dChoices[0])) {
+	    d = RotationTrap.CLOCKWISE;
+	} else {
+	    d = RotationTrap.COUNTERCLOCKWISE;
+	}
+	return new RotationTrap(r, d);
     }
 
     @Override
     public String getName() {
-        return "Rotation Trap";
+	return "Rotation Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Rotation Traps";
+	return "Rotation Traps";
     }
 
     @Override
-    protected AbstractDungeonObject readDungeonObjectHook(
-            final XDataReader reader, final int formatVersion)
-            throws IOException {
-        this.radius = reader.readInt();
-        this.direction = reader.readBoolean();
-        return this;
+    protected AbstractDungeonObject readDungeonObjectHook(final XDataReader reader, final int formatVersion)
+	    throws IOException {
+	this.radius = reader.readInt();
+	this.direction = reader.readBoolean();
+	return this;
     }
 
     @Override
-    protected void writeDungeonObjectHook(final XDataWriter writer)
-            throws IOException {
-        writer.writeInt(this.radius);
-        writer.writeBoolean(this.direction);
+    protected void writeDungeonObjectHook(final XDataWriter writer) throws IOException {
+	writer.writeInt(this.radius);
+	writer.writeBoolean(this.direction);
     }
 
     @Override
     public int getCustomFormat() {
-        return AbstractDungeonObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
+	return AbstractDungeonObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        if (this.direction) {
-            DungeonDiver4.getApplication().getGameManager()
-                    .doClockwiseRotate(this.radius);
-        } else {
-            DungeonDiver4.getApplication().getGameManager()
-                    .doCounterclockwiseRotate(this.radius);
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CHANGE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.direction) {
+	    DungeonDiver4.getApplication().getGameManager().doClockwiseRotate(this.radius);
+	} else {
+	    DungeonDiver4.getApplication().getGameManager().doCounterclockwiseRotate(this.radius);
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CHANGE);
     }
 
     @Override
     public String getDescription() {
-        return "Rotation Traps rotate part of the dungeon when stepped on.";
+	return "Rotation Traps rotate part of the dungeon when stepped on.";
     }
 }

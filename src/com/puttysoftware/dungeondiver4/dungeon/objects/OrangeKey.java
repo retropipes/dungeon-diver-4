@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class OrangeKey extends AbstractSingleKey {
     // Constructors
     public OrangeKey() {
-        super(ColorConstants.COLOR_ORANGE);
+	super(ColorConstants.COLOR_ORANGE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Orange Key";
+	return "Orange Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Orange Keys";
+	return "Orange Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Orange Keys will unlock Orange Locks, and can only be used once.";
+	return "Orange Keys will unlock Orange Locks, and can only be used once.";
     }
 }

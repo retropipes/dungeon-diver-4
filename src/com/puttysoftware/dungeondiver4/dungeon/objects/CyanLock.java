@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class CyanLock extends AbstractSingleLock {
     // Constructors
     public CyanLock() {
-        super(new CyanKey(), ColorConstants.COLOR_CYAN);
+	super(new CyanKey(), ColorConstants.COLOR_CYAN);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a cyan key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a cyan key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Cyan Lock";
+	return "Cyan Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Locks";
+	return "Cyan Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Locks require Cyan Keys to open.";
+	return "Cyan Locks require Cyan Keys to open.";
     }
 }

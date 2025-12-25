@@ -13,25 +13,25 @@ public abstract class AbstractKey extends AbstractInventoryableObject {
 
     // Constructors
     protected AbstractKey(final boolean infiniteUse) {
-        super();
-        this.infinite = infiniteUse;
+	super();
+	this.infinite = infiniteUse;
     }
 
     @Override
     public AbstractKey clone() {
-        final AbstractKey copy = (AbstractKey) super.clone();
-        copy.infinite = this.infinite;
-        return copy;
+	final AbstractKey copy = (AbstractKey) super.clone();
+	copy.infinite = this.infinite;
+	return copy;
     }
 
     public boolean isInfinite() {
-        return this.infinite;
+	return this.infinite;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
     }
 
     @Override

@@ -17,66 +17,52 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public abstract class AbstractWall extends AbstractDungeonObject {
     // Constructors
     protected AbstractWall(final int tc) {
-        super(true, true);
-        this.setTemplateColor(tc);
+	super(true, true);
+	this.setTemplateColor(tc);
     }
 
-    protected AbstractWall(final boolean isSolidXN, final boolean isSolidXS,
-            final boolean isSolidXW, final boolean isSolidXE,
-            final boolean isSolidIN, final boolean isSolidIS,
-            final boolean isSolidIW, final boolean isSolidIE, final int tc,
-            final int attr, final int attrColor) {
-        super(true, true);
-        this.setTemplateColor(tc);
-        this.setAttributeID(attr);
-        this.setAttributeTemplateColor(attrColor);
-        this.setDirectionallySolid(true, DirectionConstants.DIRECTION_NORTH,
-                isSolidXN);
-        this.setDirectionallySolid(true, DirectionConstants.DIRECTION_SOUTH,
-                isSolidXS);
-        this.setDirectionallySolid(true, DirectionConstants.DIRECTION_WEST,
-                isSolidXW);
-        this.setDirectionallySolid(true, DirectionConstants.DIRECTION_EAST,
-                isSolidXE);
-        this.setDirectionallySolid(false, DirectionConstants.DIRECTION_NORTH,
-                isSolidIN);
-        this.setDirectionallySolid(false, DirectionConstants.DIRECTION_SOUTH,
-                isSolidIS);
-        this.setDirectionallySolid(false, DirectionConstants.DIRECTION_WEST,
-                isSolidIW);
-        this.setDirectionallySolid(false, DirectionConstants.DIRECTION_EAST,
-                isSolidIE);
+    protected AbstractWall(final boolean isSolidXN, final boolean isSolidXS, final boolean isSolidXW,
+	    final boolean isSolidXE, final boolean isSolidIN, final boolean isSolidIS, final boolean isSolidIW,
+	    final boolean isSolidIE, final int tc, final int attr, final int attrColor) {
+	super(true, true);
+	this.setTemplateColor(tc);
+	this.setAttributeID(attr);
+	this.setAttributeTemplateColor(attrColor);
+	this.setDirectionallySolid(true, DirectionConstants.DIRECTION_NORTH, isSolidXN);
+	this.setDirectionallySolid(true, DirectionConstants.DIRECTION_SOUTH, isSolidXS);
+	this.setDirectionallySolid(true, DirectionConstants.DIRECTION_WEST, isSolidXW);
+	this.setDirectionallySolid(true, DirectionConstants.DIRECTION_EAST, isSolidXE);
+	this.setDirectionallySolid(false, DirectionConstants.DIRECTION_NORTH, isSolidIN);
+	this.setDirectionallySolid(false, DirectionConstants.DIRECTION_SOUTH, isSolidIS);
+	this.setDirectionallySolid(false, DirectionConstants.DIRECTION_WEST, isSolidIW);
+	this.setDirectionallySolid(false, DirectionConstants.DIRECTION_EAST, isSolidIE);
     }
 
     protected AbstractWall(final boolean sightBlock, final int tc) {
-        super(true, sightBlock);
-        this.setTemplateColor(tc);
+	super(true, sightBlock);
+	this.setTemplateColor(tc);
     }
 
-    protected AbstractWall(final boolean isDestroyable,
-            final boolean doesChainReact, final int tc) {
-        super(true, false, false, false, false, false, false, true,
-                isDestroyable, doesChainReact, true);
-        this.setTemplateColor(tc);
+    protected AbstractWall(final boolean isDestroyable, final boolean doesChainReact, final int tc) {
+	super(true, false, false, false, false, false, false, true, isDestroyable, doesChainReact, true);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
+	return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("Can't go that way");
-        // Play move failed sound, if it's enabled
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("Can't go that way");
+	// Play move failed sound, if it's enabled
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
@@ -84,21 +70,21 @@ public abstract class AbstractWall extends AbstractDungeonObject {
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

@@ -12,27 +12,27 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Axe extends AbstractInfiniteKey {
     // Constructors
     public Axe() {
-        super();
-        this.setTemplateColor(ColorConstants.COLOR_BRIDGE);
+	super();
+	this.setTemplateColor(ColorConstants.COLOR_BRIDGE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_AXE;
+	return ObjectImageConstants.OBJECT_IMAGE_AXE;
     }
 
     @Override
     public String getName() {
-        return "Axe";
+	return "Axe";
     }
 
     @Override
     public String getPluralName() {
-        return "Axe";
+	return "Axe";
     }
 
     @Override
     public String getDescription() {
-        return "With an Axe, Trees can be cut down. Axes never lose their ability to cut trees.";
+	return "With an Axe, Trees can be cut down. Axes never lose their ability to cut trees.";
     }
 }

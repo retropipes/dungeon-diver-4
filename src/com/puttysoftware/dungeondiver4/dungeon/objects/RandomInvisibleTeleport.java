@@ -11,33 +11,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class RandomInvisibleTeleport extends AbstractRandomInvisibleTeleport {
     // Constructors
     public RandomInvisibleTeleport() {
-        super(0, 0, ObjectImageConstants.OBJECT_IMAGE_RANDOM);
+	super(0, 0, ObjectImageConstants.OBJECT_IMAGE_RANDOM);
     }
 
-    public RandomInvisibleTeleport(final int newRandomRangeY,
-            final int newRandomRangeX) {
-        super(newRandomRangeY, newRandomRangeX,
-                ObjectImageConstants.OBJECT_IMAGE_RANDOM);
+    public RandomInvisibleTeleport(final int newRandomRangeY, final int newRandomRangeX) {
+	super(newRandomRangeY, newRandomRangeX, ObjectImageConstants.OBJECT_IMAGE_RANDOM);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Random Invisible Teleport";
+	return "Random Invisible Teleport";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Random Invisible Teleports";
+	return "Random Invisible Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Random Invisible Teleports are both random and invisible.";
+	return "Random Invisible Teleports are both random and invisible.";
     }
 }

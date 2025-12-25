@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class PoisonArrow extends AbstractTransientObject {
     // Constructors
     public PoisonArrow() {
-        super("Poison Arrow", ColorConstants.COLOR_GREEN);
+	super("Poison Arrow", ColorConstants.COLOR_GREEN);
     }
 }

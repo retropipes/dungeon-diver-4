@@ -21,44 +21,41 @@ public class RuleSetSaveTask extends Thread {
 
     // Constructors
     public RuleSetSaveTask(final String file) {
-        this.filename = file;
-        this.setName("Rule Set File Writer");
+	this.filename = file;
+	this.setName("Rule Set File Writer");
     }
 
     @Override
     public void run() {
-        final Application app = DungeonDiver4.getApplication();
-        final String sg = "Rule Set";
-        // filename check
-        final boolean hasExtension = RuleSetSaveTask
-                .hasExtension(this.filename);
-        if (!hasExtension) {
-            this.filename += Extension.getRuleSetExtensionWithPeriod();
-        }
-        try (XDataWriter ruleSetFile = DataIOFactory.createTagWriter(this.filename,
-                "ruleset")) {
-            ruleSetFile.writeInt(RuleSetConstants.MAGIC_NUMBER_2);
-            app.getObjects().writeRuleSet(ruleSetFile);
-            CommonDialogs.showTitledDialog(sg + " file saved.",
-                    "Rule Set Picker");
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Saving the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        }
+	final Application app = DungeonDiver4.getApplication();
+	final String sg = "Rule Set";
+	// filename check
+	final boolean hasExtension = RuleSetSaveTask.hasExtension(this.filename);
+	if (!hasExtension) {
+	    this.filename += Extension.getRuleSetExtensionWithPeriod();
+	}
+	try (XDataWriter ruleSetFile = DataIOFactory.createTagWriter(this.filename, "ruleset")) {
+	    ruleSetFile.writeInt(RuleSetConstants.MAGIC_NUMBER_2);
+	    app.getObjects().writeRuleSet(ruleSetFile);
+	    CommonDialogs.showTitledDialog(sg + " file saved.", "Rule Set Picker");
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Saving the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	}
     }
 
     private static boolean hasExtension(final String s) {
-        String ext = null;
-        final int i = s.lastIndexOf('.');
-        if (i > 0 && i < s.length() - 1) {
-            ext = s.substring(i + 1).toLowerCase();
-        }
-        if (ext == null) {
-            return false;
-        } else {
-            return true;
-        }
+	String ext = null;
+	final int i = s.lastIndexOf('.');
+	if (i > 0 && i < s.length() - 1) {
+	    ext = s.substring(i + 1).toLowerCase();
+	}
+	if (ext == null) {
+	    return false;
+	} else {
+	    return true;
+	}
     }
 }

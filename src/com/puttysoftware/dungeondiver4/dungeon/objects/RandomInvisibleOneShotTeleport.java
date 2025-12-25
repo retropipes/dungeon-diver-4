@@ -17,52 +17,48 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class RandomInvisibleOneShotTeleport extends RandomInvisibleTeleport {
     // Constructors
     public RandomInvisibleOneShotTeleport() {
-        super();
-        this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_RANDOM_ONE_SHOT);
+	super();
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_RANDOM_ONE_SHOT);
     }
 
-    public RandomInvisibleOneShotTeleport(final int newRandomRangeY,
-            final int newRandomRangeX) {
-        super(newRandomRangeY, newRandomRangeX);
-        this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_RANDOM_ONE_SHOT);
+    public RandomInvisibleOneShotTeleport(final int newRandomRangeY, final int newRandomRangeX) {
+	super(newRandomRangeY, newRandomRangeX);
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_RANDOM_ONE_SHOT);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().decay();
-        int dr, dc;
-        do {
-            dr = this.getDestinationRow();
-            dc = this.getDestinationColumn();
-        } while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
-        app.getGameManager().updatePositionRelative(dr, dc, 0);
-        DungeonDiver4.getApplication().showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().decay();
+	int dr, dc;
+	do {
+	    dr = this.getDestinationRow();
+	    dc = this.getDestinationColumn();
+	} while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
+	app.getGameManager().updatePositionRelative(dr, dc, 0);
+	DungeonDiver4.getApplication().showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Random Invisible One-Shot Teleport";
+	return "Random Invisible One-Shot Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Random Invisible One-Shot Teleports";
+	return "Random Invisible One-Shot Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_RANDOM_INVISIBLE_ONESHOT);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_RANDOM_INVISIBLE_ONESHOT);
     }
 
     @Override
     public String getDescription() {
-        return "Random Invisible One-Shot Teleports are random, invisible, and only work once.";
+	return "Random Invisible One-Shot Teleports are random, invisible, and only work once.";
     }
 }

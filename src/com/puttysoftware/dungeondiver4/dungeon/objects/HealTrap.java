@@ -19,34 +19,32 @@ public class HealTrap extends AbstractTrap {
 
     // Constructors
     public HealTrap() {
-        super(ColorConstants.COLOR_MAGENTA,
-                ObjectImageConstants.OBJECT_IMAGE_HEALTH,
-                ColorConstants.COLOR_DARK_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA, ObjectImageConstants.OBJECT_IMAGE_HEALTH,
+		ColorConstants.COLOR_DARK_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Heal Trap";
+	return "Heal Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Heal Traps";
+	return "Heal Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        this.healing = PartyManager.getParty().getLeader().getMaximumHP() / 50;
-        if (this.healing < 1) {
-            this.healing = 1;
-        }
-        PartyManager.getParty().getLeader().heal(this.healing);
-        SoundManager.playSound(SoundConstants.SOUND_BARRIER);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	this.healing = PartyManager.getParty().getLeader().getMaximumHP() / 50;
+	if (this.healing < 1) {
+	    this.healing = 1;
+	}
+	PartyManager.getParty().getLeader().heal(this.healing);
+	SoundManager.playSound(SoundConstants.SOUND_BARRIER);
     }
 
     @Override
     public String getDescription() {
-        return "Heal Traps heal you when stepped on.";
+	return "Heal Traps heal you when stepped on.";
     }
 }

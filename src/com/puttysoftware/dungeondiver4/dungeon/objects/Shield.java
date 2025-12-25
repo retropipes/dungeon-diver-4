@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Shield extends AbstractMultipleKey {
     // Constructors
     public Shield() {
-        super(ColorConstants.COLOR_ORANGE);
+	super(ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SHIELD;
+	return ObjectImageConstants.OBJECT_IMAGE_SHIELD;
     }
 
     @Override
     public String getName() {
-        return "Shield";
+	return "Shield";
     }
 
     @Override
     public String getPluralName() {
-        return "Shields";
+	return "Shields";
     }
 
     @Override
     public String getDescription() {
-        return "Shields are the keys to Shield Walls.";
+	return "Shields are the keys to Shield Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Orange Crystal";
+	return "Orange Crystal";
     }
 }

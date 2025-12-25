@@ -13,31 +13,29 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public abstract class AbstractField extends AbstractInfiniteLock {
     // Constructors
     protected AbstractField(final AbstractPass mgp, final int tc) {
-        super(mgp);
-        this.setTemplateColor(tc);
+	super(mgp);
+	this.setTemplateColor(tc);
     }
 
-    protected AbstractField(final AbstractPass mgp,
-            final boolean doesAcceptPushInto, final int tc) {
-        super(mgp, doesAcceptPushInto);
-        this.setTemplateColor(tc);
+    protected AbstractField(final AbstractPass mgp, final boolean doesAcceptPushInto, final int tc) {
+	super(mgp, doesAcceptPushInto);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_TEXTURED;
+	return ObjectImageConstants.OBJECT_IMAGE_TEXTURED;
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
     public boolean isConditionallySolid(final DungeonObjectInventory inv) {
-        return !inv.isItemThere(this.getKey());
+	return !inv.isItemThere(this.getKey());
     }
 
     @Override
@@ -45,13 +43,13 @@ public abstract class AbstractField extends AbstractInfiniteLock {
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_GROUND;
+	return DungeonConstants.LAYER_GROUND;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_FIELD);
-        this.type.set(TypeConstants.TYPE_INFINITE_LOCK);
-        this.type.set(TypeConstants.TYPE_LOCK);
+	this.type.set(TypeConstants.TYPE_FIELD);
+	this.type.set(TypeConstants.TYPE_INFINITE_LOCK);
+	this.type.set(TypeConstants.TYPE_LOCK);
     }
 }

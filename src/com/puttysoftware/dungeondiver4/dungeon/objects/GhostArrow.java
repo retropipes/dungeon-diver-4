@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GhostArrow extends AbstractTransientObject {
     // Constructors
     public GhostArrow() {
-        super("Ghost Arrow", ColorConstants.COLOR_GRAY);
+	super("Ghost Arrow", ColorConstants.COLOR_GRAY);
     }
 }

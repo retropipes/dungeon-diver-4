@@ -26,31 +26,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SuperRegenPotion extends AbstractPotion {
     // Constructors
     public SuperRegenPotion() {
-        super(StatConstants.STAT_CURRENT_MP, false);
+	super(StatConstants.STAT_CURRENT_MP, false);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUPER_REGEN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_SUPER_REGEN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Super Regen Potion";
+	return "Super Regen Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Regen Potions";
+	return "Super Regen Potions";
     }
 
     @Override
     public int getEffectValue() {
-        return PartyManager.getParty().getLeader().getMaximumMP();
+	return PartyManager.getParty().getLeader().getMaximumMP();
     }
 
     @Override
     public String getDescription() {
-        return "Super Regen Potions regenerate your magic completely when picked up.";
+	return "Super Regen Potions regenerate your magic completely when picked up.";
     }
 }

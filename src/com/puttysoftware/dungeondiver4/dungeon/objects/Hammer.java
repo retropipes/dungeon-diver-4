@@ -12,26 +12,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Hammer extends AbstractSingleKey {
     // Constructors
     public Hammer() {
-        super(ColorConstants.COLOR_BROWN);
+	super(ColorConstants.COLOR_BROWN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_HAMMER;
+	return ObjectImageConstants.OBJECT_IMAGE_HAMMER;
     }
 
     @Override
     public String getName() {
-        return "Hammer";
+	return "Hammer";
     }
 
     @Override
     public String getPluralName() {
-        return "Hammers";
+	return "Hammers";
     }
 
     @Override
     public String getDescription() {
-        return "Hammers are used to destroy Brick Walls, and can only be used once.";
+	return "Hammers are used to destroy Brick Walls, and can only be used once.";
     }
 }

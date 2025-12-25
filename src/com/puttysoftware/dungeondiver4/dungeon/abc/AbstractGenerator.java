@@ -28,603 +28,551 @@ public abstract class AbstractGenerator extends AbstractWall {
 
     // Constructors
     protected AbstractGenerator(final int tc) {
-        super(tc);
-        this.activateTimer(this.TIMER_DELAY);
+	super(tc);
+	this.activateTimer(this.TIMER_DELAY);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BARRIER_GENERATOR;
+	return ObjectImageConstants.OBJECT_IMAGE_BARRIER_GENERATOR;
     }
 
-    protected abstract boolean preMoveActionHook(int dirX, int dirY, int dirZ,
-            int dirW);
+    protected abstract boolean preMoveActionHook(int dirX, int dirY, int dirZ, int dirW);
 
     @Override
-    public boolean preMoveAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        // Remove barriers if present
-        boolean scanResult = false;
-        boolean flag = false;
-        final Application app = DungeonDiver4.getApplication();
-        final int pz = app.getDungeonManager().getDungeon()
-                .getPlayerLocationZ();
-        final int pw = app.getDungeonManager().getDungeon()
-                .getPlayerLocationW();
-        String mo2Name, mo4Name, mo6Name, mo8Name, invalidName, horzName,
-                vertName;
-        invalidName = new EmptyVoid().getName();
-        horzName = new HorizontalBarrier().getName();
-        vertName = new VerticalBarrier().getName();
-        final AbstractDungeonObject mo2 = app.getDungeonManager()
-                .getDungeonObject(dirX - 1, dirY, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo2Name = mo2.getName();
-        } catch (final NullPointerException np) {
-            mo2Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo2Name = invalidName;
-        }
-        final AbstractDungeonObject mo4 = app.getDungeonManager()
-                .getDungeonObject(dirX, dirY - 1, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo4Name = mo4.getName();
-        } catch (final NullPointerException np) {
-            mo4Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo4Name = invalidName;
-        }
-        final AbstractDungeonObject mo6 = app.getDungeonManager()
-                .getDungeonObject(dirX, dirY + 1, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo6Name = mo6.getName();
-        } catch (final NullPointerException np) {
-            mo6Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo6Name = invalidName;
-        }
-        final AbstractDungeonObject mo8 = app.getDungeonManager()
-                .getDungeonObject(dirX + 1, dirY, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo8Name = mo8.getName();
-        } catch (final NullPointerException np) {
-            mo8Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo8Name = invalidName;
-        }
-        if (mo2Name.equals(horzName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_WEST, dirX,
-                    dirY, pz, this.SCAN_LIMIT, false);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz,
-                        this.SCAN_LIMIT, false);
-                flag = true;
-            }
-        }
-        if (mo4Name.equals(vertName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_NORTH, dirX,
-                    dirY, pz, this.SCAN_LIMIT, false);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_NORTH, dirX, dirY,
-                        pz, this.SCAN_LIMIT, false);
-                flag = true;
-            }
-        }
-        if (mo6Name.equals(vertName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_SOUTH, dirX,
-                    dirY, pz, this.SCAN_LIMIT, false);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_SOUTH, dirX, dirY,
-                        pz, this.SCAN_LIMIT, false);
-                flag = true;
-            }
-        }
-        if (mo8Name.equals(horzName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_EAST, dirX,
-                    dirY, pz, this.SCAN_LIMIT, false);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz,
-                        this.SCAN_LIMIT, false);
-                flag = true;
-            }
-        }
-        if (flag) {
-            SoundManager.playSound(SoundConstants.SOUND_GENERATE);
-            this.activateTimer(this.TIMER_DELAY);
-            app.getGameManager().redrawDungeon();
-        }
-        return this.preMoveActionHook(dirX, dirY, pz, pw);
+    public boolean preMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Remove barriers if present
+	boolean scanResult = false;
+	boolean flag = false;
+	final Application app = DungeonDiver4.getApplication();
+	final int pz = app.getDungeonManager().getDungeon().getPlayerLocationZ();
+	final int pw = app.getDungeonManager().getDungeon().getPlayerLocationW();
+	String mo2Name, mo4Name, mo6Name, mo8Name, invalidName, horzName, vertName;
+	invalidName = new EmptyVoid().getName();
+	horzName = new HorizontalBarrier().getName();
+	vertName = new VerticalBarrier().getName();
+	final AbstractDungeonObject mo2 = app.getDungeonManager().getDungeonObject(dirX - 1, dirY, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo2Name = mo2.getName();
+	} catch (final NullPointerException np) {
+	    mo2Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo2Name = invalidName;
+	}
+	final AbstractDungeonObject mo4 = app.getDungeonManager().getDungeonObject(dirX, dirY - 1, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo4Name = mo4.getName();
+	} catch (final NullPointerException np) {
+	    mo4Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo4Name = invalidName;
+	}
+	final AbstractDungeonObject mo6 = app.getDungeonManager().getDungeonObject(dirX, dirY + 1, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo6Name = mo6.getName();
+	} catch (final NullPointerException np) {
+	    mo6Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo6Name = invalidName;
+	}
+	final AbstractDungeonObject mo8 = app.getDungeonManager().getDungeonObject(dirX + 1, dirY, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo8Name = mo8.getName();
+	} catch (final NullPointerException np) {
+	    mo8Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo8Name = invalidName;
+	}
+	if (mo2Name.equals(horzName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz, this.SCAN_LIMIT, false);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz, this.SCAN_LIMIT, false);
+		flag = true;
+	    }
+	}
+	if (mo4Name.equals(vertName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_NORTH, dirX, dirY, pz, this.SCAN_LIMIT, false);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_NORTH, dirX, dirY, pz, this.SCAN_LIMIT, false);
+		flag = true;
+	    }
+	}
+	if (mo6Name.equals(vertName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_SOUTH, dirX, dirY, pz, this.SCAN_LIMIT, false);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_SOUTH, dirX, dirY, pz, this.SCAN_LIMIT, false);
+		flag = true;
+	    }
+	}
+	if (mo8Name.equals(horzName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz, this.SCAN_LIMIT, false);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz, this.SCAN_LIMIT, false);
+		flag = true;
+	    }
+	}
+	if (flag) {
+	    SoundManager.playSound(SoundConstants.SOUND_GENERATE);
+	    this.activateTimer(this.TIMER_DELAY);
+	    app.getGameManager().redrawDungeon();
+	}
+	return this.preMoveActionHook(dirX, dirY, pz, pw);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        // Do nothing
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
     public void timerExpiredAction(final int dirX, final int dirY) {
-        // Generate barriers again
-        boolean scanResult = false;
-        boolean flag = false;
-        final Application app = DungeonDiver4.getApplication();
-        final int pz = app.getDungeonManager().getDungeon()
-                .getPlayerLocationZ();
-        String mo2Name, mo4Name, mo6Name, mo8Name, invalidName, horzName,
-                vertName;
-        invalidName = new EmptyVoid().getName();
-        horzName = new HorizontalBarrier().getName();
-        vertName = new VerticalBarrier().getName();
-        final AbstractDungeonObject mo2 = app.getDungeonManager()
-                .getDungeonObject(dirX - 1, dirY, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo2Name = mo2.getName();
-        } catch (final NullPointerException np) {
-            mo2Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo2Name = invalidName;
-        }
-        final AbstractDungeonObject mo4 = app.getDungeonManager()
-                .getDungeonObject(dirX, dirY - 1, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo4Name = mo4.getName();
-        } catch (final NullPointerException np) {
-            mo4Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo4Name = invalidName;
-        }
-        final AbstractDungeonObject mo6 = app.getDungeonManager()
-                .getDungeonObject(dirX, dirY + 1, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo6Name = mo6.getName();
-        } catch (final NullPointerException np) {
-            mo6Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo6Name = invalidName;
-        }
-        final AbstractDungeonObject mo8 = app.getDungeonManager()
-                .getDungeonObject(dirX + 1, dirY, pz,
-                        DungeonConstants.LAYER_OBJECT);
-        try {
-            mo8Name = mo8.getName();
-        } catch (final NullPointerException np) {
-            mo8Name = invalidName;
-        } catch (final ArrayIndexOutOfBoundsException aioob) {
-            mo8Name = invalidName;
-        }
-        if (!mo2Name.equals(horzName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_WEST, dirX,
-                    dirY, pz, this.SCAN_LIMIT, true);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz,
-                        this.SCAN_LIMIT, true);
-                flag = true;
-            }
-        }
-        if (!mo4Name.equals(vertName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_NORTH, dirX,
-                    dirY, pz, this.SCAN_LIMIT, true);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_NORTH, dirX, dirY,
-                        pz, this.SCAN_LIMIT, true);
-                flag = true;
-            }
-        }
-        if (!mo6Name.equals(vertName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_SOUTH, dirX,
-                    dirY, pz, this.SCAN_LIMIT, true);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_SOUTH, dirX, dirY,
-                        pz, this.SCAN_LIMIT, true);
-                flag = true;
-            }
-        }
-        if (!mo8Name.equals(horzName)) {
-            scanResult = this.scan(DirectionConstants.DIRECTION_EAST, dirX,
-                    dirY, pz, this.SCAN_LIMIT, true);
-            if (scanResult) {
-                this.generate(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz,
-                        this.SCAN_LIMIT, true);
-                flag = true;
-            }
-        }
-        if (flag) {
-            SoundManager.playSound(SoundConstants.SOUND_GENERATE);
-            app.getGameManager().redrawDungeon();
-        }
-        // Activate the timer again
-        this.activateTimer(this.TIMER_DELAY);
+	// Generate barriers again
+	boolean scanResult = false;
+	boolean flag = false;
+	final Application app = DungeonDiver4.getApplication();
+	final int pz = app.getDungeonManager().getDungeon().getPlayerLocationZ();
+	String mo2Name, mo4Name, mo6Name, mo8Name, invalidName, horzName, vertName;
+	invalidName = new EmptyVoid().getName();
+	horzName = new HorizontalBarrier().getName();
+	vertName = new VerticalBarrier().getName();
+	final AbstractDungeonObject mo2 = app.getDungeonManager().getDungeonObject(dirX - 1, dirY, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo2Name = mo2.getName();
+	} catch (final NullPointerException np) {
+	    mo2Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo2Name = invalidName;
+	}
+	final AbstractDungeonObject mo4 = app.getDungeonManager().getDungeonObject(dirX, dirY - 1, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo4Name = mo4.getName();
+	} catch (final NullPointerException np) {
+	    mo4Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo4Name = invalidName;
+	}
+	final AbstractDungeonObject mo6 = app.getDungeonManager().getDungeonObject(dirX, dirY + 1, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo6Name = mo6.getName();
+	} catch (final NullPointerException np) {
+	    mo6Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo6Name = invalidName;
+	}
+	final AbstractDungeonObject mo8 = app.getDungeonManager().getDungeonObject(dirX + 1, dirY, pz,
+		DungeonConstants.LAYER_OBJECT);
+	try {
+	    mo8Name = mo8.getName();
+	} catch (final NullPointerException np) {
+	    mo8Name = invalidName;
+	} catch (final ArrayIndexOutOfBoundsException aioob) {
+	    mo8Name = invalidName;
+	}
+	if (!mo2Name.equals(horzName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz, this.SCAN_LIMIT, true);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_WEST, dirX, dirY, pz, this.SCAN_LIMIT, true);
+		flag = true;
+	    }
+	}
+	if (!mo4Name.equals(vertName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_NORTH, dirX, dirY, pz, this.SCAN_LIMIT, true);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_NORTH, dirX, dirY, pz, this.SCAN_LIMIT, true);
+		flag = true;
+	    }
+	}
+	if (!mo6Name.equals(vertName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_SOUTH, dirX, dirY, pz, this.SCAN_LIMIT, true);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_SOUTH, dirX, dirY, pz, this.SCAN_LIMIT, true);
+		flag = true;
+	    }
+	}
+	if (!mo8Name.equals(horzName)) {
+	    scanResult = this.scan(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz, this.SCAN_LIMIT, true);
+	    if (scanResult) {
+		this.generate(DirectionConstants.DIRECTION_EAST, dirX, dirY, pz, this.SCAN_LIMIT, true);
+		flag = true;
+	    }
+	}
+	if (flag) {
+	    SoundManager.playSound(SoundConstants.SOUND_GENERATE);
+	    app.getGameManager().redrawDungeon();
+	}
+	// Activate the timer again
+	this.activateTimer(this.TIMER_DELAY);
     }
 
-    protected boolean scan(final int dir, final int x, final int y, final int z,
-            final int limit, final boolean o) {
-        final Application app = DungeonDiver4.getApplication();
-        final String invalidName = new EmptyVoid().getName();
-        if (dir == DirectionConstants.DIRECTION_EAST) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x + l, y, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    try {
-                        if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                            return true;
-                        }
-                        if (mo.isSolid()) {
-                            return false;
-                        }
-                    } catch (final NullPointerException np) {
-                        // Do nothing
-                    }
-                } else {
-                    if (!moName.equals(new HorizontalBarrier().getName())) {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                return true;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_NORTH) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x, y - l, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    try {
-                        if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                            return true;
-                        }
-                        if (mo.isSolid()) {
-                            return false;
-                        }
-                    } catch (final NullPointerException np) {
-                        // Do nothing
-                    }
-                } else {
-                    if (!moName.equals(new VerticalBarrier().getName())) {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                return true;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_SOUTH) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x, y + l, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    try {
-                        if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                            return true;
-                        }
-                        if (mo.isSolid()) {
-                            return false;
-                        }
-                    } catch (final NullPointerException np) {
-                        // Do nothing
-                    }
-                } else {
-                    if (!moName.equals(new VerticalBarrier().getName())) {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                return true;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_WEST) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x - l, y, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    try {
-                        if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                            return true;
-                        }
-                        if (mo.isSolid()) {
-                            return false;
-                        }
-                    } catch (final NullPointerException np) {
-                        // Do nothing
-                    }
-                } else {
-                    if (!moName.equals(new HorizontalBarrier().getName())) {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                return true;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+    protected boolean scan(final int dir, final int x, final int y, final int z, final int limit, final boolean o) {
+	final Application app = DungeonDiver4.getApplication();
+	final String invalidName = new EmptyVoid().getName();
+	if (dir == DirectionConstants.DIRECTION_EAST) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x + l, y, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    try {
+			if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+			    return true;
+			}
+			if (mo.isSolid()) {
+			    return false;
+			}
+		    } catch (final NullPointerException np) {
+			// Do nothing
+		    }
+		} else {
+		    if (!moName.equals(new HorizontalBarrier().getName())) {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				return true;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_NORTH) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x, y - l, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    try {
+			if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+			    return true;
+			}
+			if (mo.isSolid()) {
+			    return false;
+			}
+		    } catch (final NullPointerException np) {
+			// Do nothing
+		    }
+		} else {
+		    if (!moName.equals(new VerticalBarrier().getName())) {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				return true;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_SOUTH) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x, y + l, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    try {
+			if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+			    return true;
+			}
+			if (mo.isSolid()) {
+			    return false;
+			}
+		    } catch (final NullPointerException np) {
+			// Do nothing
+		    }
+		} else {
+		    if (!moName.equals(new VerticalBarrier().getName())) {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				return true;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_WEST) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x - l, y, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    try {
+			if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+			    return true;
+			}
+			if (mo.isSolid()) {
+			    return false;
+			}
+		    } catch (final NullPointerException np) {
+			// Do nothing
+		    }
+		} else {
+		    if (!moName.equals(new HorizontalBarrier().getName())) {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				return true;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	}
+	return false;
     }
 
-    protected void generate(final int dir, final int x, final int y,
-            final int z, final int limit, final boolean o) {
-        final Application app = DungeonDiver4.getApplication();
-        final String invalidName = new EmptyVoid().getName();
-        if (dir == DirectionConstants.DIRECTION_EAST) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x + l, y, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    if (moName.equals(new HorizontalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new HorizontalBarrier(), x + l, y, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                } else {
-                    if (!moName.equals(new HorizontalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new Empty(), x + l, y, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_NORTH) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x, y - l, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    if (moName.equals(new VerticalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new VerticalBarrier(), x, y - l, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                } else {
-                    if (!moName.equals(new VerticalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new Empty(), x, y - l, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_SOUTH) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x, y + l, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    if (moName.equals(new VerticalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new VerticalBarrier(), x, y + l, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                } else {
-                    if (!moName.equals(new VerticalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new Empty(), x, y + l, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        } else if (dir == DirectionConstants.DIRECTION_WEST) {
-            for (int l = 1; l < limit; l++) {
-                final AbstractDungeonObject mo = app.getDungeonManager()
-                        .getDungeonObject(x - l, y, z,
-                                DungeonConstants.LAYER_OBJECT);
-                String moName;
-                try {
-                    moName = mo.getName();
-                } catch (final NullPointerException np) {
-                    moName = invalidName;
-                }
-                if (o) {
-                    if (moName.equals(new HorizontalBarrier().getName())) {
-                        break;
-                    } else {
-                        if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                            break;
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new HorizontalBarrier(), x - l, y, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                } else {
-                    if (!moName.equals(new HorizontalBarrier().getName())) {
-                        break;
-                    } else {
-                        try {
-                            if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
-                                break;
-                            }
-                        } catch (final NullPointerException np) {
-                            // Do nothing
-                        }
-                        try {
-                            app.getDungeonManager().getDungeon().setCell(
-                                    new Empty(), x - l, y, z,
-                                    DungeonConstants.LAYER_OBJECT);
-                        } catch (final ArrayIndexOutOfBoundsException aioob) {
-                            // Do nothing
-                        }
-                    }
-                }
-            }
-        }
+    protected void generate(final int dir, final int x, final int y, final int z, final int limit, final boolean o) {
+	final Application app = DungeonDiver4.getApplication();
+	final String invalidName = new EmptyVoid().getName();
+	if (dir == DirectionConstants.DIRECTION_EAST) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x + l, y, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    if (moName.equals(new HorizontalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new HorizontalBarrier(), x + l, y, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		} else {
+		    if (!moName.equals(new HorizontalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new Empty(), x + l, y, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_NORTH) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x, y - l, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    if (moName.equals(new VerticalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new VerticalBarrier(), x, y - l, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		} else {
+		    if (!moName.equals(new VerticalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new Empty(), x, y - l, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_SOUTH) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x, y + l, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    if (moName.equals(new VerticalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new VerticalBarrier(), x, y + l, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		} else {
+		    if (!moName.equals(new VerticalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new Empty(), x, y + l, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	} else if (dir == DirectionConstants.DIRECTION_WEST) {
+	    for (int l = 1; l < limit; l++) {
+		final AbstractDungeonObject mo = app.getDungeonManager().getDungeonObject(x - l, y, z,
+			DungeonConstants.LAYER_OBJECT);
+		String moName;
+		try {
+		    moName = mo.getName();
+		} catch (final NullPointerException np) {
+		    moName = invalidName;
+		}
+		if (o) {
+		    if (moName.equals(new HorizontalBarrier().getName())) {
+			break;
+		    } else {
+			if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+			    break;
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new HorizontalBarrier(), x - l, y, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		} else {
+		    if (!moName.equals(new HorizontalBarrier().getName())) {
+			break;
+		    } else {
+			try {
+			    if (mo.isOfType(TypeConstants.TYPE_GENERATOR)) {
+				break;
+			    }
+			} catch (final NullPointerException np) {
+			    // Do nothing
+			}
+			try {
+			    app.getDungeonManager().getDungeon().setCell(new Empty(), x - l, y, z,
+				    DungeonConstants.LAYER_OBJECT);
+			} catch (final ArrayIndexOutOfBoundsException aioob) {
+			    // Do nothing
+			}
+		    }
+		}
+	    }
+	}
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        // Behave as if the generator was walked into, unless the arrow was an
-        // ice arrow
-        if (arrowType == ArrowTypeConstants.ARROW_TYPE_PLAIN) {
-            this.preMoveAction(false, locX, locY, inv);
-        } else {
-            this.arrowHitActionHook(locX, locY, locZ, arrowType, inv);
-        }
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	// Behave as if the generator was walked into, unless the arrow was an
+	// ice arrow
+	if (arrowType == ArrowTypeConstants.ARROW_TYPE_PLAIN) {
+	    this.preMoveAction(false, locX, locY, inv);
+	} else {
+	    this.arrowHitActionHook(locX, locY, locZ, arrowType, inv);
+	}
+	return false;
     }
 
-    protected abstract void arrowHitActionHook(int locX, int locY, int locZ,
-            int arrowType, DungeonObjectInventory inv);
+    protected abstract void arrowHitActionHook(int locX, int locY, int locZ, int arrowType, DungeonObjectInventory inv);
 
     @Override
     protected void setTypes() {
-        super.setTypes();
-        this.type.set(TypeConstants.TYPE_REACTS_TO_ICE);
-        this.type.set(TypeConstants.TYPE_REACTS_TO_FIRE);
-        this.type.set(TypeConstants.TYPE_REACTS_TO_POISON);
-        this.type.set(TypeConstants.TYPE_REACTS_TO_SHOCK);
-        this.type.set(TypeConstants.TYPE_GENERATOR);
+	super.setTypes();
+	this.type.set(TypeConstants.TYPE_REACTS_TO_ICE);
+	this.type.set(TypeConstants.TYPE_REACTS_TO_FIRE);
+	this.type.set(TypeConstants.TYPE_REACTS_TO_POISON);
+	this.type.set(TypeConstants.TYPE_REACTS_TO_SHOCK);
+	this.type.set(TypeConstants.TYPE_GENERATOR);
     }
 }

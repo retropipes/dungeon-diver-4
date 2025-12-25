@@ -15,26 +15,26 @@ public class HealBoots extends AbstractBoots {
 
     // Constructors
     public HealBoots() {
-        super(ColorConstants.COLOR_MAGENTA);
+	super(ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Heal Boots";
+	return "Heal Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Heal Boots";
+	return "Pairs of Heal Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Heal Boots restore your health as you walk. Note that you can only wear one pair of boots at once.";
+	return "Heal Boots restore your health as you walk. Note that you can only wear one pair of boots at once.";
     }
 
     @Override
     public void stepAction() {
-        PartyManager.getParty().getLeader().heal(HealBoots.HEAL_AMOUNT);
+	PartyManager.getParty().getLeader().heal(HealBoots.HEAL_AMOUNT);
     }
 }

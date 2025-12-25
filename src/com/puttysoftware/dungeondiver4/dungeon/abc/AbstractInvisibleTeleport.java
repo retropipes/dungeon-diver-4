@@ -15,25 +15,21 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
 public abstract class AbstractInvisibleTeleport extends AbstractTeleport {
     // Constructors
-    protected AbstractInvisibleTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor,
-            final int attrName) {
-        super(destinationRow, destinationColumn, destinationFloor, true,
-                attrName);
-        this.setTemplateColor(ColorConstants.COLOR_CYAN);
-        this.setAttributeTemplateColor(
-                ColorConstants.COLOR_INVISIBLE_TELEPORT_ATTRIBUTE);
+    protected AbstractInvisibleTeleport(final int destinationRow, final int destinationColumn,
+	    final int destinationFloor, final int attrName) {
+	super(destinationRow, destinationColumn, destinationFloor, true, attrName);
+	this.setTemplateColor(ColorConstants.COLOR_CYAN);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_INVISIBLE_TELEPORT_ATTRIBUTE);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePositionAbsolute(this.getDestinationRow(),
-                this.getDestinationColumn(), this.getDestinationFloor());
-        app.showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor());
+	app.showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
@@ -41,7 +37,7 @@ public abstract class AbstractInvisibleTeleport extends AbstractTeleport {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVISIBLE_TELEPORT);
-        this.type.set(TypeConstants.TYPE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_INVISIBLE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_TELEPORT);
     }
 }

@@ -22,30 +22,29 @@ class NamesSaveTask extends Thread {
 
     // Constructors
     NamesSaveTask(final String file, final String[] data) {
-        this.filename = file;
-        this.namesData = data;
-        this.setName("Names File Writer");
+	this.filename = file;
+	this.namesData = data;
+	this.setName("Names File Writer");
     }
 
     @Override
     public void run() {
-        final String sg = "Names";
-        try (BufferedWriter bw = new BufferedWriter(
-                new FileWriter(this.filename))) {
-            // Write version
-            bw.write(Integer.toString(NamesConstants.NAMES_VERSION) + "\n");
-            for (int x = 0; x < this.namesData.length; x++) {
-                bw.write(this.namesData[x]);
-                if (x < this.namesData.length - 1) {
-                    bw.write("\n");
-                }
-            }
-            NamesManager.invalidateNamesCache();
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        }
+	final String sg = "Names";
+	try (BufferedWriter bw = new BufferedWriter(new FileWriter(this.filename))) {
+	    // Write version
+	    bw.write(Integer.toString(NamesConstants.NAMES_VERSION) + "\n");
+	    for (int x = 0; x < this.namesData.length; x++) {
+		bw.write(this.namesData[x]);
+		if (x < this.namesData.length - 1) {
+		    bw.write("\n");
+		}
+	    }
+	    NamesManager.invalidateNamesCache();
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	}
     }
 }

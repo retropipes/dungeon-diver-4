@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class MoveWall extends AbstractMultipleLock {
     // Constructors
     public MoveWall() {
-        super(new Move(), ColorConstants.COLOR_WHITE);
+	super(new Move(), ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SMALL_MOVE;
+	return ObjectImageConstants.OBJECT_IMAGE_SMALL_MOVE;
     }
 
     @Override
     public String getName() {
-        return "Move Wall";
+	return "Move Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Move Walls";
+	return "Move Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Move Walls are impassable without enough Moves.";
+	return "Move Walls are impassable without enough Moves.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "White Crystal Wall";
+	return "White Crystal Wall";
     }
 }

@@ -81,24 +81,18 @@ public class SoundConstants {
     public static final int SOUND_WEAKEN = 79;
     public static final int SOUND_BIND = 80;
     // Package-Protected Constants
-    static final String[] SOUND_NAMES = { "action_failed", "arrow_die",
-            "arrow_hit", "arrow", "attack", "barrier", "battle", "blocked",
-            "button", "change", "cold", "confused", "counter", "crack",
-            "create", "critical", "darkness", "death", "defense", "destroy",
-            "dizzy", "down", "drain", "drunk", "equip", "explode", "fail",
-            "falling", "fireball", "focus", "force_field", "fumble",
-            "game_over", "generate", "grab", "heal", "hit", "hurt", "identify",
-            "into_pit", "kill", "level_up", "light", "logo", "low_health",
-            "missed", null, null, null, "next_round", "on_who", "ow",
-            "player_up", "potion", "push_pull", "run_away", "run_failed",
-            "scribble", "shatter", "shop", "sink_block", "slime", "special",
-            "spell", "spring", "sun_stone", "teleport", "transact", "unlock",
-            "up", "victory", "walk_failed", "walk_ice", "walk_lava",
-            "walk_slime", "walk_water", "walk", "wall_trap", "water", "weaken",
-            "bind" };
+    static final String[] SOUND_NAMES = { "action_failed", "arrow_die", "arrow_hit", "arrow", "attack", "barrier",
+	    "battle", "blocked", "button", "change", "cold", "confused", "counter", "crack", "create", "critical",
+	    "darkness", "death", "defense", "destroy", "dizzy", "down", "drain", "drunk", "equip", "explode", "fail",
+	    "falling", "fireball", "focus", "force_field", "fumble", "game_over", "generate", "grab", "heal", "hit",
+	    "hurt", "identify", "into_pit", "kill", "level_up", "light", "logo", "low_health", "missed", null, null,
+	    null, "next_round", "on_who", "ow", "player_up", "potion", "push_pull", "run_away", "run_failed",
+	    "scribble", "shatter", "shop", "sink_block", "slime", "special", "spell", "spring", "sun_stone", "teleport",
+	    "transact", "unlock", "up", "victory", "walk_failed", "walk_ice", "walk_lava", "walk_slime", "walk_water",
+	    "walk", "wall_trap", "water", "weaken", "bind" };
 
     // Private constructor
     private SoundConstants() {
-        // Do nothing
+	// Do nothing
     }
 }

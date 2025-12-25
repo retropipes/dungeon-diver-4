@@ -11,27 +11,27 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class WhiteCrystal extends AbstractProgrammableKey {
     // Constructors
     public WhiteCrystal() {
-        super("White", ColorConstants.COLOR_WHITE);
+	super("White", ColorConstants.COLOR_WHITE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "White Crystal";
+	return "White Crystal";
     }
 
     @Override
     public String getPluralName() {
-        return "White Crystals";
+	return "White Crystals";
     }
 
     @Override
     public String getDescription() {
-        return "White Crystals will open White Crystal Walls.";
+	return "White Crystals will open White Crystal Walls.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

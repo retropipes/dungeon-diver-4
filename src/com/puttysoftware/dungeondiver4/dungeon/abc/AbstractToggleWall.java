@@ -16,30 +16,28 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public abstract class AbstractToggleWall extends AbstractDungeonObject {
     // Constructors
     protected AbstractToggleWall(final boolean solidState, final int tc) {
-        super(solidState, false);
-        this.setTemplateColor(tc);
+	super(solidState, false);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public final int getBaseID() {
-        if (this.isSolid()) {
-            return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
-        } else {
-            return ObjectImageConstants.OBJECT_IMAGE_WALL_OFF;
-        }
+	if (this.isSolid()) {
+	    return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
+	} else {
+	    return ObjectImageConstants.OBJECT_IMAGE_WALL_OFF;
+	}
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().showMessage("Can't go that way");
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().showMessage("Can't go that way");
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
@@ -47,21 +45,21 @@ public abstract class AbstractToggleWall extends AbstractDungeonObject {
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_TOGGLE_WALL);
+	this.type.set(TypeConstants.TYPE_TOGGLE_WALL);
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

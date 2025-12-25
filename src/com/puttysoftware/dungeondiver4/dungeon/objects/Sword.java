@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Sword extends AbstractMultipleKey {
     // Constructors
     public Sword() {
-        super(ColorConstants.COLOR_SKY);
+	super(ColorConstants.COLOR_SKY);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SWORD;
+	return ObjectImageConstants.OBJECT_IMAGE_SWORD;
     }
 
     @Override
     public String getName() {
-        return "Sword";
+	return "Sword";
     }
 
     @Override
     public String getPluralName() {
-        return "Swords";
+	return "Swords";
     }
 
     @Override
     public String getDescription() {
-        return "Swords are the keys to Sword Walls.";
+	return "Swords are the keys to Sword Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Sky Crystal";
+	return "Sky Crystal";
     }
 }

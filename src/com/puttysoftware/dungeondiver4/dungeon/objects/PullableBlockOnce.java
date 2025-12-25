@@ -19,33 +19,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class PullableBlockOnce extends AbstractMovableObject {
     // Constructors
     public PullableBlockOnce() {
-        super(false, true, ObjectImageConstants.OBJECT_IMAGE_ONCE);
-        this.setTemplateColor(ColorConstants.COLOR_GRAY);
+	super(false, true, ObjectImageConstants.OBJECT_IMAGE_ONCE);
+	this.setTemplateColor(ColorConstants.COLOR_GRAY);
     }
 
     @Override
     public String getName() {
-        return "Pullable Block Once";
+	return "Pullable Block Once";
     }
 
     @Override
     public String getPluralName() {
-        return "Pullable Blocks Once";
+	return "Pullable Blocks Once";
     }
 
     @Override
-    public void pullAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int pushX, final int pushY) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePulledPosition(x, y, pushX, pushY, this);
-        SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
-        app.getGameManager().morphOther(new Wall(), pushX, pushY,
-                DungeonConstants.LAYER_OBJECT);
+    public void pullAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x, final int y,
+	    final int pushX, final int pushY) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePulledPosition(x, y, pushX, pushY, this);
+	SoundManager.playSound(SoundConstants.SOUND_PUSH_PULL);
+	app.getGameManager().morphOther(new Wall(), pushX, pushY, DungeonConstants.LAYER_OBJECT);
     }
 
     @Override
     public String getDescription() {
-        return "Pullable Blocks Once can only be pulled once, before turning into a wall.";
+	return "Pullable Blocks Once can only be pulled once, before turning into a wall.";
     }
 }

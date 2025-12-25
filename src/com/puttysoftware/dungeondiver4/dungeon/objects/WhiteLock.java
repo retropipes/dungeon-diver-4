@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class WhiteLock extends AbstractSingleLock {
     // Constructors
     public WhiteLock() {
-        super(new WhiteKey(), ColorConstants.COLOR_WHITE);
+	super(new WhiteKey(), ColorConstants.COLOR_WHITE);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a white key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a white key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "White Lock";
+	return "White Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "White Locks";
+	return "White Locks";
     }
 
     @Override
     public String getDescription() {
-        return "White Locks require White Keys to open.";
+	return "White Locks require White Keys to open.";
     }
 }

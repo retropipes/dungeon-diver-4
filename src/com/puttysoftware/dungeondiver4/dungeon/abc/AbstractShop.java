@@ -19,61 +19,57 @@ public abstract class AbstractShop extends AbstractDungeonObject {
 
     // Constructors
     public AbstractShop(final int newShopType) {
-        super(false, false);
-        this.setTemplateColor(ColorConstants.COLOR_ORANGE);
-        this.shopType = newShopType;
+	super(false, false);
+	this.setTemplateColor(ColorConstants.COLOR_ORANGE);
+	this.shopType = newShopType;
     }
 
     // Methods
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_SHOP);
+	this.type.set(TypeConstants.TYPE_SHOP);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Shop shop = DungeonDiver4.getApplication()
-                .getGenericShop(this.shopType);
-        if (shop != null) {
-            shop.showShop();
-        }
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Shop shop = DungeonDiver4.getApplication().getGenericShop(this.shopType);
+	if (shop != null) {
+	    shop.showShop();
+	}
     }
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public boolean isRequired() {
-        return true;
+	return true;
     }
 
     @Override
     public int getMinimumRequiredQuantity(final Dungeon dungeon) {
-        return (int) Math
-                .ceil(Math.sqrt(dungeon.getRows() * dungeon.getColumns() / 2));
+	return (int) Math.ceil(Math.sqrt(dungeon.getRows() * dungeon.getColumns() / 2));
     }
 
     @Override
     public int getMaximumRequiredQuantity(final Dungeon dungeon) {
-        return (int) Math
-                .floor(Math.sqrt(dungeon.getRows() * dungeon.getColumns()));
+	return (int) Math.floor(Math.sqrt(dungeon.getRows() * dungeon.getColumns()));
     }
 
     @Override
     public boolean enabledInBattle() {
-        return false;
+	return false;
     }
 }

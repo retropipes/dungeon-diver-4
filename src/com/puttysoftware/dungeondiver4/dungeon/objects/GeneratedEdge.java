@@ -9,8 +9,8 @@ import com.puttysoftware.dungeondiver4.dungeon.abc.AbstractGeneratedEdge;
 
 public class GeneratedEdge extends AbstractGeneratedEdge {
     // Constructors
-    public GeneratedEdge(final String n, final int b, final String p,
-            final String s1, final String s2, final String d) {
-        super(n, b, p, s1, s2, d);
+    public GeneratedEdge(final String n, final int b, final String p, final String s1, final String s2,
+	    final String d) {
+	super(n, b, p, s1, s2, d);
     }
 }

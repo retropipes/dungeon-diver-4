@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SilverSquare extends AbstractMultipleKey {
     // Constructors
     public SilverSquare() {
-        super(ColorConstants.COLOR_WHITE);
+	super(ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public String getName() {
-        return "Silver Square";
+	return "Silver Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Silver Squares";
+	return "Silver Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Silver Squares are the keys to Silver Walls.";
+	return "Silver Squares are the keys to Silver Walls.";
     }
 }

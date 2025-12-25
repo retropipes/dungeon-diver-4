@@ -15,27 +15,26 @@ public class Ruby extends AbstractScoreIncreaser {
 
     // Constructors
     public Ruby() {
-        super(ColorConstants.COLOR_LIGHT_RED);
+	super(ColorConstants.COLOR_LIGHT_RED);
     }
 
     @Override
     public String getName() {
-        return "Ruby";
+	return "Ruby";
     }
 
     @Override
     public String getPluralName() {
-        return "Rubys";
+	return "Rubys";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager()
-                .addToScore(Ruby.SCORE_INCREASE);
+	DungeonDiver4.getApplication().getGameManager().addToScore(Ruby.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Rubys increase your score when picked up.";
+	return "Rubys increase your score when picked up.";
     }
 }

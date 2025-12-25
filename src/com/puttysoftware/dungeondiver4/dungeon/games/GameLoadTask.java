@@ -29,76 +29,73 @@ public class GameLoadTask extends Thread {
 
     // Constructors
     public GameLoadTask(final String file) {
-        this.filename = file;
-        this.setName("Locked File Loader");
-        this.loadFrame = new JFrame("Loading...");
-        this.loadFrame.setIconImage(LogoManager.getIconLogo());
-        final JProgressBar loadBar = new JProgressBar();
-        loadBar.setIndeterminate(true);
-        this.loadFrame.getContentPane().add(loadBar);
-        this.loadFrame.setResizable(false);
-        this.loadFrame
-                .setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.loadFrame.pack();
+	this.filename = file;
+	this.setName("Locked File Loader");
+	this.loadFrame = new JFrame("Loading...");
+	this.loadFrame.setIconImage(LogoManager.getIconLogo());
+	final JProgressBar loadBar = new JProgressBar();
+	loadBar.setIndeterminate(true);
+	this.loadFrame.getContentPane().add(loadBar);
+	this.loadFrame.setResizable(false);
+	this.loadFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	this.loadFrame.pack();
     }
 
     // Methods
     @Override
     public void run() {
-        this.loadFrame.setVisible(true);
-        final Application app = DungeonDiver4.getApplication();
-        int startW;
-        String sg;
-        app.getGameManager().setSavedGameFlag(false);
-        sg = "Dungeon";
-        try {
-            final File dungeonFile = new File(this.filename);
-            final File tempLock = new File(
-                    Dungeon.getDungeonTempFolder() + "lock.tmp");
-            Dungeon gameDungeon = new Dungeon();
-            // Unlock the file
-            GameFileManager.load(dungeonFile, tempLock);
-            ZipUtilities.unzipDirectory(tempLock,
-                    new File(gameDungeon.getBasePath()));
-            final boolean success = tempLock.delete();
-            if (!success) {
-                throw new IOException("Failed to delete temporary file!");
-            }
-            // Set prefix handler
-            gameDungeon.setPrefixHandler(new PrefixHandler());
-            // Set suffix handler
-            gameDungeon.setSuffixHandler(null);
-            gameDungeon = gameDungeon.readDungeon();
-            if (gameDungeon == null) {
-                throw new IOException("Unknown object encountered.");
-            }
-            app.getDungeonManager().setDungeon(gameDungeon);
-            startW = gameDungeon.getStartLevel();
-            gameDungeon.switchLevel(startW);
-            final boolean playerExists = gameDungeon.doesPlayerExist();
-            if (playerExists) {
-                app.getDungeonManager().getDungeon().setPlayerToStart();
-                app.getGameManager().resetViewingWindow();
-            }
-            gameDungeon.save();
-            // Final cleanup
-            app.getMenuManager().setGameFlag();
-            app.getEditor().dungeonChanged();
-            app.getGameManager().stateChanged();
-            CommonDialogs.showDialog(sg + " file loaded.");
-            app.getDungeonManager().handleDeferredSuccess(true);
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-            app.getDungeonManager().handleDeferredSuccess(false);
-        } catch (final IOException ie) {
-            CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
-                    + " file failed, due to some other type of I/O error.");
-            app.getDungeonManager().handleDeferredSuccess(false);
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        } finally {
-            this.loadFrame.setVisible(false);
-        }
+	this.loadFrame.setVisible(true);
+	final Application app = DungeonDiver4.getApplication();
+	int startW;
+	String sg;
+	app.getGameManager().setSavedGameFlag(false);
+	sg = "Dungeon";
+	try {
+	    final File dungeonFile = new File(this.filename);
+	    final File tempLock = new File(Dungeon.getDungeonTempFolder() + "lock.tmp");
+	    Dungeon gameDungeon = new Dungeon();
+	    // Unlock the file
+	    GameFileManager.load(dungeonFile, tempLock);
+	    ZipUtilities.unzipDirectory(tempLock, new File(gameDungeon.getBasePath()));
+	    final boolean success = tempLock.delete();
+	    if (!success) {
+		throw new IOException("Failed to delete temporary file!");
+	    }
+	    // Set prefix handler
+	    gameDungeon.setPrefixHandler(new PrefixHandler());
+	    // Set suffix handler
+	    gameDungeon.setSuffixHandler(null);
+	    gameDungeon = gameDungeon.readDungeon();
+	    if (gameDungeon == null) {
+		throw new IOException("Unknown object encountered.");
+	    }
+	    app.getDungeonManager().setDungeon(gameDungeon);
+	    startW = gameDungeon.getStartLevel();
+	    gameDungeon.switchLevel(startW);
+	    final boolean playerExists = gameDungeon.doesPlayerExist();
+	    if (playerExists) {
+		app.getDungeonManager().getDungeon().setPlayerToStart();
+		app.getGameManager().resetViewingWindow();
+	    }
+	    gameDungeon.save();
+	    // Final cleanup
+	    app.getMenuManager().setGameFlag();
+	    app.getEditor().dungeonChanged();
+	    app.getGameManager().stateChanged();
+	    CommonDialogs.showDialog(sg + " file loaded.");
+	    app.getDungeonManager().handleDeferredSuccess(true);
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	    app.getDungeonManager().handleDeferredSuccess(false);
+	} catch (final IOException ie) {
+	    CommonDialogs.showDialog(
+		    "Loading the " + sg.toLowerCase() + " file failed, due to some other type of I/O error.");
+	    app.getDungeonManager().handleDeferredSuccess(false);
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	} finally {
+	    this.loadFrame.setVisible(false);
+	}
     }
 }

@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SkyWallOff extends AbstractToggleWall {
     // Constructors
     public SkyWallOff() {
-        super(false, ColorConstants.COLOR_SKY);
+	super(false, ColorConstants.COLOR_SKY);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Sky Wall Off";
+	return "Sky Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Walls Off";
+	return "Sky Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Walls Off can be walked through, and will change to Sky Walls On when a Sky Button is pressed.";
+	return "Sky Walls Off can be walked through, and will change to Sky Walls On when a Sky Button is pressed.";
     }
 }

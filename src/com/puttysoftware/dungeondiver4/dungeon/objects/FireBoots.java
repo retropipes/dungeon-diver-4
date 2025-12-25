@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class FireBoots extends AbstractBoots {
     // Constructors
     public FireBoots() {
-        super(ColorConstants.COLOR_ORANGE);
+	super(ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public String getName() {
-        return "Fire Boots";
+	return "Fire Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Fire Boots";
+	return "Pairs of Fire Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Fire Boots allow walking on lava. Note that you can only wear one pair of boots at once.";
+	return "Fire Boots allow walking on lava. Note that you can only wear one pair of boots at once.";
     }
 }

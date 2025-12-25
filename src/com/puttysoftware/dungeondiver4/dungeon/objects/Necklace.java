@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Necklace extends AbstractMultipleKey {
     // Constructors
     public Necklace() {
-        super(ColorConstants.COLOR_ROSE);
+	super(ColorConstants.COLOR_ROSE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_NECKLACE;
+	return ObjectImageConstants.OBJECT_IMAGE_NECKLACE;
     }
 
     @Override
     public String getName() {
-        return "Necklace";
+	return "Necklace";
     }
 
     @Override
     public String getPluralName() {
-        return "Necklaces";
+	return "Necklaces";
     }
 
     @Override
     public String getDescription() {
-        return "Necklaces are the keys to Necklace Walls.";
+	return "Necklaces are the keys to Necklace Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Rose Crystal";
+	return "Rose Crystal";
     }
 }

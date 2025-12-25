@@ -15,31 +15,30 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class RoseLock extends AbstractSingleLock {
     // Constructors
     public RoseLock() {
-        super(new RoseKey(), ColorConstants.COLOR_ROSE);
+	super(new RoseKey(), ColorConstants.COLOR_ROSE);
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        if (this.isConditionallySolid(inv)) {
-            DungeonDiver4.getApplication().showMessage("You need a rose key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	if (this.isConditionallySolid(inv)) {
+	    DungeonDiver4.getApplication().showMessage("You need a rose key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Rose Lock";
+	return "Rose Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Locks";
+	return "Rose Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Locks require Rose Keys to open.";
+	return "Rose Locks require Rose Keys to open.";
     }
 }

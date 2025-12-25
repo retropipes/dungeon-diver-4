@@ -29,27 +29,26 @@ public class MinorDrainPotion extends AbstractPotion {
 
     // Constructors
     public MinorDrainPotion() {
-        super(StatConstants.STAT_CURRENT_MP, true, MinorDrainPotion.MAX_DRAIN,
-                MinorDrainPotion.MIN_DRAIN);
+	super(StatConstants.STAT_CURRENT_MP, true, MinorDrainPotion.MAX_DRAIN, MinorDrainPotion.MIN_DRAIN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MINOR_DRAIN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MINOR_DRAIN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Minor Drain Potion";
+	return "Minor Drain Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Minor Drain Potions";
+	return "Minor Drain Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Minor Drain Potions drain your magic slightly when picked up.";
+	return "Minor Drain Potions drain your magic slightly when picked up.";
     }
 }

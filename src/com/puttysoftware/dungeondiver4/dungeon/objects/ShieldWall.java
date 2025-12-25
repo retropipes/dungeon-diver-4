@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class ShieldWall extends AbstractMultipleLock {
     // Constructors
     public ShieldWall() {
-        super(new Shield(), ColorConstants.COLOR_ORANGE);
+	super(new Shield(), ColorConstants.COLOR_ORANGE);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SHIELD;
+	return ObjectImageConstants.OBJECT_IMAGE_SHIELD;
     }
 
     @Override
     public String getName() {
-        return "Shield Wall";
+	return "Shield Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Shield Walls";
+	return "Shield Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Shield Walls are impassable without enough Shields.";
+	return "Shield Walls are impassable without enough Shields.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Orange Crystal Wall";
+	return "Orange Crystal Wall";
     }
 }

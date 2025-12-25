@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GarnetWall extends AbstractMultipleLock {
     // Constructors
     public GarnetWall() {
-        super(new GarnetSquare(), ColorConstants.COLOR_MAGENTA);
+	super(new GarnetSquare(), ColorConstants.COLOR_MAGENTA);
     }
 
     @Override
     public String getName() {
-        return "Garnet Wall";
+	return "Garnet Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Garnet Walls";
+	return "Garnet Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Garnet Walls are impassable without enough Garnet Squares.";
+	return "Garnet Walls are impassable without enough Garnet Squares.";
     }
 }

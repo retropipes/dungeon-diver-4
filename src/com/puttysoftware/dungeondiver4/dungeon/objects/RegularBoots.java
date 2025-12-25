@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RegularBoots extends AbstractBoots {
     // Constructors
     public RegularBoots() {
-        super(ColorConstants.COLOR_NONE);
+	super(ColorConstants.COLOR_NONE);
     }
 
     @Override
     public String getName() {
-        return "Regular Boots";
+	return "Regular Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Regular Boots";
+	return "Pairs of Regular Boots";
     }
 
     @Override
     public String getDescription() {
-        return "";
+	return "";
     }
 }

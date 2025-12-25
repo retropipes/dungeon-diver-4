@@ -13,17 +13,15 @@ import com.puttysoftware.dungeondiver4.dungeon.Extension;
 
 public class RaceDescriptionManager {
     public static String getRaceDescription(final int r) {
-        final String name = RaceConstants.getRaceName(r).toLowerCase();
-        try (final ResourceStreamReader rsr = new ResourceStreamReader(
-                RaceDescriptionManager.class.getResourceAsStream(
-                        "/com/puttysoftware/dungeondiver4/resources/descriptions/race/"
-                                + name + Extension
-                                        .getInternalDataExtensionWithPeriod()))) {
-            // Fetch description
-            final String desc = rsr.readString();
-            return desc;
-        } catch (final Exception e) {
-            return null;
-        }
+	final String name = RaceConstants.getRaceName(r).toLowerCase();
+	try (final ResourceStreamReader rsr = new ResourceStreamReader(RaceDescriptionManager.class
+		.getResourceAsStream("/com/puttysoftware/dungeondiver4/resources/descriptions/race/" + name
+			+ Extension.getInternalDataExtensionWithPeriod()))) {
+	    // Fetch description
+	    final String desc = rsr.readString();
+	    return desc;
+	} catch (final Exception e) {
+	    return null;
+	}
     }
 }

@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SapphireSquare extends AbstractMultipleKey {
     // Constructors
     public SapphireSquare() {
-        super(ColorConstants.COLOR_GREEN);
+	super(ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Sapphire Square";
+	return "Sapphire Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Sapphire Squares";
+	return "Sapphire Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Sapphire Squares are the keys to Sapphire Walls.";
+	return "Sapphire Squares are the keys to Sapphire Walls.";
     }
 }

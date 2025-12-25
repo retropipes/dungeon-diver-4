@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class TopazSquare extends AbstractMultipleKey {
     // Constructors
     public TopazSquare() {
-        super(ColorConstants.COLOR_SKY);
+	super(ColorConstants.COLOR_SKY);
     }
 
     @Override
     public String getName() {
-        return "Topaz Square";
+	return "Topaz Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Topaz Squares";
+	return "Topaz Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Topaz Squares are the keys to Topaz Walls.";
+	return "Topaz Squares are the keys to Topaz Walls.";
     }
 }

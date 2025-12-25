@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class ExploreWall extends AbstractMultipleLock {
     // Constructors
     public ExploreWall() {
-        super(new Explore(), ColorConstants.COLOR_SEAWEED);
+	super(new Explore(), ColorConstants.COLOR_SEAWEED);
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_EXPLORE;
+	return ObjectImageConstants.OBJECT_IMAGE_EXPLORE;
     }
 
     @Override
     public String getName() {
-        return "Explore Wall";
+	return "Explore Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Explore Walls";
+	return "Explore Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Explore Walls are impassable without enough Explores.";
+	return "Explore Walls are impassable without enough Explores.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Seaweed Crystal Wall";
+	return "Seaweed Crystal Wall";
     }
 }

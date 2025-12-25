@@ -14,41 +14,37 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class InvisibleTeleport extends AbstractInvisibleTeleport {
     // Constructors
     public InvisibleTeleport() {
-        super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+	super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
-    public InvisibleTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor,
-                ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+    public InvisibleTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Invisible Teleport";
+	return "Invisible Teleport";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invisible Teleports";
+	return "Invisible Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_INVISIBLE_GENERIC);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_INVISIBLE_GENERIC);
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Teleports behave like regular teleports, except for the fact that they can't be seen.";
+	return "Invisible Teleports behave like regular teleports, except for the fact that they can't be seen.";
     }
 }

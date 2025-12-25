@@ -15,27 +15,26 @@ public class Bow extends AbstractBow {
 
     // Constructors
     public Bow() {
-        super(Bow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_PLAIN,
-                ColorConstants.COLOR_BROWN);
+	super(Bow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_PLAIN, ColorConstants.COLOR_BROWN);
     }
 
     @Override
     public String getName() {
-        return "Bow";
+	return "Bow";
     }
 
     @Override
     public String getPluralName() {
-        return "Bows";
+	return "Bows";
     }
 
     @Override
     public String getDescription() {
-        return "Bows shoot an unlimited supply of normal arrows.";
+	return "Bows shoot an unlimited supply of normal arrows.";
     }
 
     @Override
     public final String getIdentifierV1() {
-        return "";
+	return "";
     }
 }

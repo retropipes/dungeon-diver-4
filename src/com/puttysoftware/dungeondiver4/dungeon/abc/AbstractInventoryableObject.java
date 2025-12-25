@@ -14,51 +14,48 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 import com.puttysoftware.dungeondiver4.resourcemanagers.SoundConstants;
 import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
-public abstract class AbstractInventoryableObject
-        extends AbstractDungeonObject {
+public abstract class AbstractInventoryableObject extends AbstractDungeonObject {
     // Constructors
     protected AbstractInventoryableObject() {
-        super(false, true, false);
+	super(false, true, false);
     }
 
-    protected AbstractInventoryableObject(final boolean isUsable,
-            final int newUses) {
-        super(false, isUsable, newUses, true, false);
+    protected AbstractInventoryableObject(final boolean isUsable, final int newUses) {
+	super(false, isUsable, newUses, true, false);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        inv.addItem(this);
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_GRAB);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	inv.addItem(this);
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_GRAB);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
     }
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
-    public boolean shouldGenerateObject(final Dungeon dungeon, final int row,
-            final int col, final int floor, final int level, final int layer) {
-        // Blacklist object
-        return false;
+    public boolean shouldGenerateObject(final Dungeon dungeon, final int row, final int col, final int floor,
+	    final int level, final int layer) {
+	// Blacklist object
+	return false;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

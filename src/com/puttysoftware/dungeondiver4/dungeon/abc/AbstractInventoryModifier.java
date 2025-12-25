@@ -12,30 +12,30 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.TypeConstants;
 public abstract class AbstractInventoryModifier extends AbstractDungeonObject {
     // Constructors
     protected AbstractInventoryModifier() {
-        super(false, false);
+	super(false, false);
     }
 
     @Override
-    public abstract void postMoveAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv);
+    public abstract void postMoveAction(final boolean ie, final int dirX, final int dirY,
+	    final DungeonObjectInventory inv);
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVENTORY_MODIFIER);
+	this.type.set(TypeConstants.TYPE_INVENTORY_MODIFIER);
     }
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

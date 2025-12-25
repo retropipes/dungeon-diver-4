@@ -11,22 +11,22 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class RoseWallOff extends AbstractToggleWall {
     // Constructors
     public RoseWallOff() {
-        super(false, ColorConstants.COLOR_ROSE);
+	super(false, ColorConstants.COLOR_ROSE);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Rose Wall Off";
+	return "Rose Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Walls Off";
+	return "Rose Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Walls Off can be walked through, and will change to Rose Walls On when a Rose Button is pressed.";
+	return "Rose Walls Off can be walked through, and will change to Rose Walls On when a Rose Button is pressed.";
     }
 }

@@ -14,51 +14,49 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
 public class Ice extends AbstractGround {
     public Ice() {
-        super(true, true, false, false, false, ColorConstants.COLOR_ICE);
+	super(true, true, false, false, false, ColorConstants.COLOR_ICE);
     }
 
     @Override
     public final int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CARPET;
+	return ObjectImageConstants.OBJECT_IMAGE_CARPET;
     }
 
     @Override
     public String getName() {
-        return "Ice";
+	return "Ice";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Ice";
+	return "Squares of Ice";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK_ICE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK_ICE);
     }
 
     @Override
     public String getDescription() {
-        return "Ice is one of the many types of ground - it is frictionless. Anything that crosses it will slide.";
+	return "Ice is one of the many types of ground - it is frictionless. Anything that crosses it will slide.";
     }
 
     @Override
-    public boolean hasFrictionConditionally(final DungeonObjectInventory inv,
-            final boolean moving) {
-        if (inv.isItemThere(new GlueBoots())) {
-            if (moving) {
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+    public boolean hasFrictionConditionally(final DungeonObjectInventory inv, final boolean moving) {
+	if (inv.isItemThere(new GlueBoots())) {
+	    if (moving) {
+		return false;
+	    } else {
+		return true;
+	    }
+	} else {
+	    return false;
+	}
     }
 }

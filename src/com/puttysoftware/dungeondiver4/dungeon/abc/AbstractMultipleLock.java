@@ -22,87 +22,81 @@ public abstract class AbstractMultipleLock extends AbstractLock {
     private int keyCount;
 
     // Constructors
-    protected AbstractMultipleLock(final AbstractMultipleKey mgk,
-            final int attrColor) {
-        super(mgk);
-        this.keyCount = 0;
-        this.setTemplateColor(ColorConstants.COLOR_BROWN);
-        this.setAttributeTemplateColor(attrColor);
+    protected AbstractMultipleLock(final AbstractMultipleKey mgk, final int attrColor) {
+	super(mgk);
+	this.keyCount = 0;
+	this.setTemplateColor(ColorConstants.COLOR_BROWN);
+	this.setAttributeTemplateColor(attrColor);
     }
 
     // Methods
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
+	return ObjectImageConstants.OBJECT_IMAGE_WALL_ON;
     }
 
     @Override
     public int getAttributeID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SQUARE;
+	return ObjectImageConstants.OBJECT_IMAGE_SQUARE;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_MULTIPLE_LOCK);
-        this.type.set(TypeConstants.TYPE_LOCK);
+	this.type.set(TypeConstants.TYPE_MULTIPLE_LOCK);
+	this.type.set(TypeConstants.TYPE_LOCK);
     }
 
     @Override
     public boolean isConditionallySolid(final DungeonObjectInventory inv) {
-        return inv.getItemCount(this.getKey()) < this.keyCount;
+	return inv.getItemCount(this.getKey()) < this.keyCount;
     }
 
     @Override
-    public boolean isConditionallyDirectionallySolid(final boolean ie,
-            final int dirX, final int dirY, final DungeonObjectInventory inv) {
-        // Handle passwall boots and ghost amulet
-        if (inv.isItemThere(new PasswallBoots())
-                || inv.isItemThere(new GhostAmulet())) {
-            return false;
-        } else {
-            return inv.getItemCount(this.getKey()) < this.keyCount;
-        }
+    public boolean isConditionallyDirectionallySolid(final boolean ie, final int dirX, final int dirY,
+	    final DungeonObjectInventory inv) {
+	// Handle passwall boots and ghost amulet
+	if (inv.isItemThere(new PasswallBoots()) || inv.isItemThere(new GhostAmulet())) {
+	    return false;
+	} else {
+	    return inv.getItemCount(this.getKey()) < this.keyCount;
+	}
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final DungeonObjectInventory inv) {
-        String fill = "";
-        if (this.keyCount > 1) {
-            fill = "s";
-        } else {
-            fill = "";
-        }
-        DungeonDiver4.getApplication().showMessage("You need " + this.keyCount
-                + " " + this.getKey().getName() + fill);
-        SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	String fill = "";
+	if (this.keyCount > 1) {
+	    fill = "s";
+	} else {
+	    fill = "";
+	}
+	DungeonDiver4.getApplication().showMessage("You need " + this.keyCount + " " + this.getKey().getName() + fill);
+	SoundManager.playSound(SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return this.keyCount;
+	return this.keyCount;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        this.keyCount = value;
+	this.keyCount = value;
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        try {
-            this.keyCount = Integer
-                    .parseInt(CommonDialogs.showTextInputDialogWithDefault(
-                            "Set Key Count for " + this.getName(), "Editor",
-                            Integer.toString(this.keyCount)));
-        } catch (final NumberFormatException nf) {
-            // Ignore
-        }
-        return this;
+	try {
+	    this.keyCount = Integer.parseInt(CommonDialogs.showTextInputDialogWithDefault(
+		    "Set Key Count for " + this.getName(), "Editor", Integer.toString(this.keyCount)));
+	} catch (final NumberFormatException nf) {
+	    // Ignore
+	}
+	return this;
     }
 
     @Override
     public int getCustomFormat() {
-        return 1;
+	return 1;
     }
 }

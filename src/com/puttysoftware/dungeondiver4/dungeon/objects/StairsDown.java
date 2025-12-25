@@ -19,96 +19,93 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class StairsDown extends AbstractTeleport {
     // Constructors
     public StairsDown() {
-        super(0, 0, 0, false, ObjectImageConstants.OBJECT_IMAGE_NONE);
-        this.setTemplateColor(ColorConstants.COLOR_NONE);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
+	super(0, 0, 0, false, ObjectImageConstants.OBJECT_IMAGE_NONE);
+	this.setTemplateColor(ColorConstants.COLOR_NONE);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
     }
 
     // For derived classes only
     protected StairsDown(final boolean doesAcceptPushInto) {
-        super(doesAcceptPushInto, ObjectImageConstants.OBJECT_IMAGE_NONE);
-        this.setTemplateColor(ColorConstants.COLOR_NONE);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
+	super(doesAcceptPushInto, ObjectImageConstants.OBJECT_IMAGE_NONE);
+	this.setTemplateColor(ColorConstants.COLOR_NONE);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_NONE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_STAIRS_DOWN;
+	return ObjectImageConstants.OBJECT_IMAGE_STAIRS_DOWN;
     }
 
     @Override
     public String getName() {
-        return "Stairs Down";
+	return "Stairs Down";
     }
 
     @Override
     public String getPluralName() {
-        return "Sets of Stairs Down";
+	return "Sets of Stairs Down";
     }
 
     @Override
     public int getDestinationRow() {
-        final Application app = DungeonDiver4.getApplication();
-        return app.getDungeonManager().getDungeon().getPlayerLocationX();
+	final Application app = DungeonDiver4.getApplication();
+	return app.getDungeonManager().getDungeon().getPlayerLocationX();
     }
 
     @Override
     public int getDestinationColumn() {
-        final Application app = DungeonDiver4.getApplication();
-        return app.getDungeonManager().getDungeon().getPlayerLocationY();
+	final Application app = DungeonDiver4.getApplication();
+	return app.getDungeonManager().getDungeon().getPlayerLocationY();
     }
 
     @Override
     public int getDestinationFloor() {
-        final Application app = DungeonDiver4.getApplication();
-        return app.getDungeonManager().getDungeon().getPlayerLocationZ() - 1;
+	final Application app = DungeonDiver4.getApplication();
+	return app.getDungeonManager().getDungeon().getPlayerLocationZ() - 1;
     }
 
     @Override
     public int getDestinationLevel() {
-        final Application app = DungeonDiver4.getApplication();
-        return app.getDungeonManager().getDungeon().getPlayerLocationW();
+	final Application app = DungeonDiver4.getApplication();
+	return app.getDungeonManager().getDungeon().getPlayerLocationW();
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        final Application app = DungeonDiver4.getApplication();
-        app.getGameManager().updatePositionAbsoluteNoEvents(
-                this.getDestinationRow(), this.getDestinationColumn(),
-                this.getDestinationFloor(), this.getDestinationLevel());
-        SoundManager.playSound(SoundConstants.SOUND_DOWN);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	final Application app = DungeonDiver4.getApplication();
+	app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor(), this.getDestinationLevel());
+	SoundManager.playSound(SoundConstants.SOUND_DOWN);
     }
 
     @Override
     public void editorPlaceHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        me.pairStairs(DungeonEditorLogic.STAIRS_DOWN);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	me.pairStairs(DungeonEditorLogic.STAIRS_DOWN);
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        return null;
+	return null;
     }
 
     @Override
     public String getDescription() {
-        return "Stairs Down lead to the floor below.";
+	return "Stairs Down lead to the floor below.";
     }
 
     @Override
     public int getCustomFormat() {
-        return 0;
+	return 0;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

@@ -19,50 +19,47 @@ public abstract class AbstractBomb extends AbstractUsableObject {
 
     // Constructors
     protected AbstractBomb(final int tc) {
-        super(1);
-        this.setTemplateColor(tc);
+	super(1);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_BOMB;
+	return ObjectImageConstants.OBJECT_IMAGE_BOMB;
     }
 
     @Override
     public abstract String getName();
 
     @Override
-    public final boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        // Act as if bomb was used
-        this.useAction(null, locX, locY, locZ);
-        // Destroy bomb
-        DungeonDiver4.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        // Stop arrow
-        return false;
+    public final boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	// Act as if bomb was used
+	this.useAction(null, locX, locY, locZ);
+	// Destroy bomb
+	DungeonDiver4.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	// Stop arrow
+	return false;
     }
 
     @Override
-    public final void useAction(final AbstractDungeonObject mo, final int x,
-            final int y, final int z) {
-        SoundManager.playSound(SoundConstants.SOUND_EXPLODE);
-        this.useActionHook(x, y, z);
+    public final void useAction(final AbstractDungeonObject mo, final int x, final int y, final int z) {
+	SoundManager.playSound(SoundConstants.SOUND_EXPLODE);
+	this.useActionHook(x, y, z);
     }
 
     public abstract void useActionHook(final int x, final int y, final int z);
 
     @Override
     public final void useHelper(final int x, final int y, final int z) {
-        this.useAction(null, x, y, z);
+	this.useAction(null, x, y, z);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_BOMB);
-        this.type.set(TypeConstants.TYPE_USABLE);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_BOMB);
+	this.type.set(TypeConstants.TYPE_USABLE);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

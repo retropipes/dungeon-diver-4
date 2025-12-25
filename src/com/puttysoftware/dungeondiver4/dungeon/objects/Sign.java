@@ -11,26 +11,26 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Sign extends AbstractTextHolder {
     // Constructors
     public Sign() {
-        super();
+	super();
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SIGN;
+	return ObjectImageConstants.OBJECT_IMAGE_SIGN;
     }
 
     @Override
     public String getName() {
-        return "Sign";
+	return "Sign";
     }
 
     @Override
     public String getPluralName() {
-        return "Signs";
+	return "Signs";
     }
 
     @Override
     public String getDescription() {
-        return "Signs display their message when walked into.";
+	return "Signs display their message when walked into.";
     }
 }

@@ -11,11 +11,11 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class EPlug extends AbstractPlug {
     // Constructors
     public EPlug() {
-        super('E');
+	super('E');
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_E_PLUG;
+	return ObjectImageConstants.OBJECT_IMAGE_E_PLUG;
     }
 }

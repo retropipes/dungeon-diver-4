@@ -22,87 +22,79 @@ public class SaveTask extends Thread {
 
     // Constructors
     public SaveTask(final String file, final boolean saved) {
-        this.filename = file;
-        this.isSavedGame = saved;
-        this.setName("File Writer");
+	this.filename = file;
+	this.isSavedGame = saved;
+	this.setName("File Writer");
     }
 
     @Override
     public void run() {
-        final Application app = DungeonDiver4.getApplication();
-        boolean success = true;
-        final String sg;
-        if (this.isSavedGame) {
-            sg = "Saved Game";
-        } else {
-            sg = "Dungeon";
-        }
-        // filename check
-        final boolean hasExtension = SaveTask.hasExtension(this.filename);
-        if (!hasExtension) {
-            if (this.isSavedGame) {
-                this.filename += Extension.getSavedGameExtensionWithPeriod();
-            } else {
-                this.filename += Extension.getDungeonExtensionWithPeriod();
-            }
-        }
-        final File dungeonFile = new File(this.filename);
-        try {
-            // Set prefix handler
-            app.getDungeonManager().getDungeon()
-                    .setPrefixHandler(new PrefixHandler());
-            // Set suffix handler
-            if (this.isSavedGame) {
-                app.getDungeonManager().getDungeon()
-                        .setSuffixHandler(new SuffixHandler());
-            } else {
-                app.getDungeonManager().getDungeon().setSuffixHandler(null);
-            }
-            if (this.isSavedGame) {
-                // Save start location
-                app.getDungeonManager().getDungeon().saveStart();
-                // Save active level
-                this.savedLevel = app.getDungeonManager().getDungeon()
-                        .getActiveLevelNumber();
-                // Update start location
-                final int currW = app.getDungeonManager().getDungeon()
-                        .getPlayerLocationW();
-                app.getDungeonManager().getDungeon().setStartLevel(currW);
-                app.getDungeonManager().getDungeon().switchLevel(currW);
-            }
-            app.getDungeonManager().getDungeon().writeDungeon();
-            if (this.isSavedGame) {
-                // Restore active level
-                app.getDungeonManager().getDungeon()
-                        .switchLevel(this.savedLevel);
-                // Restore start location
-                app.getDungeonManager().getDungeon().restoreStart();
-            }
-            ZipUtilities.zipDirectory(
-                    new File(
-                            app.getDungeonManager().getDungeon().getBasePath()),
-                    dungeonFile);
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-            success = false;
-        } catch (final Exception ex) {
-            DungeonDiver4.logError(ex);
-        }
-        DungeonDiver4.getApplication().showMessage(sg + " file saved.");
-        app.getDungeonManager().handleDeferredSuccess(success);
+	final Application app = DungeonDiver4.getApplication();
+	boolean success = true;
+	final String sg;
+	if (this.isSavedGame) {
+	    sg = "Saved Game";
+	} else {
+	    sg = "Dungeon";
+	}
+	// filename check
+	final boolean hasExtension = SaveTask.hasExtension(this.filename);
+	if (!hasExtension) {
+	    if (this.isSavedGame) {
+		this.filename += Extension.getSavedGameExtensionWithPeriod();
+	    } else {
+		this.filename += Extension.getDungeonExtensionWithPeriod();
+	    }
+	}
+	final File dungeonFile = new File(this.filename);
+	try {
+	    // Set prefix handler
+	    app.getDungeonManager().getDungeon().setPrefixHandler(new PrefixHandler());
+	    // Set suffix handler
+	    if (this.isSavedGame) {
+		app.getDungeonManager().getDungeon().setSuffixHandler(new SuffixHandler());
+	    } else {
+		app.getDungeonManager().getDungeon().setSuffixHandler(null);
+	    }
+	    if (this.isSavedGame) {
+		// Save start location
+		app.getDungeonManager().getDungeon().saveStart();
+		// Save active level
+		this.savedLevel = app.getDungeonManager().getDungeon().getActiveLevelNumber();
+		// Update start location
+		final int currW = app.getDungeonManager().getDungeon().getPlayerLocationW();
+		app.getDungeonManager().getDungeon().setStartLevel(currW);
+		app.getDungeonManager().getDungeon().switchLevel(currW);
+	    }
+	    app.getDungeonManager().getDungeon().writeDungeon();
+	    if (this.isSavedGame) {
+		// Restore active level
+		app.getDungeonManager().getDungeon().switchLevel(this.savedLevel);
+		// Restore start location
+		app.getDungeonManager().getDungeon().restoreStart();
+	    }
+	    ZipUtilities.zipDirectory(new File(app.getDungeonManager().getDungeon().getBasePath()), dungeonFile);
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Writing the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	    success = false;
+	} catch (final Exception ex) {
+	    DungeonDiver4.logError(ex);
+	}
+	DungeonDiver4.getApplication().showMessage(sg + " file saved.");
+	app.getDungeonManager().handleDeferredSuccess(success);
     }
 
     private static boolean hasExtension(final String s) {
-        String ext = null;
-        final int i = s.lastIndexOf('.');
-        if (i > 0 && i < s.length() - 1) {
-            ext = s.substring(i + 1).toLowerCase();
-        }
-        if (ext == null) {
-            return false;
-        } else {
-            return true;
-        }
+	String ext = null;
+	final int i = s.lastIndexOf('.');
+	if (i > 0 && i < s.length() - 1) {
+	    ext = s.substring(i + 1).toLowerCase();
+	}
+	if (ext == null) {
+	    return false;
+	} else {
+	    return true;
+	}
     }
 }

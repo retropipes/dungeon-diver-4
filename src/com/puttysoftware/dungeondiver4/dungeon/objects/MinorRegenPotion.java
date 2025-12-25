@@ -29,27 +29,26 @@ public class MinorRegenPotion extends AbstractPotion {
 
     // Constructors
     public MinorRegenPotion() {
-        super(StatConstants.STAT_CURRENT_MP, true, MinorRegenPotion.MIN_REGEN,
-                MinorRegenPotion.MAX_REGEN);
+	super(StatConstants.STAT_CURRENT_MP, true, MinorRegenPotion.MIN_REGEN, MinorRegenPotion.MAX_REGEN);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_MINOR_REGEN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_MINOR_REGEN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Minor Regen Potion";
+	return "Minor Regen Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Minor Regen Potions";
+	return "Minor Regen Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Minor Regen Potions regenerate your magic slightly when picked up.";
+	return "Minor Regen Potions regenerate your magic slightly when picked up.";
     }
 }

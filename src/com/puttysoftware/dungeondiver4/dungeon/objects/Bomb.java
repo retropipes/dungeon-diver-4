@@ -25,29 +25,28 @@ import com.puttysoftware.dungeondiver4.dungeon.abc.AbstractBomb;
 public class Bomb extends AbstractBomb {
     // Constructors
     public Bomb() {
-        super(1);
+	super(1);
     }
 
     @Override
     public String getName() {
-        return "Bomb";
+	return "Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Bombs";
+	return "Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Bombs kill Monsters in an area of radius 3 centered on the target point.";
+	return "Bombs kill Monsters in an area of radius 3 centered on the target point.";
     }
 
     @Override
     public void useActionHook(final int x, final int y, final int z) {
-        // Kill any monsters nearby
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .radialScanKillMonsters(x, y, z, DungeonConstants.LAYER_OBJECT,
-                        AbstractBomb.EFFECT_RADIUS);
+	// Kill any monsters nearby
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().radialScanKillMonsters(x, y, z,
+		DungeonConstants.LAYER_OBJECT, AbstractBomb.EFFECT_RADIUS);
     }
 }

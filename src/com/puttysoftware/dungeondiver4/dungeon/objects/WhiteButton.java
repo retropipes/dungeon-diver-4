@@ -10,22 +10,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 
 public class WhiteButton extends AbstractButton {
     public WhiteButton() {
-        super(new WhiteWallOff(), new WhiteWallOn(),
-                ColorConstants.COLOR_WHITE);
+	super(new WhiteWallOff(), new WhiteWallOn(), ColorConstants.COLOR_WHITE);
     }
 
     @Override
     public String getName() {
-        return "White Button";
+	return "White Button";
     }
 
     @Override
     public String getPluralName() {
-        return "White Buttons";
+	return "White Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "White Buttons will cause all White Walls Off to become On, and all White Walls On to become Off.";
+	return "White Buttons will cause all White Walls Off to become On, and all White Walls On to become Off.";
     }
 }

@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Staff extends AbstractMultipleKey {
     // Constructors
     public Staff() {
-        super(ColorConstants.COLOR_PURPLE);
+	super(ColorConstants.COLOR_PURPLE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_STAFF;
+	return ObjectImageConstants.OBJECT_IMAGE_STAFF;
     }
 
     @Override
     public String getName() {
-        return "Staff";
+	return "Staff";
     }
 
     @Override
     public String getPluralName() {
-        return "Staves";
+	return "Staves";
     }
 
     @Override
     public String getDescription() {
-        return "Staves are the keys to Staff Walls.";
+	return "Staves are the keys to Staff Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Purple Crystal";
+	return "Purple Crystal";
     }
 }

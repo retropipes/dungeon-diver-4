@@ -15,36 +15,34 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class BridgedLavaHorizontal extends AbstractGround {
     // Constructors
     public BridgedLavaHorizontal() {
-        super(ColorConstants.COLOR_ORANGE);
-        this.setAttributeID(
-                ObjectImageConstants.OBJECT_IMAGE_BRIDGE_HORIZONTAL);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_BRIDGE);
+	super(ColorConstants.COLOR_ORANGE);
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_BRIDGE_HORIZONTAL);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_BRIDGE);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
     public String getName() {
-        return "Bridged Lava Horizontal";
+	return "Bridged Lava Horizontal";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Bridged Lava Horizontal";
+	return "Squares of Bridged Lava Horizontal";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Bridged Lava Horizontal, unlike Lava, can be walked on.";
+	return "Bridged Lava Horizontal, unlike Lava, can be walked on.";
     }
 }

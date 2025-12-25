@@ -9,8 +9,7 @@ import com.puttysoftware.dungeondiver4.creatures.AbstractCreature;
 
 public abstract class AbstractDamageEngine {
     // Methods
-    public abstract int computeDamage(AbstractCreature enemy,
-            AbstractCreature acting);
+    public abstract int computeDamage(AbstractCreature enemy, AbstractCreature acting);
 
     public abstract boolean enemyDodged();
 
@@ -23,6 +22,6 @@ public abstract class AbstractDamageEngine {
     public abstract boolean weaponFumble();
 
     public static AbstractDamageEngine getInstance() {
-        return new PercentDamageEngine();
+	return new PercentDamageEngine();
     }
 }

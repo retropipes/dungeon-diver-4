@@ -28,30 +28,28 @@ public class SmokeBomb extends AbstractBomb {
 
     // Constructors
     public SmokeBomb() {
-        super(1);
+	super(1);
     }
 
     @Override
     public String getName() {
-        return "Smoke Bomb";
+	return "Smoke Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Smoke Bombs";
+	return "Smoke Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Smoke Bombs temporarily stun Monsters in an area of radius 3 centered on the target point.";
+	return "Smoke Bombs temporarily stun Monsters in an area of radius 3 centered on the target point.";
     }
 
     @Override
     public void useActionHook(final int x, final int y, final int z) {
-        // Paralyze any monsters nearby
-        DungeonDiver4.getApplication().getDungeonManager().getDungeon()
-                .radialScanTimerAction(x, y, z, DungeonConstants.LAYER_OBJECT,
-                        AbstractBomb.EFFECT_RADIUS, "Monster",
-                        SmokeBomb.STUN_DURATION);
+	// Paralyze any monsters nearby
+	DungeonDiver4.getApplication().getDungeonManager().getDungeon().radialScanTimerAction(x, y, z,
+		DungeonConstants.LAYER_OBJECT, AbstractBomb.EFFECT_RADIUS, "Monster", SmokeBomb.STUN_DURATION);
     }
 }

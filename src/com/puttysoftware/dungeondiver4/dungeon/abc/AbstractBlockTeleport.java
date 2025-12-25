@@ -14,42 +14,35 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 
 public abstract class AbstractBlockTeleport extends AbstractTeleport {
     // Constructors
-    protected AbstractBlockTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor,
-            final int attrName) {
-        super(destinationRow, destinationColumn, destinationFloor, true,
-                attrName);
-        this.setTemplateColor(ColorConstants.COLOR_ORANGE);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_PURPLE);
+    protected AbstractBlockTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor,
+	    final int attrName) {
+	super(destinationRow, destinationColumn, destinationFloor, true, attrName);
+	this.setTemplateColor(ColorConstants.COLOR_ORANGE);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_PURPLE);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
-    public void pushIntoAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int z) {
-        final Application app = DungeonDiver4.getApplication();
-        final AbstractMovableObject pushedInto = (AbstractMovableObject) mo;
-        app.getGameManager().updatePushedIntoPositionAbsolute(
-                this.getDestinationRow(), this.getDestinationColumn(),
-                this.getDestinationFloor(), x, y, z, pushedInto, this);
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void pushIntoAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x,
+	    final int y, final int z) {
+	final Application app = DungeonDiver4.getApplication();
+	final AbstractMovableObject pushedInto = (AbstractMovableObject) mo;
+	app.getGameManager().updatePushedIntoPositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor(), x, y, z, pushedInto, this);
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
-    public void pullIntoAction(final DungeonObjectInventory inv,
-            final AbstractDungeonObject mo, final int x, final int y,
-            final int z) {
-        final Application app = DungeonDiver4.getApplication();
-        final AbstractMovableObject pushedInto = (AbstractMovableObject) mo;
-        app.getGameManager().updatePushedIntoPositionAbsolute(
-                this.getDestinationRow(), this.getDestinationColumn(),
-                this.getDestinationFloor(), x, y, z, pushedInto, this);
-        SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
+    public void pullIntoAction(final DungeonObjectInventory inv, final AbstractDungeonObject mo, final int x,
+	    final int y, final int z) {
+	final Application app = DungeonDiver4.getApplication();
+	final AbstractMovableObject pushedInto = (AbstractMovableObject) mo;
+	app.getGameManager().updatePushedIntoPositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor(), x, y, z, pushedInto, this);
+	SoundManager.playSound(SoundConstants.SOUND_TELEPORT);
     }
 }

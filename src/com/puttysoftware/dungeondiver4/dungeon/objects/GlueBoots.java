@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class GlueBoots extends AbstractBoots {
     // Constructors
     public GlueBoots() {
-        super(ColorConstants.COLOR_PURPLE);
+	super(ColorConstants.COLOR_PURPLE);
     }
 
     @Override
     public String getName() {
-        return "Glue Boots";
+	return "Glue Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Glue Boots";
+	return "Pairs of Glue Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Glue Boots allow walking on Ice without slipping. Note that you can only wear one pair of boots at once.";
+	return "Glue Boots allow walking on Ice without slipping. Note that you can only wear one pair of boots at once.";
     }
 }

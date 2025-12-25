@@ -8,11 +8,11 @@ package com.puttysoftware.dungeondiver4.ai.map;
 public final class RandomMapAIRoutinePicker {
     // Constructors
     private RandomMapAIRoutinePicker() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     public static AbstractMapAIRoutine getNextRoutine() {
-        return new SeekerAI();
+	return new SeekerAI();
     }
 }

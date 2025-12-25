@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class OrangeCarpet extends AbstractCarpet {
     // Constructors
     public OrangeCarpet() {
-        super("Orange", ColorConstants.COLOR_ORANGE);
+	super("Orange", ColorConstants.COLOR_ORANGE);
     }
 }

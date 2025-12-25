@@ -26,31 +26,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class SuperDrainPotion extends AbstractPotion {
     // Constructors
     public SuperDrainPotion() {
-        super(StatConstants.STAT_CURRENT_MP, false);
+	super(StatConstants.STAT_CURRENT_MP, false);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_SUPER_DRAIN_POTION;
+	return ObjectImageConstants.OBJECT_IMAGE_SUPER_DRAIN_POTION;
     }
 
     @Override
     public String getName() {
-        return "Super Drain Potion";
+	return "Super Drain Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Drain Potions";
+	return "Super Drain Potions";
     }
 
     @Override
     public int getEffectValue() {
-        return -PartyManager.getParty().getLeader().getCurrentMP();
+	return -PartyManager.getParty().getLeader().getCurrentMP();
     }
 
     @Override
     public String getDescription() {
-        return "Super Drain Potions drain your magic completely when picked up.";
+	return "Super Drain Potions drain your magic completely when picked up.";
     }
 }

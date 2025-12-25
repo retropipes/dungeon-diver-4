@@ -12,28 +12,28 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class MoonDoor extends AbstractCheckpoint {
     // Constructors
     public MoonDoor() {
-        super(new MoonStone());
-        this.setTemplateColor(ColorConstants.COLOR_MOON_DOOR);
+	super(new MoonStone());
+	this.setTemplateColor(ColorConstants.COLOR_MOON_DOOR);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_CLOSED_DOOR;
+	return ObjectImageConstants.OBJECT_IMAGE_CLOSED_DOOR;
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Moon Door";
+	return "Moon Door";
     }
 
     @Override
     public String getPluralName() {
-        return "Moon Doors";
+	return "Moon Doors";
     }
 
     @Override
     public String getDescription() {
-        return "Moon Doors will not allow passage without enough Moon Stones.";
+	return "Moon Doors will not allow passage without enough Moon Stones.";
     }
 }

@@ -17,54 +17,51 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public abstract class AbstractScoreIncreaser extends AbstractDungeonObject {
     // Constructors
     protected AbstractScoreIncreaser(final int tc) {
-        super(false, false);
-        this.setTemplateColor(tc);
+	super(false, false);
+	this.setTemplateColor(tc);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_GEM;
+	return ObjectImageConstants.OBJECT_IMAGE_GEM;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_GRAB);
-        this.postMoveActionHook();
-        DungeonDiver4.getApplication().getGameManager().redrawDungeon();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_GRAB);
+	this.postMoveActionHook();
+	DungeonDiver4.getApplication().getGameManager().redrawDungeon();
     }
 
     public abstract void postMoveActionHook();
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_SCORE_INCREASER);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_SCORE_INCREASER);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
     public int getLayer() {
-        return DungeonConstants.LAYER_OBJECT;
+	return DungeonConstants.LAYER_OBJECT;
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final DungeonObjectInventory inv) {
-        DungeonDiver4.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        SoundManager.playSound(SoundConstants.SOUND_SHATTER);
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final DungeonObjectInventory inv) {
+	DungeonDiver4.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	SoundManager.playSound(SoundConstants.SOUND_SHATTER);
+	return false;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
+	return AbstractDungeonObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

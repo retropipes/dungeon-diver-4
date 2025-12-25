@@ -11,6 +11,6 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class SkyCarpet extends AbstractCarpet {
     // Constructors
     public SkyCarpet() {
-        super("Sky", ColorConstants.COLOR_SKY);
+	super("Sky", ColorConstants.COLOR_SKY);
     }
 }

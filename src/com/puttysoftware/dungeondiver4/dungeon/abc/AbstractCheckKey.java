@@ -11,17 +11,17 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public abstract class AbstractCheckKey extends AbstractInventoryableObject {
     // Constructors
     protected AbstractCheckKey() {
-        super();
+	super();
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_CHECK_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_CHECK_KEY);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_STONE;
+	return ObjectImageConstants.OBJECT_IMAGE_STONE;
     }
 }

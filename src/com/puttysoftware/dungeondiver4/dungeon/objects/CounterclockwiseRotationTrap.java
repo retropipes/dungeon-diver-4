@@ -20,34 +20,30 @@ public class CounterclockwiseRotationTrap extends AbstractTrap {
 
     // Constructors
     public CounterclockwiseRotationTrap() {
-        super(ColorConstants.COLOR_YELLOW,
-                ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
-                ColorConstants.COLOR_DARK_YELLOW);
+	super(ColorConstants.COLOR_YELLOW, ObjectImageConstants.OBJECT_IMAGE_SMALL_ROTATION,
+		ColorConstants.COLOR_DARK_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Counterclockwise Rotation Trap";
+	return "Counterclockwise Rotation Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Counterclockwise Rotation Traps";
+	return "Counterclockwise Rotation Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CHANGE);
-        DungeonDiver4.getApplication()
-                .showMessage("Your controls are rotated!");
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_ROTATED_COUNTERCLOCKWISE,
-                CounterclockwiseRotationTrap.EFFECT_DURATION);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CHANGE);
+	DungeonDiver4.getApplication().showMessage("Your controls are rotated!");
+	DungeonDiver4.getApplication().getGameManager().activateEffect(
+		DungeonEffectConstants.EFFECT_ROTATED_COUNTERCLOCKWISE, CounterclockwiseRotationTrap.EFFECT_DURATION);
     }
 
     @Override
     public String getDescription() {
-        return "Counterclockwise Rotation Traps rotate your controls counterclockwise for 10 steps when stepped on.";
+	return "Counterclockwise Rotation Traps rotate your controls counterclockwise for 10 steps when stepped on.";
     }
 }

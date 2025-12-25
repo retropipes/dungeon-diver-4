@@ -10,18 +10,18 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 
 public abstract class AbstractSingleLock extends AbstractLock {
     protected AbstractSingleLock(final AbstractSingleKey mgk, final int tc) {
-        super(mgk);
-        this.setTemplateColor(tc);
+	super(mgk);
+	this.setTemplateColor(tc);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_SINGLE_LOCK);
-        this.type.set(TypeConstants.TYPE_LOCK);
+	this.type.set(TypeConstants.TYPE_SINGLE_LOCK);
+	this.type.set(TypeConstants.TYPE_LOCK);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_LOCK;
+	return ObjectImageConstants.OBJECT_IMAGE_LOCK;
     }
 }

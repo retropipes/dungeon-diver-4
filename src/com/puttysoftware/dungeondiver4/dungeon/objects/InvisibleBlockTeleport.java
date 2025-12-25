@@ -14,40 +14,36 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class InvisibleBlockTeleport extends AbstractInvisibleBlockTeleport {
     // Constructors
     public InvisibleBlockTeleport() {
-        super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+	super(0, 0, 0, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
-    public InvisibleBlockTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor,
-                ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
+    public InvisibleBlockTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor, ObjectImageConstants.OBJECT_IMAGE_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Invisible Block Teleport";
+	return "Invisible Block Teleport";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invisible Block Teleports";
+	return "Invisible Block Teleports";
     }
 
     @Override
     public AbstractDungeonObject editorPropertiesHook() {
-        final DungeonEditorLogic me = DungeonDiver4.getApplication()
-                .getEditor();
-        return me.editTeleportDestination(
-                DungeonEditorLogic.TELEPORT_TYPE_INVISIBLE_BLOCK);
+	final DungeonEditorLogic me = DungeonDiver4.getApplication().getEditor();
+	return me.editTeleportDestination(DungeonEditorLogic.TELEPORT_TYPE_INVISIBLE_BLOCK);
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Block Teleports send blocks to a predetermined destination when blocks are moved into them.";
+	return "Invisible Block Teleports send blocks to a predetermined destination when blocks are moved into them.";
     }
 }

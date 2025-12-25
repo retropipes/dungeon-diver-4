@@ -16,28 +16,27 @@ public class CounterpoisonAmulet extends AbstractAmulet {
 
     // Constructors
     public CounterpoisonAmulet() {
-        super(ColorConstants.COLOR_YELLOW);
+	super(ColorConstants.COLOR_YELLOW);
     }
 
     @Override
     public String getName() {
-        return "Counterpoison Amulet";
+	return "Counterpoison Amulet";
     }
 
     @Override
     public String getPluralName() {
-        return "Counterpoison Amulets";
+	return "Counterpoison Amulets";
     }
 
     @Override
     public String getDescription() {
-        return "Counterpoison Amulets grant the power to make the air less poisonous for 30 steps. Note that you can only wear one amulet at once.";
+	return "Counterpoison Amulets grant the power to make the air less poisonous for 30 steps. Note that you can only wear one amulet at once.";
     }
 
     @Override
     public void postMoveActionHook() {
-        DungeonDiver4.getApplication().getGameManager().activateEffect(
-                DungeonEffectConstants.EFFECT_COUNTER_POISONED,
-                CounterpoisonAmulet.EFFECT_DURATION);
+	DungeonDiver4.getApplication().getGameManager().activateEffect(DungeonEffectConstants.EFFECT_COUNTER_POISONED,
+		CounterpoisonAmulet.EFFECT_DURATION);
     }
 }

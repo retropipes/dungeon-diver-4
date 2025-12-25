@@ -12,31 +12,31 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.ObjectImageConstants;
 public class Dagger extends AbstractMultipleKey {
     // Constructors
     public Dagger() {
-        super(ColorConstants.COLOR_BLUE);
+	super(ColorConstants.COLOR_BLUE);
     }
 
     @Override
     public int getBaseID() {
-        return ObjectImageConstants.OBJECT_IMAGE_DAGGER;
+	return ObjectImageConstants.OBJECT_IMAGE_DAGGER;
     }
 
     @Override
     public String getName() {
-        return "Dagger";
+	return "Dagger";
     }
 
     @Override
     public String getPluralName() {
-        return "Daggers";
+	return "Daggers";
     }
 
     @Override
     public String getDescription() {
-        return "Daggers are the keys to Dagger Walls.";
+	return "Daggers are the keys to Dagger Walls.";
     }
 
     @Override
     public String getIdentifierV1() {
-        return "Blue Crystal";
+	return "Blue Crystal";
     }
 }

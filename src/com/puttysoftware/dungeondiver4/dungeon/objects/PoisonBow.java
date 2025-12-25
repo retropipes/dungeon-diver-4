@@ -15,22 +15,21 @@ public class PoisonBow extends AbstractBow {
 
     // Constructors
     public PoisonBow() {
-        super(PoisonBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_POISON,
-                ColorConstants.COLOR_GREEN);
+	super(PoisonBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_POISON, ColorConstants.COLOR_GREEN);
     }
 
     @Override
     public String getName() {
-        return "Poison Bow";
+	return "Poison Bow";
     }
 
     @Override
     public String getPluralName() {
-        return "Poison Bows";
+	return "Poison Bows";
     }
 
     @Override
     public String getDescription() {
-        return "Poison Bows allow shooting of Poison Arrows, which weaken Barrier Generators upon contact, and do everything normal arrows do.";
+	return "Poison Bows allow shooting of Poison Arrows, which weaken Barrier Generators upon contact, and do everything normal arrows do.";
     }
 }

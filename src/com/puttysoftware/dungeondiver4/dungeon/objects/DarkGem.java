@@ -11,21 +11,21 @@ import com.puttysoftware.dungeondiver4.dungeon.utilities.ColorConstants;
 public class DarkGem extends AbstractLightModifier {
     // Constructors
     public DarkGem() {
-        super(ColorConstants.COLOR_DARK_GRAY);
+	super(ColorConstants.COLOR_DARK_GRAY);
     }
 
     @Override
     public String getName() {
-        return "Dark Gem";
+	return "Dark Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Dark Gems";
+	return "Dark Gems";
     }
 
     @Override
     public String getDescription() {
-        return "Dark Gems shroud the immediately adjacent area in permanent darkness.";
+	return "Dark Gems shroud the immediately adjacent area in permanent darkness.";
     }
 }

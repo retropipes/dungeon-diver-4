@@ -15,36 +15,34 @@ import com.puttysoftware.dungeondiver4.resourcemanagers.SoundManager;
 public class BridgedWaterHorizontal extends AbstractGround {
     // Constructors
     public BridgedWaterHorizontal() {
-        super(ColorConstants.COLOR_WATER);
-        this.setAttributeID(
-                ObjectImageConstants.OBJECT_IMAGE_BRIDGE_HORIZONTAL);
-        this.setAttributeTemplateColor(ColorConstants.COLOR_BRIDGE);
+	super(ColorConstants.COLOR_WATER);
+	this.setAttributeID(ObjectImageConstants.OBJECT_IMAGE_BRIDGE_HORIZONTAL);
+	this.setAttributeTemplateColor(ColorConstants.COLOR_BRIDGE);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final DungeonObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_WALK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final DungeonObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_WALK);
     }
 
     @Override
     public String getName() {
-        return "Bridged Water Horizontal";
+	return "Bridged Water Horizontal";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Bridged Water Horizontal";
+	return "Squares of Bridged Water Horizontal";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Bridged Water Horizontal, unlike Water, can be walked on.";
+	return "Bridged Water Horizontal, unlike Water, can be walked on.";
     }
 }
